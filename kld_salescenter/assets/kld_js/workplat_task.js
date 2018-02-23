@@ -920,7 +920,7 @@ function fill_data(index) {
             //省市联动
             service.get_province()
                 .then(function (data) {
-                    //console.log(data)
+                    // console.log(data)
                     var len = data.length;
                     $('#luru_prov').attr("length", '0');
                     //省份与城市联动
@@ -938,19 +938,25 @@ function fill_data(index) {
              
             }
             else {
-             $("#luru_city").empty();   
+            $("#luru_city").empty();   
             $("#luru_prov").empty();
+            // $("#luru_city").find("option").remove();
             var defprov = oppotunity_data[index].luru_prov;
             //省市联动
             service.get_province()
                 .then(function (data) {
-                    //					console.log(data)
+                    console.log(data)
                     var len = data.length;
                     $('#luru_prov').attr("length", '0');
                     //省份与城市联动
                     $('#luru_prov').off().on('change', function () {
                        
                         get_city($('#luru_prov').find("option:selected").attr("data-provId"));
+                    });
+                    $('#luru_prov').on('blur', function () {
+                       
+                        get_city($('#luru_prov').find("option:selected").attr("data-provId"));
+                        $("#luru_city").empty();   
                     });
                     for (i = 0; i < len; i++) {
                         if (data[i].name == defprov) {
@@ -1024,10 +1030,10 @@ function doDataBind(el) {
     }
 }
 
-function dofocus() {
+// function dofocus() {
     // get_city($('#luru_prov').find("option:selected").attr("data-provId"));
     
-}
+// }
 
 function onTriggerEventHandler(selector) {
     if (selector == '.wdatepicker') {
