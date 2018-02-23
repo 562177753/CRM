@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>卡拉荻|销售中心</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="index">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="icon" type="image/png" href="../assets/i/favicon.png">
+	<link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+	<meta name="apple-mobile-web-app-title" content="卡拉荻|销售中心" />
+	<link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+	<link rel="stylesheet" href="../assets/css/amazeui.datatables.min.css" />
+	<!-- <link rel="stylesheet" href="../assets/css/amazeui.datetimepicker.css" /> -->
+	<link rel="stylesheet" href="../assets/css/app_exclude.css">
+	<link rel="stylesheet" href="../assets/css/cssg.css">
+
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/func_utils.js"></script>
+	<!-- <script src="../assets/My97DatePicker/WdatePicker.js"></script> -->
+	<!-- <script src="../assets/js/amazeui.datetimepicker.min.js"></script>
+<script src="../assets/js/locales/amazeui.datetimepicker.zh-CN.js" charset="UTF-8"></script> -->
+	<script src="../assets/jedate/jedate.js"></script>
+	<script src="../assets/js/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="../assets/css/sweetalert.css"></link>
+	<link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css" />
+</head>
+
+<body data-type="widgets" onload="add_options()">
+	<script src="../assets/js/theme.js"></script>
+	<div class="am-box-1" id="top" style="padding: 20px 20px 0 20px;">
+		<div class="row-content am-cf ">
+			<div class="">
+				<section class="am-panel am-panel-default">
+					<header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
+						<div class="am-vertical-align" style="height: 25px;">
+							<img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
+							<div class="am-panel-title am-fl am-vertical-align-middle h-text"style="color: #fff;" >数据录入</div>
+							<button id="submit_btn" class="am-btn am-btn-success am-fr am-btn-sm" style="padding:4px 10px" onclick="newdata_write();return false">
+								<i class="am-icon-check"></i> 提 交</button>
+						</div>
+					</header>
+					<div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+
+						<div id="validation"></div>
+						<form class="am-form tpl-form-border-form" id="enterMessage">
+							<div class="am-g">
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label for="campus_select" class="am-u-sm-4 am-form-label am-text-left" style="font-size: 14px;margin-top: 5px">
+											<span style="color: red;">*</span>录入校</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<select id="campus_select" data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="items_select" class="am-u-sm-4 am-form-label am-text-left">
+											<span style="color: red;">*</span>项目</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<select id="items_select" data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="data_source_select" class="am-u-sm-4 am-form-label am-text-left">
+											<span style="color: red;">*</span>数据来源</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<select id="data_source_select" data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+											</select>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="am-g">
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="data_allot_select" class="am-u-sm-4 am-form-label am-text-left">
+											<span style="color: red;">*</span>分配方式</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<select id="data_allot_select" data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+											</select>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="flow_legon_select" class="am-u-sm-4 am-form-label am-text-left">
+											<span style="color: red;">*</span>流量中心</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<select id="flow_legon_select" data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="province" class="am-u-sm-4 am-form-label am-text-left">
+											<span style="color: red;">*</span>省份</label>
+										<div class="am-u-sm-8 am-margin-top-xs" id="provinceHeight">
+											<select id="province" data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+											</select>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+
+							<div class="am-g">
+
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="city" class="am-u-sm-4 am-form-label am-text-left">
+											<span style="color: red;">*</span>城市</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<select id="city" data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="write_url" class="am-u-sm-4 am-form-label am-text-left">
+											<span style="color: red;">*</span>录入URl</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<input id="write_url" type="text" class="tpl-form-input" placeholder="录入URl" readonly="readonly" style="height: 40px;border-radius: 4px"/>
+										</div>
+									</div>
+								</div>
+
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="student_name" class="am-u-sm-4 am-form-label am-text-left">
+											<span style="color: red;">*</span>学员姓名</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<input id="student_name" type="text" class="tpl-form-input" value='学员' placeholder="学员" style="height: 40px;border-radius: 4px"/>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="am-g">
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="student_telphone" class="am-u-sm-4 am-form-label am-text-left">
+											<span style="color: red;">*</span>手机号码</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<input id="student_telphone" type="text" class="tpl-form-input" placeholder="手机号码" style="height: 40px;border-radius: 4px"/>
+										</div>
+									</div>
+								</div>
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="student_wechat" class="am-u-sm-4 am-form-label am-text-left">微信</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<input id="student_wechat" type="text" class="tpl-form-input" placeholder="微信" style="height: 40px;border-radius: 4px"/>
+										</div>
+									</div>
+								</div>
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="student_qq" class="am-u-sm-4 am-form-label am-text-left">QQ</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<input id="student_qq" type="text" class="tpl-form-input" placeholder="QQ" style="height: 40px;border-radius: 4px"/>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="am-g">
+
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-8">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="book_info" class="am-u-sm-2 am-form-label am-text-left">预约备注</label>
+										<div class="am-u-sm-10 am-margin-top-xs" style="padding-left:3px;">
+											<input id="book_info" type="text" class="tpl-form-input" placeholder="预约备注" style="height: 40px;border-radius: 4px"/>
+										</div>
+									</div>
+								</div>
+								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+									<div class="am-form-group">
+										<label style="font-size: 14px;margin-top: 5px" for="book_dts" class="am-u-sm-4 am-form-label am-text-left">
+											<span style="color: red;">*</span> 预约时间</label>
+										<div class="am-u-sm-8 am-margin-top-xs">
+											<input id="book_dts" type="text" class="am-form-field tpl-form-no-bg wdatepicker" placeholder="立即" readonly style="height: 40px;border-radius: 4px"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="am-g">
+								<div class="am-form-group">
+									<label for="webchat_info" class="am-u-sm-1 am-form-label am-text-left">在线聊天记录</label>
+									<div class="am-u-sm-11">
+										<textarea class="" rows="10" id="webchat_info" placeholder="请输入在线聊天记录" style="height: 200px;border-radius: 4px;margin-top: 5px" wrap="hard"></textarea>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="../assets/js/amazeui.min.js"></script>
+	<script src="../assets/js/app.js"></script>
+	<script src="../assets/kld_js/data_write.js"></script>
+</body>
+
+</html>

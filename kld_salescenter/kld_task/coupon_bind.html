@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="卡拉荻|销售中心"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="../assets/css/app_exclude.css">
+    <link rel="stylesheet" href="../assets/css/cssg.css">
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/sweetalert.css"></link>
+    <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css"/>
+    <script src="../assets/js/func_utils.js"></script>
+    <script type="text/javascript" src="../assets/kld_js/coupon_bind.js"></script>
+</head>
+<body>
+<script src="../assets/js/theme.js"></script>
+
+<div class="am-box-1" id="top" style="padding: 20px 20px 0 20px;">
+    <div class="row-content am-cf ">
+        <div class="">
+            <section class="am-panel am-panel-default">
+                <header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
+                    <div class="am-vertical-align" style="height: 25px;">
+                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">优惠券绑定</div>
+                    </div>
+                </header>
+
+                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+                    <!--<div id="validation"></div>-->
+                    <form class="am-form tpl-form-border-form">
+                        <div class="am-g">
+                            <!--学员手机号-->
+                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
+                                <div class="am-form-group">
+                                    <label style="font-size:14px ;margin-top: 5px"
+                                           class="am-u-sm-4 am-form-label am-text-left" >学员手机号</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <!--<select multiple class="am-disabled"  id="inquiry_flow_2" data-am-selected="{searchBox: 1,btnWidth: '100%'}">-->
+                                        <input type="text" id="phone_num1" placeholder="请输入手机号" style="height: 40px;border-radius: 4px">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--优惠券码-->
+                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
+                                <div class="am-form-group am-form-icon">
+                                    <label style="font-size:14px ;margin-top: 5px"
+                                           class="am-u-sm-3 am-form-label am-text-left">优惠券码</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <input id="coupon_code" type="text" class="tpl-form-input"
+                                               placeholder="请输入优惠券码" style="height: 40px;border-radius: 4px"/>
+                                        <!--<i class="am-icon-calendar h-icon"></i>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
+                                <div class="am-form-group am-form-icon">
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <button id="coupon_bind" type="button" class="am-btn am-btn-success am-radius"
+                                                style="font-size:14px;width: 100px;height: 40px;border-radius: 4px">绑定
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+</div>
+
+<!------------->
+
+<div class="am-box-1" style="padding:0 20px">
+    <div class="row-content am-cf ">
+        <div class="">
+            <section class="am-panel am-panel-default">
+                <header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
+                    <div class="am-vertical-align" style="height: 25px;">
+                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">查询已绑定信息</div>
+                    </div>
+                </header>
+                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+                    <div id="validation" style="margin-bottom: 15px">
+                        <form class="am-form tpl-form-border-form">
+                            <div class="am-g">
+                                <!--学员手机号-->
+                                <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
+                                    <div class="am-form-group">
+                                        <label style="font-size:14px ;margin-top: 5px"
+                                               class="am-u-sm-4 am-form-label am-text-left">学员手机号</label>
+                                        <div class="am-u-sm-8 am-margin-top-xs">
+                                            <input type="text" id="phone_num" placeholder="请输入手机号" style="height: 40px;border-radius: 4px">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--优惠券码-->
+                                <div class="am-u-sm-5 am-u-md-5 am-u-lg-5">
+                                    <div class="am-form-group am-form-icon">
+                                        <label style="font-size:14px ;margin-top: 5px"
+                                               class="am-u-sm-2 am-form-label am-text-left">绑定日期</label>
+                                        <div class="am-u-sm-4 am-margin-top-xs">
+                                            <input id="start_date" type="text" class="tpl-form-input am-form-field"
+                                                   placeholder="起始日期" data-am-datepicker style="height: 40px;border-radius: 4px"/>
+                                            <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+                                        </div>
+                                        <span style=" float: left; margin-top: 10px;">－</span>
+                                        <div class="am-u-sm-4 am-margin-top-xs">
+                                            <input id="end_date" type="text" class="tpl-form-input am-form-field"
+                                                   placeholder="结束日期" data-am-datepicker="" style="height: 40px;border-radius: 4px"/>
+                                            <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                               <!-- <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
+                                    <div class="am-form-group am-form-icon">
+                                        <label style="font-size:12px ;" class="am-u-sm-3 am-form-label am-text-left">结束日期</label>
+                                        <div class="am-u-sm-8 am-margin-top-xs">
+                                            <input id="end_date" type="text" class="tpl-form-input am-form-field"
+                                                   placeholder="结束日期" data-am-datepicker="">
+                                            <i class="am-icon-calendar h-icon"></i>
+                                        </div>
+                                    </div>
+
+                                </div>-->
+
+                                <div class="am-u-sm-2 am-u-md-2 am-u-lg-3" style="margin-left: -40px">
+                                    <div class="am-form-group am-form-icon">
+                                        <div class="am-u-sm-8 am-margin-top-xs">
+                                            <button id="serach_btn" type="button"
+                                                    class="am-btn am-btn-success am-radius"
+                                                    style="font-size:14px;width: 100px;height: 40px;border-radius: 4px">查询
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <!-- <ul data-am-widget="pagination" class="am-pagination am-pagination-default am-pagination-centered">
+                         <li class="am-pagination-prev ">
+                             <a href="javascript:;" class="">&laquo;</a>
+                         </li>
+
+                         <li class="am-pagination-current"><span>...</span></li>
+
+                         <li class="am-pagination-next ">
+                             <a href="javascript:;" class="">&raquo;</a>
+                         </li>
+
+                     </ul>-->
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row-content am-cf" id="bindTable" style="background-color: #fff">
+        <table id="inquirys_tbl_1" class="am-table am-table-bordered am-table-striped tpl-table-black">
+            <thead>
+            <tr style="background: #7ba0ed;color: #fff;">
+                <!--<th class="am-text-center am-text-middle">序号</th>-->
+                <th class="am-text-center am-text-middle">项目大类</th>
+                <th class="am-text-center am-text-middle">院校</th>
+                <th class="am-text-center am-text-middle">绑定产品包</th>
+                <th class="am-text-center am-text-middle">手机号码</th>
+                <th class="am-text-center am-text-middle">优惠类型</th>
+                <th class="am-text-center am-text-middle">金额/折扣</th>
+                <th class="am-text-center am-text-middle">优惠码</th>
+                <th class="am-text-center am-text-middle">有效期</th>
+                <th class="am-text-center am-text-middle">绑定日期</th>
+
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="am-scrollable-horizontal">
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="../assets/js/amazeui.min.js"></script>
+<script src="../assets/js/amazeui.datatables.min.js"></script>
+<script src="../assets/js/dataTables.responsive.min.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
