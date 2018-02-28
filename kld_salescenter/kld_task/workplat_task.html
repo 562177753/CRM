@@ -105,6 +105,7 @@
                                                 <div class="widget-body am-cf">
                                                     <div id="msgbox" class="am-u-sm-11 am-sticky" style="top:20px;left:90px;z-index:1201;"></div>
                                                 </div>
+
                                                 <div class="am-g name1">
                                                     <div class="am-u-sm-11 del" style="float: left">
                                                         <div class="am-form-group">
@@ -301,6 +302,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="am-u-sm-3">
+                                        <div class="am-form-group">
+                                            <label class="am-u-sm-2 am-form-label am-text-left" style="padding:0px 0px 0px 5px;margin-right: 18px">分配时间</label>
+                                            <label data-bind="distribution_time" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;font-size: 12px;color: #3c5364;padding-left: 10px;"></label>
+                                            <div class="am-u-sm-8 am-hide">
+                                                <input maxlength="8" data-bind="distribution_time" id="distribution_time" type="text" class="tpl-form-input am-u-sm-8" style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 12px;color: #3c5364;padding-left: 10px;overflow: hidden;"onblur="doDataBind(this);"/>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                                 <!--学员姓名与年龄 性别-->
@@ -423,7 +433,7 @@
                                 <div class="am-g" style="margin-top: 8px;">
                                     <div class="am-u-sm-5">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-2 am-form-label am-text-left"style="padding:0px 24px 0px 5px">电话号码</label>
+                                            <label class="am-u-sm-2 am-form-label am-text-left" style="padding:0px 24px 0px 5px">电话号码</label>
                                             <label data-bind="student_phone" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-center" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;font-size: 16px;color: #3c5364;margin-left: -3px;padding-left: 5px;"></label>
                                             <div class="am-u-sm-8 am-hide">
                                                 <input data-bind="student_phone" type="text" class="tpl-form-input" placeholder="关联电话" onblur="doDataBind(this);" style="border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;font-size: 14px;color: #3c5364;margin-left: -8px;padding-left: 5px;overflow: hidden;" />
@@ -584,19 +594,38 @@
                                                 </div>
                                             </div>
                                         </div>
-<!--上传截图-->
-                                        <div class="am-u-sm-6">
-                                            <div class="am-form-group">
-                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm">上传截图</label>
-                                                <div class="am-u-sm-7 am-margin-top-xs">
+<!--保存方式-->
+                                        <!--<div class="am-u-sm-6">-->
+                                            <!--<div class="am-form-group">-->
+                                                <!--<label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm" style="font-size: 14px">保存方式</label>-->
+                                                <!--<div class="am-u-sm-9 am-margin-top-xs">-->
 
-                                                    <a class="am-btn am-text-sm btn-1" href="javascript:;" data-am-modal="{target: '#upload_pic', width: '730px'}" style="border-radius: 6px; color: #000;background: #7BA0ED">上传</a>
+                                                    <!--<label style="font-size: 14px;margin: 5px 0px 0px 0px;">手机保存</label> <input class="ticket_hold_type" type="radio" name="radio" value="手机保存">-->
 
-                                                </div>
-                                            </div>
-                                        </div>
+                                                    <!--<label class="" style="font-size: 14px;margin: 5px 0px 0px 4px">微信保存</label> <input class="ticket_hold_type" type="radio" name="radio" value="微信保存"/>-->
+
+                                                    <!--<label class="" style="font-size: 14px;margin: 5px 0px 0px 4px;">QQ保存</label> <input class="ticket_hold_type" type="radio" name="radio" value="QQ保存">-->
+
+
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
 
                                     </div>
+<!--上传截图-->
+                                    <!--<div class="am-g">-->
+                                        <!--<div class="am-u-sm-6">-->
+                                            <!--<div class="am-form-group">-->
+                                                <!--<label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm">上传截图</label>-->
+                                                <!--<div class="am-u-sm-7 am-margin-top-xs">-->
+
+                                                    <!--<a class="am-btn am-text-sm btn-1" href="javascript:;" data-am-modal="{target: '#upload_pic', width: '730px'}" style="border-radius: 6px; color: #000;background: #7BA0ED">上传</a>-->
+
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
                                     <div class="am-g">
                                         <div class="am-u-sm-12">
                                             <div class="am-form-group">
@@ -792,6 +821,26 @@ border-radius: 4px;" />
                             </div>
                         </div>
                     </div>
+
+                    <div class="am-g" style="margin-top: 10px">
+                        <div class="am-u-sm-12">
+                            <div class="am-form-group">
+                                <!--<label class="am-u-sm-12 am-form-label am-text-left am-padding-top-sm h-text-1">手机保存</label>-->
+                                <!--<div class="am-u-sm-11 am-margin-top-xs">-->
+                                    <!--&lt;!&ndash;<textarea id="save_type" rows="5"></textarea>&ndash;&gt;-->
+                                    <!--<label class="am-u-sm-2 am-form-label am-text-left am-padding-top-sm h-text-1" style="font-size: 14px;margin-left: -5px">保存方式</label>-->
+                                    <!--<div class="am-u-sm-6 am-margin-top-xs">-->
+
+                                        <!--<label class="h-text-1" style="font-size: 14px;margin: -5px 0px 0px 0px;">手机保存</label> <input class="" type="radio" name="radio" value="手机保存">-->
+
+                                        <!--<label class="h-text-1" style="font-size: 14px;margin: -5px 0px 0px 4px">微信保存</label> <input class="" type="radio" name="radio" value="微信保存"/>-->
+
+                                        <!--<label class="h-text-1" style="font-size: 14px;margin: -5px 0px 0px 4px;">QQ保存</label> <input class="" type="radio" name="radio" value="QQ保存">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+
                     <div class="am-g">
                         <div class="am-u-sm-12">
                             <div class="am-form-group">

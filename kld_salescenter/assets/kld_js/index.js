@@ -305,8 +305,9 @@ $(document).ready(function () {
     service.get_message(params)
         .then(function (data) {
             // console.log(data);
-            for (var i = 0; i < data.length; i++) {
+            for (var i = 0; i <=data.length; i++) {
                 hint=data.length;
+
             }
         });
 
@@ -317,7 +318,7 @@ $(document).ready(function () {
     var params = $.param(options, true);
     service.get_message(params)
         .then(function (data) {
-            for (var i = 0; i < data.length; i++) {
+            for (var i = 0; i <= data.length; i++) {
                 hint1=data.length;
 
             }
@@ -337,7 +338,7 @@ $(document).ready(function () {
         service.get_message(params)
             .then(function (data) {
                 var end;
-                for (var i = 0; i < data.length; i++) {
+                for (var i = 0; i <= data.length; i++) {
                     end=data.length;
                 }
                 // console.log(hint);
@@ -346,12 +347,14 @@ $(document).ready(function () {
                     var number1= Number(hint);
                     // console.log(typeof (number));
                     var new1 = number - number1;
-                    if(NaN!=new1){
-                        $('#hint').show();
-                        $('#hint').html('新入首咨'+new1+'条!');
-                    }else {
-                        return;
-                    }
+                    // if(NaN!=new1){
+                    //     $('#hint').show();
+                    //     $('#hint').html('新入首咨'+new1+'条!');
+                    // }else {
+                    //     return;
+                    // }
+                    $('#hint').show();
+                    $('#hint').html('新入首咨'+new1+'条!');
                     hint=end;
                 }
             });
@@ -364,7 +367,7 @@ $(document).ready(function () {
         service.get_message(params)
             .then(function (data) {
                 var end1;
-                for (var i = 0; i < data.length; i++) {
+                for (var i = 0; i <= data.length; i++) {
                     end1=data.length;
 
                 }

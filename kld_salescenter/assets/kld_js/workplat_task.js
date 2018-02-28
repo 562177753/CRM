@@ -319,6 +319,7 @@ $(document).ready(function () {
             onTriggerEventHandler('#visit_show_other');
         });
     }
+
     var options = {
         "account": pmAgent.userid,
         "pagesize": pagesize,
@@ -331,7 +332,7 @@ $(document).ready(function () {
             // "key": "next_visit_time",
             // "key":"reservation_time",
             "key": "appointment_time",
-            "order": "ASC"
+            "order": "DESC"
         };
         options = {
             "account": pmAgent.userid,
@@ -341,14 +342,14 @@ $(document).ready(function () {
             //"key": "next_visit_time",
             //"key":"reservation_time",
             "key": "appointment_time",
-            "order": "ASC",
+            "order": "DESC",
 
 
         }
     } else if (ntype == 1) {
         m_query_options = {
             //"key": "next_visit_time",
-            "key": "reservation_time",
+            "key": "reservation_time",//根据预约时间排序
             "order": "ASC"
         };
         options = {
@@ -361,7 +362,7 @@ $(document).ready(function () {
             // "reservation_time": "today"
             "next_visit_time": "today" //默认显示当日到访
         };
-    } else if (ntype == 2 || 3 || 4) {
+    } else if (ntype == 2 || 3 || 4 ) {
         m_query_options = {
             "key": "next_visit_time",
             "order": "ASC"
@@ -374,9 +375,23 @@ $(document).ready(function () {
             "key": "next_visit_time",
             // "key":"reservation_time",
             "order": "ASC",
-            "next_visit_time": "today"
+            // "next_visit_time": "today"
         };
-    }
+    }else if (ntype == 5) {
+        m_query_options = {
+            "key": "next_visit_time",
+            "order": "DESC"
+        };
+        options = {
+            "account": pmAgent.userid,
+            "pagesize": pagesize,
+            "pageindex": "1",
+            "datatype": window.location.search.match(/\d+/),
+            "key": "next_visit_time",
+            "order": "DESC"
+            // "next_visit_time": "today"
+        }
+    };
 
 
     var params = $.param(options, true);
@@ -703,16 +718,27 @@ function fill_dataGrid(data) {
         var nType_fill_type = window.location.search.match(/\d+/);
         // for (var i = 1; i < data.length; i++) {
         if (nType_fill_type == 0) {
-            row = '<tr onclick="fill_data(' + i + ');">' +
+            if(data[i].effective_code=='未处理'){
+                row = '<tr onclick="fill_data(' + i + ');">'+
+                    '<td style="text-align: center;;border: none;padding-left: 10px">'+ '<span style="color: #fffd33;font-size: 14px; margin:0px 13px 0px -10px">new</span>'+ (data[i].effective_code || '') + '</td>' +
+                    '<td style="text-align: center">' + (data[i].student_name || '') + '</td>' +
+                    '<td style="text-align: center;border: none;">' + data[i].student_cellphone + '</td>' +
+                    '<td style="text-align: center;border: none;">' + (data[i].luru_prov || '') + '</td>'
+                    +
+                    // '<td style="text-align: center">' + (data[i].feedback_time || '') + '</td>' +
+                    // '<td style="' + (isred ? "color:red" : "") + ';text-align: center">' + (data[i].appointment_time || '') + '</td>' +
+                    '</tr>';
+            }else {
+            row = '<tr onclick="fill_data(' + i + ');">'+
                 '<td style="text-align: center;;border: none;">' + (data[i].effective_code || '') + '</td>' +
                 '<td style="text-align: center">' + (data[i].student_name || '') + '</td>' +
                 '<td style="text-align: center;border: none;">' + data[i].student_cellphone + '</td>' +
                 '<td style="text-align: center;border: none;">' + (data[i].luru_prov || '') + '</td>'
-                //			+ '<td></td>'
                 +
                 // '<td style="text-align: center">' + (data[i].feedback_time || '') + '</td>' +
                 // '<td style="' + (isred ? "color:red" : "") + ';text-align: center">' + (data[i].appointment_time || '') + '</td>' +
                 '</tr>';
+            }
         } else if (nType_fill_type == 1) {
             row = '<tr onclick="fill_data(' + i + ');">' +
                 '<td style="text-align: center;display: none;border: none;" >' + (data[i].effective_code || '') + '</td>' +
@@ -866,11 +892,15 @@ function fill_data(index) {
         var opid = _data.id;
         var param = "opid=" + opid + "&distribution_id=" + _data.distribution_id;
         if (nType == 1) {
+            // opts8.value='';
+            // removeAttribute("checked");
+            // $("input[name='radio']:checked").removeAttribute("checked");
             service.get_reservation(param)
                 .then(function (data) {
-                    //console.log(data)
+                    // console.log(data)
                     if (data.length > 0) {
                         var bean = data[0];
+                        // $("input[name='radio'][value='"+bean.ticket_hold_type+"'").attr("checked",false);
                         var opts1 = '<option value="' + bean.id + '">' +
                             bean.reservation_office_id +
                             '</option>';
@@ -891,13 +921,14 @@ function fill_data(index) {
                             bean.reservation_class_id +
                             '</option>';
                         //
-                        var opts6 = '<input type="text" value="' + bean.reservation_price + '" style="width:245px;height: 40px;border-radius: 3px;border: none;padding-left: 7px"/>';
+var opts6 = '<input type="text" value="' + bean.reservation_price + '" style="width:245px;height: 40px;border-radius: 3px;border: none;padding-left: 7px"/>';
 
+                        var opts8= $("input[name='radio'][value='"+bean.ticket_hold_type+"'").attr("checked",true);
+                        // console.log(opts8);
                         var opts7 = bean.remark;
 
                         //预约到访时间
                         $('#case_next_time_txt1').val(bean.reservation_time);
-
                         var param = "account=" + bean.account + "&id=" + bean.id;
 
                         $("#reservation_cancel_btn").on("click", function () {
@@ -910,7 +941,9 @@ function fill_data(index) {
                         $('#case_course_major_select').html(opts4);
                         $('.case_course_class_select-1').html(opts5);
                         $('#case_campus_big_select-6').html(opts6);
-                        $("#case_remark_txt").html(opts7)
+                        $("#case_remark_txt").html(opts7);
+                        // $(".ticket_hold_type").html(opts8);
+
                     }
 
                 });
@@ -945,7 +978,7 @@ function fill_data(index) {
             //省市联动
             service.get_province()
                 .then(function (data) {
-                    console.log(data)
+                    // console.log(data)
                     var len = data.length;
                     $('#luru_prov').attr("length", '0');
                     //省份与城市联动
@@ -993,6 +1026,7 @@ function fill_phbtbl(data, tblname) {
 function doDataBind(el) {
     var bind_name = $(el).attr('data-bind');
     var newVal = $(el).val();
+
 
     if (oppotunity_data[selected_row][bind_name] != newVal) {
         var options = {
@@ -1103,6 +1137,7 @@ function onTriggerEventHandler(selector) {
             options['key'] = "appointment_time"; //领取
         }
         options['order'] = "ASC"; //默认为正序
+
         options['datatype'] = window.location.search.match(/\d+/);
 
         /* m_query_options = options;
@@ -1176,7 +1211,7 @@ function onTriggerEventHandler(selector) {
         options['pagesize'] = pagesize;
         options['pageindex'] = 1;
         if (window.location.search.match(/\d+/) == 0) {
-
+            options['order'] = "DESC";
             options['key'] = "appointment_time"; //首咨
         } else if (window.location.search.match(/\d+/) == 2 || 3 || 4) {
 
@@ -1564,8 +1599,8 @@ function onTriggerEventHandler(selector) {
             "distribution_id": oppotunity_data[selected_row]['distribution_id'],
             "account": pmAgent.userid,
             "next_visit_time": $('#case_next_time_txt').val() || $('#case_next_time_txt1').val() || $('#case_next_time_txt2').val(),
-            //"cur_intent_code": $('input[name="intend_rdo"]:radio:checked').val(),
             "remark": $('#case_remark_txt').val(),
+            "ticket_hold_type":$("input[name='radio']:checked").val(),
             "office_big_id": $('#case_campus_big_select').val(),
             "office_id": $('#case_campus_select').val(),
             "recommend_project_id": $('#case_course_type_select').val(),
@@ -1621,6 +1656,7 @@ function onTriggerEventHandler(selector) {
             "opid": oppotunity_data[selected_row]['id'],
             "account": pmAgent.userid,
             "remark": $('#appoint_remark_txt').val(),
+            "ticket_hold_type":$("input[name='radio']:checked").val(),
             "school_big_id": $('#appoint_campus_big_select').val(),
             "school_id": $('#appoint_campus_select').val(),
             "reservation_time": $('#appoint_time_txt').val(),

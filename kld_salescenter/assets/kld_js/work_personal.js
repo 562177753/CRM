@@ -180,7 +180,8 @@ function onTriggerEventHandler(selector) {
 				'<td class="am-text-center am-text-middle" >' + (bean.reference_code || '') + '</td>' +
 				'<td class="am-text-center am-text-middle">' + (bean.source_code || '') + '</td>' +
 				'<td class="am-text-center am-text-middle">' + (bean.create_time || '') + '</td>' +
-				'<td class="am-text-center am-text-middle">' + (bean.distribution_time || '') + '</td>' +
+				// '<td class="am-text-center am-text-middle">' + (bean.distribution_time || '') + '</td>' +
+                '<td class="am-text-center am-text-middle">' + (bean.feedback_time || '') + '</td>' +
 				'<td class="am-text-center am-text-middle">' + (bean.account || '') + '</td>' +
 				'<td class="am-text-center am-text-middle inquiry_fp">' + (bean.editable_code || '') + '</td>' +
 				'<td class="am-text-center am-text-middle inquiry_fk">' + (bean.fankui_state|| '') + '</td>' +

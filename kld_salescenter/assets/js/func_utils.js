@@ -1,7 +1,7 @@
  // var SERVICE_URL = 'http://192.168.1.85:9091/BlastBomb/';
 // var SERVICE_URL = '/kld_salescenter/';
  var SERVICE_URL = 'http://192.168.1.85:9090/kld_salescenter/';
-// var SERVICE_URL = 'http://192.168.0.161:8080/BlastBomb/';
+// var SERVICE_URL = 'http://10.75.1.235:8080/kld_salescenter/';
 
 var pmAgent = {
 	userid: '',

@@ -4,8 +4,14 @@
  * @date   2017-08-14
  */
 
-function newdata_write()
-    {
+// function newdata_write(){
+
+$('#submit_btn').click(function () {
+
+
+            $("body").mLoading("show");
+
+
 //	 console.log('数据录入者：'+pmAgent.userid);
 	 //start 获取被选中的[分校名称];by liuhongjian 2017-08-14
 	 var campus_select = document.getElementById("campus_select");
@@ -142,13 +148,20 @@ function newdata_write()
 	 //console.log(oppotunity_inflow);
 	 service.oppotunity_inflow(oppotunity_inflow)
 		.then(function(data) {
-			oppotunity_data = data;
+            // console.log(data);
+            // $("body").mLoading();
+            oppotunity_data = data;
+
 			var am_alert='';
 			if (data[0]['rescode']==1) {
+
+                    $("body").mLoading("hide");
+
 				am_alert='success'; //'am-alert-success';
 			}
 			else {
 				am_alert='error'; //'am-alert-danger';
+                $("body").mLoading("hide");
 			}
 			/*	
 			var message = '<div class="am-alert '+am_alert+'" data-am-alert>'
@@ -161,7 +174,10 @@ function newdata_write()
 		.fail(function(data) {
 			console.log('data_write submit fail '+data);
 		});
-	}
+	// }
+});
+
+// });
 
 //数据录入页面onload自动加载options项
 function add_options()
