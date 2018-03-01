@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="卡拉荻|销售中心"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="../assets/css/app_exclude.css">
+    <link rel="stylesheet" href="../assets/css/cssg.css">
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/sweetalert.css"></link>
+    <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css"/>
+    <script src="../assets/js/func_utils.js"></script>
+    <script type="text/javascript" src="../assets/kld_js/work_personal.js"></script>
+</head>
+<body>
+<script src="../assets/js/theme.js"></script>
+
+<div class="am-box-1" id="top" style="padding: 20px 20px 0 20px">
+    <div class="row-content am-cf ">
+        <div class="">
+            <section class="am-panel am-panel-default">
+                <header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
+                    <div class="am-vertical-align" style="height: 25px;">
+                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff">公海/首咨</div>
+                    </div>
+                </header>
+
+                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+                    <div id="validation"></div>
+                    <form class="am-form tpl-form-border-form" id="searchMessage">
+                        <div class="am-g">
+                            <!--首咨-->
+                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
+                                <div class="am-form-group">
+                                    <label style="font-size:14px ;margin-top: 5px" for="inquiry_flow"
+                                           class="am-u-sm-2 am-form-label am-text-left">类型</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <!--<select multiple class="am-disabled"  id="inquiry_flow_2" data-am-selected="{searchBox: 1,btnWidth: '100%'}">-->
+                                        <select id="inquiry_flow_2" data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+                                        <option value="首咨">首咨</option>
+                                        <option value="公海">公海</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--日期-->
+                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
+                                <div class="am-form-group am-form-icon">
+                                    <label style="font-size:14px ;margin-top: 5px" for="inquiry_flow"
+                                           class="am-u-sm-2 am-form-label am-text-left">日期</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <input id="last_sdate_txt_2" type="text" class="tpl-form-input am-form-field"
+                                               placeholder="日期" data-am-datepicker style="height: 40px;border-radius: 4px"/>
+                                        <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+                                    </div>
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
+                                <div class="am-form-group am-form-icon">
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <button id="query_btn_2" type="button" class="am-btn am-btn-success am-radius"
+                                                style="font-size:14px;width: 100px;height: 40px;border-radius: 4px">查 询
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+</div>
+
+<!------------->
+
+<div class="am-box-1" style="padding:0 20px;">
+    <div class="row-content am-cf ">
+        <div class="">
+            <section class="am-panel am-panel-default">
+                <!--<header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
+                    <div class="am-vertical-align" style="height: 25px;">
+                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff">查询结果</div>
+                    </div>
+                </header>-->
+                <div class="am-panel-bd" style="background-color:#FFF;border-radius:6px;padding: 0 0 20px 0;">
+                    <div id="validation"></div>
+
+                    <table id="inquirys_tbl_2" class="am-table am-table-bordered am-table-striped tpl-table-black" style="border-radius: 6px">
+                        <thead>
+                        <tr style="background: #7ba0ed;color: #fff;">
+                            <th class="am-text-center am-text-middle">序号</th>
+                            <th class="am-text-center am-text-middle">项目大类</th>
+                            <th class="am-text-center am-text-middle">学员姓名</th>
+                            <th class="am-text-center am-text-middle">手机号码</th>
+                            <th class="am-text-center am-text-middle">数据类型</th>
+                            <th class="am-text-center am-text-middle">咨询类型</th>
+                            <th class="am-text-center am-text-middle">创建时间</th>
+                            <th class="am-text-center am-text-middle">最后反馈时间</th>
+                            <th class="am-text-center am-text-middle">归属咨询师</th>
+                            <th class="am-text-center am-text-middle">分配状态</th>
+                            <th class="am-text-center am-text-middle">是否反馈</th>
+                            <th class="am-text-center am-text-middle">反馈类型</th>
+                            <th class="am-text-center am-text-middle">流量中心</th>
+                            <th class="am-text-center am-text-middle">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+
+                    <div class="am-scrollable-horizontal">
+
+                    </div>
+                    <ul data-am-widget="pagination" class="am-pagination am-pagination-default am-pagination-centered" id="jumpPage">
+                        <li class="am-pagination-prev ">
+                            <a href="javascript:;" class="" style="border: 1px solid #bec9d8;border-radius: 4px">&laquo;</a>
+                        </li>
+
+                        <li class="am-pagination-current"><span style="border: 1px solid #bec9d8;border-radius: 4px">...</span></li>
+
+                        <li class="am-pagination-next ">
+                            <a href="javascript:;" class="" style="border: 1px solid #bec9d8;border-radius: 4px">&raquo;</a>
+                        </li>
+
+                    </ul>
+                </div>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<!--业务日志按钮-->
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="appoint_modal" style="margin-top: -350px;">
+    <div class="am-modal-dialog" style="background-color:#FFF; border-radius:6px; margin-top:-400px;">
+        <div class="am-text-left" style="background-color: #7ba0ed;border-radius: 6px 6px 0 0">
+            <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 18px 5px 0 10px">
+            <div class="h-tit" style="color: #fff;">业务日志</div>
+            <a href="javascript:;" class="am-close am-close-spin" style="float:right;;width: 15px;height: 15px;line-height: 15px; margin-top:-28px;margin-right: 12px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"
+               data-am-modal-close>&times;</a></div>
+        <div class="am-modal-bd" style="min-height: 100px;overflow:auto;padding: 0px"id="personal">
+            <!--<form class="am-form">-->
+            <table id="inquirey_appointment" class="am-table am-table-bordered am-table-striped tpl-table-black"
+            style="border: none;">
+                <thead>
+                <tr style="background: #fff;border: none;height: 60px">
+                    <th class="am-text-center am-text-middle" style="border: none">序号</th>
+                    <th class="am-text-center am-text-middle" style="border: none">归属咨询师</th>
+                    <th class="am-text-center am-text-middle" style="border: none">操作人</th>
+                    <th class="am-text-center am-text-middle" style="border: none">操作时间</th>
+                    <th class="am-text-center am-text-middle" style="border: none">数据主类型</th>
+                    <th class="am-text-center am-text-middle" style="border: none">数据子类型</th>
+                    <th class="am-text-center am-text-middle" style="border: none">数据描述</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="am-g">
+            <div class="am-u-sm-12" style="padding-left:0px; padding-right:0px;">
+                <!--<div class="am-btn-group am-btn-group-justify"><a class="am-btn am-h" href="javascript:;" data-am-modal-close style="border-radius:0 0 6px 0;">取消</a> </div>-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--在线记录按钮-->
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="appoint_modal2">
+    <div class="am-modal-dialog" style="background-color:#fff; border-radius:6px; margin-top:-800px;">
+        <div class="am-text-left" style="background-color: #7ba0ed;border-radius: 6px 6px 0 0">
+            <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 18px 5px 0 10px">
+            <div class="h-tit" style="color: white">在线记录</div>
+            <a href="javascript:;" class="am-close am-close-spin" style="float:right;;width: 15px;height: 15px;line-height: 15px; margin-top:-28px;margin-right: 12px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"
+               data-am-modal-close>&times;</a></div>
+        <div class="am-modal-bd" style="border-radius: 6px">
+            <table id="inquirey_appointment2" class="am-table am-table-bordered am-table-striped tpl-table-black">
+                <!--<thead>
+                <tr style="background: rgb(200,199,197);">
+                    <th class="am-text-center am-text-middle">在线记录</th>
+                </tr>
+                </thead>-->
+                <tbody style="padding: 10px;"></tbody>
+            </table>
+            <br>
+            <div class="am-g">
+                <div class="am-u-sm-12" style="padding-left:0px; padding-right:0px;">
+                    <!--<div class="am-btn-group am-btn-group-justify"><a class="am-btn am-h" href="javascript:;" data-am-modal-close style="border-radius:0 0 6px 0;">取消</a> </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="../assets/js/amazeui.min.js"></script>
+<script src="../assets/js/amazeui.datatables.min.js"></script>
+<script src="../assets/js/dataTables.responsive.min.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

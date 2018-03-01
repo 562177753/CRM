@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>卡拉荻|销售中心</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="index">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="icon" type="image/png" href="../assets/i/favicon.png">
+	<link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+	<meta name="apple-mobile-web-app-title" content="卡拉荻|销售中心" />
+	<link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+	<link rel="stylesheet" href="../assets/css/amazeui.datatables.min.css" />
+	<!-- <link rel="stylesheet" href="../assets/css/amazeui.datetimepicker.css" /> -->
+	<link rel="stylesheet" href="../assets/css/app_exclude.css">
+	<link rel="stylesheet" href="../assets/css/cssg.css">
+
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/func_utils.js"></script>
+	<!-- <script src="../assets/My97DatePicker/WdatePicker.js"></script> -->
+	<!-- <script src="../assets/js/amazeui.datetimepicker.min.js"></script>
+<script src="../assets/js/locales/amazeui.datetimepicker.zh-CN.js" charset="UTF-8"></script> -->
+	<script src="../assets/jedate/jedate.js"></script>
+	<script src="../assets/js/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="../assets/css/sweetalert.css"></link>
+	<link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css" />
+</head>
+
+<body>
+<script src="../assets/js/theme.js"></script>
+<div class="am-box-1" id="top" style="padding: 20px 20px 0 20px;">
+	<div class="row-content am-cf">
+		<div class="">
+			<section class="am-panel am-panel-default">
+				<header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
+					<div class="am-vertical-align" style="height: 25px;">
+						<img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
+						<div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">截图查询</div>
+					</div>
+				</header>
+
+				<div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+					<form class="am-form tpl-form-border-form" id="recordSearch">
+						<div class="am-g">
+							<div class="am-u-sm-6">
+								<div class="am-form-group">
+									<label style="font-size: 12px;margin-top: 5px" class="am-u-sm-2 am-form-label am-text-left">
+										微信号</label>
+									<div class="am-u-sm-10 am-margin-top-xs">
+										<input id="ghid_txt" type="text" class="tpl-form-input" placeholder="工号" />
+									</div>
+								</div>
+							</div>
+							<div class="am-u-sm-6">
+								<div class="am-form-group">
+									<label style="font-size: 12px;margin-top: 5px" class="am-u-sm-2 am-form-label am-text-left">
+										QQ</label>
+									<div class="am-u-sm-10 am-margin-top-xs">
+										<input id="caller_txt" type="text" class="tpl-form-input" placeholder="主叫" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="am-g">
+							<div class="am-u-sm-6">
+								<div class="am-form-group am-form-icon">
+									<label style="font-size: 12px;margin-top: 5px" class="am-u-sm-2 am-form-label am-text-left">
+										咨询师</label>
+									<div class="am-u-sm-10 am-margin-top-xs">
+										<input id="sdate_txt" type="text" class="tpl-form-input am-form-field" placeholder="起始日期" data-am-datepicker />
+										<img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+									</div>
+								</div>
+							</div>
+							<div class="am-u-sm-6">
+								<div class="am-form-group am-form-icon">
+									<label class="am-u-sm-2 am-form-label am-text-left">上传日期</label>
+									<div class="am-u-sm-4 am-margin-top-xs">
+										<input id="first_sdate_txt" type="text" class="tpl-form-input am-form-field"
+											   placeholder="起始日期" data-am-datepicker style="height: 40px;border-radius: 4px"/>
+										<img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+									</div>
+									<label class="am-u-sm-2 am-form-label am-text-center">至</label>
+									<div class="am-u-sm-4 am-margin-top-xs">
+										<input id="first_edate_txt" type="text" class="tpl-form-input am-form-field"
+											   placeholder="结束日期" data-am-datepicker style="height: 40px;border-radius: 4px"/>
+										<img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="am-g">
+							<div class="am-u-sm-4 am-u-sm-offset-10" style="padding-top:6px;">
+								<button id="query_btn" type="button" class="am-btn am-btn-success am-radius" style="font-size:13px;width:100px;height: 40px;border-radius: 4px">查 询</button>
+								<button id="reset_btn" type="button" class="am-btn am-btn-warning am-radius" style="font-size:13px;width:100px;height: 40px;border-radius: 4px;">重 置</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</section>
+		</div>
+	</div>
+	<div class="row-content am-cf "style="background-color: #fff;border-radius: 6px" id="recordTable">
+		<div class="am-g">
+			<div class="am-scrollable-horizontal" style="border-radius: 6px;">
+				<table class="am-table am-table-bordered am-table-striped am-text-nowrap am-table-hover tpl-table-black " id="record_tbl">
+					<thead>
+					<tr style="background-color: #7ba0ed;color: #fff;">
+						<th class="am-text-center am-text-middle">微信</th>
+						<th class="am-text-center am-text-middle">QQ</th>
+						<th class="am-text-center am-text-middle">上传时间</th>
+						<!--<th class="am-text-center am-text-middle">咨询师</th>-->
+						<th class="am-text-center am-text-middle">操作</th>
+					</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="am-scrollable-horizontal">
+
+		</div>
+		<!-- 翻页 -->
+		<ul data-am-widget="pagination" class="am-pagination am-pagination-default am-pagination-centered" id="jumpPage">
+			<li class="am-pagination-prev ">
+				<a href="javascript:;" class="">&laquo;</a>
+			</li>
+
+			<li class="am-pagination-current">
+				<span>...</span>
+			</li>
+
+			<li class="am-pagination-next ">
+				<a href="javascript:;" class="">&raquo;</a>
+			</li>
+			&nbsp; 跳转到第
+			<input type="text" class="page_num" style="width:40px;height: 32px;border:1px solid #c0c0c0;border-radius: 5px;font-size: 14px;text-align: center;margin:0 0 2px 10px"
+			/>&nbsp;页
+			<a href="javascript:;" id="page_enter" style="display: inline-block;width: 45px;height: 30px;line-height: 30px;background-color: #cfaa1e; border-radius: 4px;color: #fff;margin-left: 10px">确定</a>
+		</ul>
+	</div>
+</div>
+
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="play_modal">
+	<div class="am-modal-dialog" style="border-radius: 5px;margin-top: -600px;">
+		<div class="am-modal-hd am-text-left">
+			<span class="am-margin-vertical-xs">播放录音</span>
+			<a id="play_close_btn" href="javascript:;" class="am-close am-close-spin">&times;</a>
+		</div>
+		<div class="am-modal-bd">
+			<audio id="play_mediaplayer" controls></audio>
+		</div>
+	</div>
+</div>
+
+
+<script src="../assets/js/amazeui.min.js"></script>
+<script src="../assets/js/amazeui.datatables.min.js"></script>
+<script src="../assets/js/dataTables.responsive.min.js"></script>
+<script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>

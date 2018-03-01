@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="卡拉荻|销售中心"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="../assets/css/app_exclude.css">
+    <link rel="stylesheet" href="../assets/css/cssg.css">
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/sweetalert.css"></link>
+    <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css"/>
+    <script src="../assets/js/func_utils.js"></script>
+    <script type="text/javascript" src="../assets/kld_js/task_design.js"></script>
+    <script src="../assets/js/theme.js"></script>
+</head>
+
+<style>
+    .am-box-1 .am-panel-bd #form_data  input:focus{
+        width: 50px;!important;
+        box-shadow: 0 0 5px #000;
+        border-color: #000;
+        outline:none;!important;
+        border:none;!important;
+        background: #fff;/*input内背景为白色*/
+
+    }
+</style>
+<body style="background: #e9ecf3">
+<div class="am-box-1" style="padding: 20px">
+    <div class="row-content am-cf ">
+        <div class="">
+            <section class="am-panel am-panel-default">
+                <header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
+                    <div class="am-vertical-align" style="height: 25px;">
+                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">任务分配</div>
+                    </div>
+                </header>
+                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;padding:0">
+                    <div id="validation"></div>
+                    <form class="am-form tpl-form-border-form">
+                        <div class="am-g">
+                            <div class="am-u-sm-12 am-u-md-12 am-u-lg-12" style="padding-left: 0;padding-right: 0">
+                                <div class="am-form-group">
+                                    <div class="am-scrollable-horizontal  widget-body-1" style="padding: 0;">
+                                        <form action="" id="form_data" >
+                                            <table width="100%"
+                                                   class="am-table am-table-compact am-text-nowrap am-table-hover am-table-bordered tpl-table-black"
+                                                   id="oppotunity_tbl">
+                                                <thead>
+                                                <tr style="background-color: #7ba0ed;color: #fff;">
+                                                    <th style="text-align: center">账号</th>
+                                                    <th style="text-align: center">人员</th>
+                                                    <th style="text-align: center">等级</th>
+                                                    <th style="text-align: center">每月流水完成度</th>
+                                                    <th style="text-align: center">每日通时完成度(s)</th>
+                                                    <th style="text-align: center">每周回访比完成度(%)</th>
+                                                    <th style="text-align: center">跨期回访比完成度(%)</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                   <!-- <td>
+                                                        <input type="text" style="border: none;text-align: center"/>
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div>
+                                                            <input type="text" style="border: none;text-align: center"/>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <input type="text" style="border: none;text-align: center"/>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <input type="text" style="border: none;text-align: center"/>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <input type="text" style="border: none;text-align: center"/>
+                                                        </div>
+                                                    </td>-->
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="am-g">
+                            <div class="am-u-sm-2 am-u-md-2  am-u-sm-offset-9">
+                                <div class="am-form-group am-u-sm-push-5">
+                                    <button id="submit_btns" type="button" class="am-btn am-btn-success am-radius "
+                                            style="font-size:13px;  width: 100px;height: 40px;border-radius: 4px">提交
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/amazeui.min.js"></script>
+<script src="../assets/js/amazeui.datatables.min.js"></script>
+<script src="../assets/js/dataTables.responsive.min.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>卡拉荻|销售中心</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="卡拉荻|销售中心"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="../assets/css/app_exclude.css">
+    <link rel="stylesheet" href="../assets/css/cssg.css">
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/sweetalert.css"></link>
+    <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css"/>
+    <script src="../assets/js/func_utils.js"></script>
+    <script src="../assets/kld_js/workplat_taskpool.js" type="text/javascript"></script>
+    <style>
+        /*body{*/
+            /*overflow-y: hidden;*/
+            /*height: 100%;*/
+        /*}*/
+    </style>
+</head>
+
+
+
+<body>
+<script src="../assets/js/theme.js"></script>
+<div class="am-box-1" id="top" style="padding: 20px">
+    <div class="row-content am-cf">
+        <div class="">
+            <section class="am-panel am-panel-default">
+                <header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
+                    <div class="am-vertical-align" style="height: 25px;">
+                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">公海数据池</div>
+                    </div>
+                </header>
+
+                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;padding-left:30px;padding-right: 30px">
+                    <form class="am-form tpl-form-border-form" id="messageForm">
+                        <div class="am-g">
+                            <div class="am-u-sm-6">
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label am-text-left">分校</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <select id="campus_big_select"
+                                                data-am-selected="{ btnWidth: '100%', maxHeight: '200px',searchBox: 1 }" style="height: 50px">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="am-u-sm-6">
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label am-text-left">项目</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <select id="course_type_select"
+                                                data-am-selected="{ btnWidth: '100%', maxHeight: '200px', searchBox: 1 }">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-g">
+                            <div class="am-u-sm-6">
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label am-text-left">首咨咨询师</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <input id="first_person_txt" type="text" class="tpl-form-input"
+                                               placeholder="首咨咨询师" style="height: 40px;border-radius: 4px"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="am-u-sm-6">
+                                <div class="am-form-group am-form-icon">
+                                    <label class="am-u-sm-3 am-form-label am-text-left">首咨日期</label>
+                                    <div class="am-u-sm-3 am-margin-top-xs">
+                                        <input id="first_sdate_txt" type="text" class="tpl-form-input am-form-field"
+                                               placeholder="起始日期" data-am-datepicker style="height: 40px;border-radius: 4px"/>
+                                        <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+                                    </div>
+                                    <label class="am-u-sm-2 am-form-label am-text-center">至</label>
+                                    <div class="am-u-sm-3 am-margin-top-xs">
+                                        <input id="first_edate_txt" type="text" class="tpl-form-input am-form-field"
+                                               placeholder="结束日期" data-am-datepicker style="height: 40px;border-radius: 4px"/>
+                                        <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-g">
+                            <div class="am-u-sm-6">
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label am-text-left">最后咨询师</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <input id="last_person_txt" type="text" class="tpl-form-input"
+                                               placeholder="最后咨询师" style="height: 40px;border-radius: 4px"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="am-u-sm-6">
+                                <div class="am-form-group am-form-icon">
+                                    <label class="am-u-sm-3 am-form-label am-text-left">最后跟单日期</label>
+                                    <div class="am-u-sm-3 am-margin-top-xs">
+                                        <input id="last_sdate_txt" type="text" class="tpl-form-input am-form-field"
+                                               placeholder="起始日期" data-am-datepicker style="height: 40px;border-radius: 4px"/>
+                                        <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+                                    </div>
+                                    <label class="am-u-sm-2 am-form-label am-text-center">至</label>
+                                    <div class="am-u-sm-3 am-margin-top-xs">
+                                        <input id="last_edate_txt" type="text" class="tpl-form-input am-form-field"
+                                               placeholder="结束日期" data-am-datepicker style="height: 40px;border-radius: 4px"/>
+                                        <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-g">
+
+                        </div>
+                        <div class="am-g">
+                            <div class="am-u-sm-6">
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label am-text-left">最后一次咨询类别</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <select id="last_type_select"
+                                                data-am-selected="{ btnWidth: '100%', maxHeight: '200px', searchBox: 1 }">
+                                            <option value=""></option>
+                                            <option value="0">首咨</option>
+                                            <option value="1">二次咨询</option>
+                                            <option value="2">当周回访</option>
+                                            <option value="3">跨期回访</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="am-u-sm-6" style="padding-top:6px">
+                                <button id="query_btn" type="button" class="am-radius searchM">查 询</button>
+                                <button id="reset_btn" type="button" class="am-radius resetM">重 置</button>
+                                <button id="batch_get_btn" type="button" class="am-radius getM">批量领取</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="am-u-sm-12">
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row-content am-cf" style="background-color: #fff;border-radius: 6px;" id="messageTable">
+        <div class="am-g">
+            <div class="am-scrollable-horizontal">
+                <table class="am-table am-table-bordered am-table-striped am-text-nowrap am-table-hover tpl-table-black"
+                       id="pool_tbl">
+                    <thead>
+                    <tr style="background-color: #7ba0ed;height: 25px;color: #fff;">
+                        <th style="text-align: right">
+                            <input id="row_all_chk" class="table-cell-checkbox" type="checkbox" disabled style="border-radius:50%;"/>
+                        </th>
+                        <th class="am-text-center am-text-middle">学员姓名</th>
+                        <th class="am-text-center am-text-middle">分校</th>
+                        <th class="am-text-center am-text-middle">项目</th>
+                        <th class="am-text-center am-text-middle">首咨咨询师</th>
+                        <th class="am-text-center am-text-middle">首咨日期</th>
+                        <th class="am-text-center am-text-middle">最后咨询师</th>
+                        <th class="am-text-center am-text-middle">最后跟单日期</th>
+                        <!--<th>报名意向</th>-->
+                        <!--<th  class="am-text-center am-text-middle">跟单次数</th>-->
+                        <!--<th>放弃次数</th>-->
+                        <th class="am-text-center am-text-middle">咨询类别</th>
+                        <th class="am-text-center am-text-middle">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="am-scrollable-horizontal">
+        </div>
+        <ul id="jumpPage" data-am-widget="pagination" class="am-pagination am-pagination-default am-pagination-centered">
+            <li class="am-pagination-prev ">
+                <a href="javascript:;" class="">&laquo;</a>
+            </li>
+
+            <li class="am-pagination-current"><span>...</span></li>
+
+            <li class="am-pagination-next ">
+                <a href="javascript:;" class="">&raquo;</a>
+            </li>
+            &nbsp; 跳转到第<input type="text" class="page_num"
+                              style="width:40px;height: 32px;border:1px solid #bec9d8;border-radius: 5px;font-size: 14px;text-align: center;margin:0 0 2px 10px"/>&nbsp;页
+            <a href="javascript:;" id="page_enter"
+               style="display: inline-block;width: 45px;height: 30px; line-height: 30px;border-radius: 4px;color: #fff;margin-left: 10px;background-color: #cfaa1e">确定</a>
+        </ul>
+
+    </div>
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="hist_modal">
+        <div class="am-modal-dialog" style="border-radius: 5px;">
+            <div class="am-modal-hd am-text-left">
+                <span class="am-margin-vertical-xs">最后一次咨询内容</span>
+                <a id="hist_close_btn" href="javascript:;" class="am-close am-close-spin"
+                   data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <p id="hist_content">无</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="../assets/js/amazeui.min.js"></script>
+<script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>

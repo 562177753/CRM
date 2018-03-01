@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="卡拉荻|销售中心"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="../assets/css/app_exclude.css">
+    <link rel="stylesheet" href="../assets/css/cssg.css">
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/sweetalert.css"></link>
+    <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css"/>
+    <script src="../assets/js/func_utils.js"></script>
+    <script type="text/javascript" src="../assets/kld_js/work_detail.js"></script>
+</head>
+<body>
+<script src="../assets/js/theme.js"></script>
+
+<div class="am-box-1" style="padding: 20px 20px 0 20px">
+    <div class="row-content am-cf ">
+        <div class="">
+            <section class="am-panel am-panel-default">
+                <header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
+                    <div class="am-vertical-align" style="height: 25px;">
+                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">明细查询</div>
+                    </div>
+                </header>
+
+                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+                    <div id="validation"></div>
+                    <form class="am-form tpl-form-border-form" id="workForm">
+                        <div class="am-g">
+                            <!--军团-->
+                            <div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+                                <div class="am-form-group">
+                                    <label style="font-size:14px ;margin-top: 5px"
+                                           class="am-u-sm-2 am-form-label am-text-left">军团</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <!--<select multiple class="am-disabled"  id="inquiry_flow_2" data-am-selected="{searchBox: 1,btnWidth: '100%'}">-->
+                                        <select id="detail_flow_2" class="data-select-bind"  data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+                                            <option value="">请选择</option>
+                                            <!--<option value="北京大区">北京大区</option>-->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--小组-->
+                            <!--可根据军团、组、等级、咨询师、日期-->
+                            <div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+                                <div class="am-form-group">
+                                    <label style="font-size:14px ;margin-top: 5px"
+                                           class="am-u-sm-2 am-form-label am-text-left">小组</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <!--<select multiple class="am-disabled"  id="inquiry_flow_2" data-am-selected="{searchBox: 1,btnWidth: '100%'}">-->
+                                        <select id="detail_group_2" data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+                                            <option value="">请选择</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--等级-->
+                            <div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+                                <div class="am-form-group">
+                                    <label style="font-size:14px ;margin-top: 5px"
+                                           class="am-u-sm-2 am-form-label am-text-left">等级</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <!--<select multiple class="am-disabled"  id="inquiry_flow_2" data-am-selected="{searchBox: 1,btnWidth: '100%'}">-->
+                                        <select id="detail_calss_2" data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+                                            <option value="">请选择</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="S">S</option>
+                                            <option value="Z">Z</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="am-g">
+                            <div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+                                <div class="am-form-group">
+                                    <label style="font-size:14px ;margin-top: 5px"
+                                           class="am-u-sm-2 am-form-label am-text-left">咨询师</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+
+                                        <input type="text" id="detail_account" style="height: 40px;border-radius: 4px">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+                                <div class="am-form-group am-form-icon">
+                                    <label style="font-size:14px ;margin-top: 5px"
+                                           class="am-u-sm-2 am-form-label am-text-left">日期</label>
+                                    <div class="am-u-sm-4 am-margin-top-xs">
+                                        <input id="star_date" type="text" class="tpl-form-input am-form-field"
+                                               placeholder="开始日期" data-am-datepicker readonly style="height: 40px;border-radius: 4px"/>
+                                        <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+                                    </div>
+                                    <span style=" float: left; margin-top: 10px;">－</span>
+                                    <div class="am-u-sm-4 am-margin-top-xs">
+                                        <input id="end_date" type="text" class="tpl-form-input am-form-field"
+                                               placeholder="结束日期" data-am-datepicker readonly style="height: 40px;border-radius: 4px"/>
+                                        <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
+                                <div class="am-form-group am-form-icon">
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <button id="query_btn_2" type="button" class="am-btn am-btn-success am-radius"
+                                                style="font-size:14px;width: 100px;height: 40px;border-radius: 4px">查 询
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!--</div>-->
+
+<!------------->
+
+<div class="am-box-1" style="padding: 0 20px">
+    <div class="row-content am-cf ">
+        <div class="">
+            <section class="am-panel am-panel-default">
+                <!--<header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
+                    <div class="am-vertical-align" style="height: 25px;">
+                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">查询结果</div>
+                    </div>
+                </header>-->
+                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;padding: 0 0 20px 0;">
+                    <div></div>
+
+                    <table id="inquirys_tbl_2" class="am-table am-table-bordered am-table-striped tpl-table-black">
+                        <thead>
+                        <tr style="background:#7ba0ed;color: #fff;">
+                            <!--军团、咨询师分组、等级、咨询师、分配名片总计、反馈总计、销售机会数、机会有效率、回访比、当周回访比、跨期回访比、报名人数、流水、ARPU值、名片销转、呼出通话个数、呼出通话时长-->
+                            <th class="am-text-center am-text-middle">军团</th>
+                            <th class="am-text-center am-text-middle">咨询师分组</th>
+                            <th class="am-text-center am-text-middle">等级</th>
+                            <th class="am-text-center am-text-middle">咨询师</th>
+                            <th class="am-text-center am-text-middle">分配名片总计</th>
+                            <th class="am-text-center am-text-middle">反馈总计</th>
+                            <th class="am-text-center am-text-middle">销售机会总计</th>
+                            <th class="am-text-center am-text-middle">机会有效率</th>
+                            <th class="am-text-center am-text-middle">回访比</th>
+                            <th class="am-text-center am-text-middle">当周回访比</th>
+                            <th class="am-text-center am-text-middle">跨期回访比</th>
+                            <th class="am-text-center am-text-middle">报名人数</th>
+                            <th class="am-text-center am-text-middle">流水</th>
+                            <th class="am-text-center am-text-middle">ARPU值</th>
+                            <th class="am-text-center am-text-middle">名片销转</th>
+                            <th class="am-text-center am-text-middle">呼出通话个数</th>
+                            <th class="am-text-center am-text-middle">呼出通话时长</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+
+                    <div class="am-scrollable-horizontal">
+
+                    </div>
+                    <ul data-am-widget="pagination" class="am-pagination am-pagination-default am-pagination-centered" id="jumpPage">
+                        <li class="am-pagination-prev ">
+                            <a href="javascript:;" class="">&laquo;</a>
+                        </li>
+
+                        <li class="am-pagination-current"><span>...</span></li>
+
+                        <li class="am-pagination-next ">
+                            <a href="javascript:;" class="">&raquo;</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </section>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="../assets/js/amazeui.min.js"></script>
+<script src="../assets/js/amazeui.datatables.min.js"></script>
+<script src="../assets/js/dataTables.responsive.min.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
