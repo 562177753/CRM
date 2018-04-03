@@ -22,6 +22,17 @@
     <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css"/>
     <script src="../assets/js/func_utils.js"></script>
     <script type="text/javascript" src="../assets/kld_js/work_personal.js"></script>
+    <style>
+        #top .am-btn{
+            border: none;
+            background: #eef3fa;
+
+        }
+        #top input{
+            border: none;
+            background: #eef3fa;
+        }
+    </style>
 </head>
 <body>
 <script src="../assets/js/theme.js"></script>
@@ -29,16 +40,17 @@
 <div class="am-box-1" id="top" style="padding: 20px 20px 0 20px">
     <div class="row-content am-cf ">
         <div class="">
-            <section class="am-panel am-panel-default">
-                <header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
-                    <div class="am-vertical-align" style="height: 25px;">
-                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
-                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff">公海/首咨</div>
+            <section class="am-panel am-panel-default" style="border: none">
+                <header class="am-panel-hd" style="background: #e9ecf3; border-radius: 6px 6px 0 0;border: none;margin: 0px 0px -8px 0px;background: url(../assets/img/draw.png)no-repeat ;background-size:170px 40px;background-position:100% 0px;">
+                    <div class="am-vertical-align" style="height: 37px;">
+                        <span style="display:inline-block;width: 4px;height: 20px;background-color: blue;position: relative;left: -90px; top: 5px;"></span>
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="font-size: 18px;color: #383e56;padding: 0px 0px 0px 20px;">公海/首咨</div>
                     </div>
+                    <div style="width: 102.3%;height: 20px;background: url(../assets/img/bg.png)no-repeat ;background-color:#ffffff;background-position:100% 0px;margin:-5px 0px 0px -15.5px;"></div>
                 </header>
 
-                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
-                    <div id="validation"></div>
+                <div class="am-panel-bd" style="background:linear-gradient(to bottom,#ffffff, #f3fcf6);box-shadow: 10px 10px 0px #8ace9f;color: #383e56;margin-top: -25px;">
+                    <!--<div id="validation"></div>-->
                     <form class="am-form tpl-form-border-form" id="searchMessage">
                         <div class="am-g">
                             <!--首咨-->
@@ -72,7 +84,7 @@
                                 <div class="am-form-group am-form-icon">
                                     <div class="am-u-sm-8 am-margin-top-xs">
                                         <button id="query_btn_2" type="button" class="am-btn am-btn-success am-radius"
-                                                style="font-size:14px;width: 100px;height: 40px;border-radius: 4px">查 询
+                                                style="font-size:14px;width: 100px;height: 40px;border-radius: 4px;background-color: #6191d8">查 询
                                         </button>
                                     </div>
                                 </div>
@@ -89,22 +101,17 @@
 
 <!------------->
 
-<div class="am-box-1" style="padding:0 20px;">
+<div class="am-box-1" style="padding: 20px 20px;">
     <div class="row-content am-cf ">
         <div class="">
-            <section class="am-panel am-panel-default">
-                <!--<header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
-                    <div class="am-vertical-align" style="height: 25px;">
-                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
-                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff">查询结果</div>
-                    </div>
-                </header>-->
-                <div class="am-panel-bd" style="background-color:#FFF;border-radius:6px;padding: 0 0 20px 0;">
+            <section class="am-panel am-panel-default" style="border: none">
+
+                <div class="am-panel-bd" style="padding: 0 0 20px 0;border: none">
                     <div id="validation"></div>
 
-                    <table id="inquirys_tbl_2" class="am-table am-table-bordered am-table-striped tpl-table-black" style="border-radius: 6px">
+                    <table id="inquirys_tbl_2" class="am-table am-table-bordered am-table-striped tpl-table-black" style="width: 100%;border: none;">
                         <thead>
-                        <tr style="background: #7ba0ed;color: #fff;">
+                        <tr style="background-color: #e9ecf3;height: 25px;color: #383e56;">
                             <th class="am-text-center am-text-middle">序号</th>
                             <th class="am-text-center am-text-middle">项目大类</th>
                             <th class="am-text-center am-text-middle">学员姓名</th>
@@ -121,7 +128,7 @@
                             <th class="am-text-center am-text-middle">操作</th>
                         </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody style="background:linear-gradient(to bottom, #ffffff, #eef3fa); box-shadow: 10px 10px 0px #79a6e1;color: #383e56"></tbody>
                     </table>
 
                     <div class="am-scrollable-horizontal">
@@ -147,19 +154,19 @@
 </section>
 
 <!--业务日志按钮-->
-<div class="am-modal am-modal-no-btn" tabindex="-1" id="appoint_modal" style="margin-top: -350px;">
-    <div class="am-modal-dialog" style="background-color:#FFF; border-radius:6px; margin-top:-400px;">
-        <div class="am-text-left" style="background-color: #7ba0ed;border-radius: 6px 6px 0 0">
-            <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 18px 5px 0 10px">
-            <div class="h-tit" style="color: #fff;">业务日志</div>
-            <a href="javascript:;" class="am-close am-close-spin" style="float:right;;width: 15px;height: 15px;line-height: 15px; margin-top:-28px;margin-right: 12px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"
-               data-am-modal-close>&times;</a></div>
-        <div class="am-modal-bd" style="min-height: 100px;overflow:auto;padding: 0px"id="personal">
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="appoint_modal">
+    <div class="am-modal-dialog" style="background: none">
+        <div class="am-text-left" style="background: url(../assets/img/draw.png)no-repeat;background-size: 180px 50px;background-position: 92% 1px;">
+            <span style="display:inline-block;width: 4px;height: 21px;background-color: yellow;position: relative;left: 25px; top: 15px;"></span>
+            <div class="h-tit" style="color: #ffffff;font-size: 22px;margin-left: 10px;font-weight: bold;border:none">业务日志</div>
+            <div style="width: 100%;height: 30px;background: url(../assets/img/mbg.png)no-repeat ;background-color:#ffffff;box-shadow: 10px 10px 0px #8ace9f;background-size: 100% 100%;"></div>
+        <a href="javascript:;" data-am-modal-close class="am-close am-close-spin" style="display: block;width: 30px ;height: 30px; background:url(../assets/img/close.png) no-repeat;background-position: 100% 0px;background-size: 30px 30px;position: absolute;top: 20px; right: 0px;opacity: 1;"></a>
+        <div class="am-modal-bd" style="max-height: 450px;overflow: auto;padding: 0px;box-shadow: 10px 10px 0px #8ace9f;margin-top: -5px;background: linear-gradient(to bottom, #ffffff, #f3fcf6);"id="personal">
             <!--<form class="am-form">-->
             <table id="inquirey_appointment" class="am-table am-table-bordered am-table-striped tpl-table-black"
             style="border: none;">
                 <thead>
-                <tr style="background: #fff;border: none;height: 60px">
+                <tr style="height: 60px">
                     <th class="am-text-center am-text-middle" style="border: none">序号</th>
                     <th class="am-text-center am-text-middle" style="border: none">归属咨询师</th>
                     <th class="am-text-center am-text-middle" style="border: none">操作人</th>
@@ -180,23 +187,22 @@
         </div>
     </div>
 </div>
+</div>
 
 <!--在线记录按钮-->
 <div class="am-modal am-modal-no-btn" tabindex="-1" id="appoint_modal2">
-    <div class="am-modal-dialog" style="background-color:#fff; border-radius:6px; margin-top:-800px;">
-        <div class="am-text-left" style="background-color: #7ba0ed;border-radius: 6px 6px 0 0">
-            <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 18px 5px 0 10px">
-            <div class="h-tit" style="color: white">在线记录</div>
-            <a href="javascript:;" class="am-close am-close-spin" style="float:right;;width: 15px;height: 15px;line-height: 15px; margin-top:-28px;margin-right: 12px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"
-               data-am-modal-close>&times;</a></div>
-        <div class="am-modal-bd" style="border-radius: 6px">
-            <table id="inquirey_appointment2" class="am-table am-table-bordered am-table-striped tpl-table-black">
-                <!--<thead>
-                <tr style="background: rgb(200,199,197);">
-                    <th class="am-text-center am-text-middle">在线记录</th>
-                </tr>
-                </thead>-->
-                <tbody style="padding: 10px;"></tbody>
+    <div class="am-modal-dialog" style="background:none">
+        <div class="am-text-left" style="background: url(../assets/img/draw.png)no-repeat;background-size: 180px 50px;background-position: 91% -1px;">
+            <span style="display:inline-block;width: 4px;height: 21px;background-color: yellow;position: relative;left: 25px; top: 15px;"></span>
+            <div class="h-tit" style="color: #ffffff;font-size: 22px;margin-left: 10px;font-weight: bold;border:none">在线记录</div>
+            <div style="width: 100%;height: 25px;background: url(../assets/img/mbg.png)no-repeat ;background-color:#ffffff;box-shadow: 10px 10px 0px #8ace9f;background-size: 100% 100%;margin-top: -1px"></div>
+            <a href="javascript:;" data-am-modal-close class="am-close am-close-spin" style="display: block;width: 30px ;height: 30px; background:url(../assets/img/close.png) no-repeat;background-position: 100% 0px;background-size: 30px 30px;position: absolute;top: 19px; right: 0px;opacity: 1;"></a>
+        </div>
+        <div class="am-modal-bd" style="margin-top: -5px;background-color: #fff;box-shadow: 10px 10px 0px #8ace9f; padding: 0px 10px;">
+            <table id="inquirey_appointment2" class="am-table am-table-bordered am-table-striped tpl-table-black" >
+                <tbody>
+
+                </tbody>
             </table>
             <br>
             <div class="am-g">
@@ -207,6 +213,7 @@
         </div>
     </div>
 </div>
+
 
 
 <script src="../assets/js/amazeui.min.js"></script>

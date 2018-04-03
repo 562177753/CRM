@@ -8,9 +8,44 @@ $(document).ready(function () {
         window.location = 'login.html';
         return;
     }
+    if(pmAgent.is_login_cti=="Y")
+    {
+        var options = {
+            // "account": pmAgent.userid,
+            'user_id':pmAgent.userid
+        };
+        var params = $.param(options, true);
+        service.allot_login(params).then(function (data) {
 
+            console.log(data[0].resmsg);
+        });
+        //自动刷新接口
+        setInterval(function () {
+            var options = {
+                // "account": pmAgent.userid,
+                'user_id':pmAgent.userid
+            };
+            var params = $.param(options, true);
+            service.allot_refresh(params).then(function (data) {
+
+                console.log(data[0].resmsg);
+            });
+        },300000)
+
+
+    }
     // 退出CRM
     $('#logout_btn').on('click', function () {
+        //退出crm调接口
+            var options = {
+                'user_id': pmAgent.userid
+            };
+            var params = $.param(options, true);
+            service.allot_logout(params).then(function (data) {
+
+                console.log(data[0].resmsg);
+            });
+
         sessionStorage.clear();//清除存储
         if (pmAgent.is_login_cti == 'N') {
             window.location = 'login.html';
@@ -26,6 +61,7 @@ $(document).ready(function () {
             });
 
             window.location = 'login.html';
+
             return;
         })
             .fail(function () {
@@ -93,6 +129,7 @@ $(document).ready(function () {
 
     //当点击电话搜索时
     $('#btn_search').click(function () {
+
         var phone_num = $('#phone_num').val();
         service.oppotunity_search({
             phone: phone_num
@@ -100,7 +137,7 @@ $(document).ready(function () {
             //   console.log(data);
             //   var oppotunity_search1=data;
             if (data[0].rescode == '-200') {
-                swal("", data[0]["resmsg"], "warning");
+                swal("提示!!", data[0]["resmsg"], "warning");
             } else {
                 var options = {
                     'width': '900px'
@@ -120,7 +157,7 @@ $(document).ready(function () {
                         // ' <td style="width: 30px;line-height: 45px;border: none;">' +
                          // ' <input type="text" readonly="readonly" value="' + data[i].t_student_names + '" style=" width: 60px; margin: 0px -15px;line-height: 25px;border-style:none;outline:none;text-align: center;"/>' +
                         // '</td>' +
-                        '<td class="am-text-center am-text-middle" style="width: 30px;line-height: 45px;border: none;">' + (data[i].student_name || '') + '</td>' +
+                        '<td class="am-text-center am-text-middle" style="width: 30px;border: none;">' + (data[i].student_name || '') + '</td>' +
                         '<td style="width: 80px;line-height: 60px;border: none;">' +
                         ' <input id="cell_phone" class="write" type="text" value="' + data[i].student_cellphone + '" style="width: 120px;margin: 0px -15px;line-height: 25px;background-color: #f9f9f9;border-style:none;outline:none;text-align: center;"/>' +
                         '</td>' +
@@ -347,14 +384,14 @@ $(document).ready(function () {
                     var number1= Number(hint);
                     // console.log(typeof (number));
                     var new1 = number - number1;
-                    // if(NaN!=new1){
-                    //     $('#hint').show();
-                    //     $('#hint').html('新入首咨'+new1+'条!');
-                    // }else {
-                    //     return;
-                    // }
-                    $('#hint').show();
-                    $('#hint').html('新入首咨'+new1+'条!');
+                    if(new1>0){
+                        $('#hint').show();
+                        $('#hint').html('新入首咨'+new1+'条!');
+                    }else {
+                        return;
+                    }
+                    // $('#hint').show();
+                    // $('#hint').html('新入首咨'+new1+'条!');
                     hint=end;
                 }
             });
@@ -377,7 +414,7 @@ $(document).ready(function () {
                     var number1= Number(hint1);
                     // console.log(typeof (number));
                     var new1 = number - number1;
-                    if(NaN!=new1){
+                    if(new1>0){
                         $('#hint').show();
                         $('#hint').html('新报名'+new1+'人!');
                     }else {
@@ -452,15 +489,15 @@ $(document).ready(function () {
                 // console.log(data);
                 var new_2='';
                 for (var i = 0; i < data.length; i++) {
-                    new_2+= '<span style="color: red">'+ '*' +'</span>'+'<span>'+data[i].msg_time+'</span>' +'<br>'+ '<span>'+data[i].content+'</span>' +'<br>';
+                    new_2+= '<span style="color: red">'+ '*' +'</span>'+'<span>'+data[i].msg_time+'</span>' +'<br>'+ '<span>'+data[i].content+'</span>' +'<br>'+'<hr style="margin: 0px;border-color: #fff">';
                 }
                 $('#content2').append(new_2);
             });
     }
 
-    $('#tabGroup1 li').click(function () {
-        $()
-    })
+    // $('#tabGroup1 li').click(function () {
+    //     $()
+    // })
 
 
 

@@ -23,6 +23,26 @@
     <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css"/>
     <script src="../assets/js/func_utils.js"></script>
     <script type="text/javascript" src="../assets/kld_js/work_inquiry.js"></script>
+    <style>
+       #seeMessage .am-btn{
+            border: none;
+            background: #eef3fa;
+
+        }
+       #seeMessage .start input{
+           border: none;
+           background: #eef3fa;
+       }
+       .am-btn{
+           border: none;
+       }
+       #appoint_modal3 .am-selected {
+           background-color: #eef3fa;
+       }
+       .am-table-bordered>tbody>tr>td, .am-table-bordered>tbody>tr>th, .am-table-bordered>tfoot>tr>td, .am-table-bordered>tfoot>tr>th, .am-table-bordered>thead>tr>td, .am-table-bordered>thead>tr>th{
+           border: none;
+       }
+    </style>
 </head>
 
 <body>
@@ -31,14 +51,15 @@
 <div class="am-box-1" id="top" style="padding: 20px 20px 0 20px;">
     <div class="row-content am-cf ">
         <div class="">
-            <section class="am-panel am-panel-default">
-                <header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
+            <section class="am-panel am-panel-default" style="border: none">
+                <header class="am-panel-hd" style="background: #e9ecf3; border-radius: 6px 6px 0 0;border: none;margin: 0px 0px -8px 0px;background: url(../assets/img/draw.png)no-repeat ;background-size:170px 40px;background-position:100% 0px;">
                     <div class="am-vertical-align" style="height: 25px;">
-                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
-                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">查询数据</div>
+                        <span style="display:inline-block;width: 4px;height: 20px;background-color: blue;position: relative;left: -80px; top: 5px;"></span>
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="font-size: 18px;color: #383e56;padding: 0px 0px 0px 20px;">查询数据</div>
                     </div>
+                    <div style="width: 102.3%;height: 20px;background: url(../assets/img/bg.png)no-repeat ;background-color:#ffffff;background-position:100% 0px;margin:8px 0px 0px -15.5px;"></div>
                 </header>
-                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+                <div class="am-panel-bd" style="background:linear-gradient(to bottom,#ffffff, #f3fcf6);box-shadow: 10px 10px 0px #8ace9f;color: #383e56;margin-top: -25px;">
                     <div id="validation"></div>
                     <form class="am-form tpl-form-border-form" id="seeMessage">
                         <div class="am-g">
@@ -95,23 +116,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--<div class="am-u-sm-3 am-u-md-3 am-u-lg-3 ">
-                            <div class="am-form-group ">
-                                <label for="data_source_select " class="am-u-sm-3 am-form-label am-text-left ">学员姓名</label>
-                                <div class="am-u-sm-8 am-margin-top-xs ">
-                                  <input type="text " placeholder="请输入学员姓名 "/>
-                                </div>
-                            </div>
-                            </div>-->
 
-                            <!--<div class="am-u-sm-3 am-u-md-3 am-u-lg-3 ">
-							<div class="am-form-group ">
-								<label for="data_source_select " class="am-u-sm-3 am-form-label am-text-left ">手机号码</label>
-								<div class="am-u-sm-8 am-margin-top-xs ">
-								 <input type="number " name=" " id=" " value=" " />
-								</div>
-							</div>
-							</div>-->
                         </div>
 
 
@@ -167,6 +172,7 @@
                             </div>
                         </div>
                         <!--开始日期-->
+                        <div class="am-g start">
                         <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
                             <div class="am-form-group am-form-icon">
                                 <label style="font-size:14px ;margin-top: 5px " class="am-u-sm-4 am-form-label am-text-left">开始日期</label>
@@ -200,8 +206,6 @@
                             </div>
                         </div>
 
-
-                        <div class="am-g ">
                             <!--流量中心-->
                             <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
                                 <div class="am-form-group ">
@@ -216,9 +220,9 @@
 
                             </div>
                         </div>
-                        <div class=am-g>
-                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3 ">
-                                <div class="am-form-group am-form-icon ">
+                        <div class="am-g start">
+                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
+                                <div class="am-form-group am-form-icon">
                                     <label style="font-size:14px ;margin-top: 5px " class="am-u-sm-4 am-form-label am-text-left ">咨询师账号</label>
                                     <div class="am-u-sm-8 am-margin-top-xs">
                                         <input id="inquiry_account" type="text" class="tpl-form-input
@@ -227,50 +231,84 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3 ">
+                                <div class="am-form-group am-form-icon ">
+                                    <label style="font-size:14px ;margin-top: 5px " class="am-u-sm-4 am-form-label am-text-left ">创建人</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <input id="creator" type="text" class="tpl-form-input
+                                                " style="height: 40px;border-radius: 4px">
+                                        <!--<i class="am-icon-calendar h-icon "></i>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3 ">
+                                <div class="am-form-group am-form-icon ">
+                                    <label style="font-size:14px ;margin-top: 5px " class="am-u-sm-4 am-form-label am-text-left ">微信查询</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <input id="weixin_inquire" type="text" class="tpl-form-input
+                                                " style="height: 40px;border-radius: 4px">
+                                        <!--<i class="am-icon-calendar h-icon "></i>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="am-u-sm-3 am-u-md-3 am-u-lg-3 ">
+                                <div class="am-form-group am-form-icon ">
+                                    <label style="font-size:14px ;margin-top: 5px " class="am-u-sm-4 am-form-label am-text-left ">QQ查询</label>
+                                    <div class="am-u-sm-8 am-margin-top-xs">
+                                        <input id="qq_inquire" type="text" class="tpl-form-input
+                                                " style="height: 40px;border-radius: 4px">
+                                        <!--<i class="am-icon-calendar h-icon "></i>-->
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <!--按钮-->
                         <div class=am-g>
                             <div class="am-u-sm-3 am-u-md-3 am-u-sm-offset-9">
                                 <div style="margin-top:5px; " class="am-form-group am-u-sm-push-0">
                                     <button id="query_btn" type="button" class="am-btn am-btn-success am-radius query_btn1
-                                                " style="font-size:13px;width: 100px;height: 40px;border-radius: 4px ">查 询
+                                                " style="font-size:13px;width: 100px;height: 40px;border-radius: 4px;background-color: #6193d8 ">查 询
                                     </button>
                                     <button id="reset_btn" type="button" class="am-btn am-btn-warning am-radius"
-                                            style="font-size:13px;width: 100px;height: 40px;border-radius: 4px ">重 置
+                                            style="font-size:13px;width: 100px;height: 40px;border-radius: 4px;background-color: #43ad6d ">重 置
                                     </button>
                                 </div>
                             </div>
                         </div>
 
-
+                    </form>
                 </div>
-                </form>
+
+
+            </section>
         </div>
-        </section>
     </div>
 </div>
-</div>
+
 <!------------->
 
 <div class="am-box-1" style="padding:0 20px ;">
     <div class="row-content am-cf">
         <div class=" ">
-            <section class="am-panel am-panel-default">
+            <section class="am-panel am-panel-default" style="border: none">
                 <!--<header class="am-panel-hd " style="background-color:#fdfdfd; border-radius: 6px 6px 0 0; ">
                     <div class="am-vertical-align " style="height: 25px; ">
                         <div class="am-panel-title am-fl am-vertical-align-middle h-text ">查询结果</div>
                     </div>
                 </header>-->
-                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;padding: 0 0 15px 0 ">
+                <div class="am-panel-bd" style="">
                     <!--<div id="validation"></div>-->
 
-                    <table id="inquirys_tbl" class="am-table am-table-bordered am-table-striped tpl-table-black">
+                    <table id="inquirys_tbl" class="am-table am-table-bordered am-table-striped tpl-table-black" style="width: 100%;border: none;">
                         <thead>
-                        <tr style="background:#7ba0ed;color: #fff; ">
+                        <tr style="background-color: #e9ecf3;height: 25px;color: #383e56;">
                             <th class="am-text-center am-text-middle">序号</th>
                             <th class="am-text-center am-text-middle">项目大类</th>
                             <th class="am-text-center am-text-middle">学员姓名</th>
                             <th class="am-text-center am-text-middle">手机号码</th>
+                            <th class="am-text-center am-text-middle">微信</th>
+                            <th class="am-text-center am-text-middle">QQ</th>
                             <th class="am-text-center am-text-middle">数据类型</th>
                             <th class="am-text-center am-text-middle">咨询类型</th>
                             <th class="am-text-center am-text-middle">创建时间</th>
@@ -287,7 +325,7 @@
                             <th class="am-text-center am-text-middle">操作</th>
                         </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody style="background:linear-gradient(to bottom, #ffffff, #eef3fa); box-shadow: 10px 10px 0px #79a6e1;color: #383e56"></tbody>
                     </table>
 
                     <div class="am-scrollable-horizontal">
@@ -319,17 +357,21 @@
 <!------->
 <!--业务日志弹框-->
 <div class="am-modal am-modal-no-btn" tabindex="-1" id="appoint_modal">
-    <div class="am-modal-dialog" style="background-color:#FFF; border-radius:6px; margin-top:-200px; ">
-        <div class="am-text-left" style="background-color: #7ba0ed;border-radius: 6px 6px 0 0">
-            <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 18px 5px 0 10px">
-            <div class="h-tit" style="color: #fff;">业务日志</div>
-            <a href="javascript:;" class="am-close am-close-spin" style="float:right;;width: 15px;height: 15px;line-height: 15px; margin-top:-28px;margin-right: 12px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"
-               data-am-modal-close>&times;</a></div>
-        <div class="am-modal-bd" style="height: 400px;padding: 0px" id="personal">
+    <div class="am-modal-dialog" style="background: none">
+        <div class="am-text-left" style="background: url(../assets/img/draw.png)no-repeat;background-size: 180px 50px;background-position: 91% -6px;">
+            <span style="display:inline-block;width: 4px;height: 21px;background-color: yellow;position: relative;left: 20px; top: 15px;"></span>
+            <div class="h-tit" style="color: #ffffff;font-size: 22px;margin-left: 10px;font-weight: bold;border:none">业务日志</div>
+            <div style="width: 100%;height: 30px;background: url(../assets/img/mbg.png)no-repeat ;background-color:#ffffff;background-size: 100% 100%;margin: -30px 0px 0px 0px;position: relative;top: 22px;left: 0px;"></div>
+            <!--<a href="javascript:;" class="am-close am-close-spin" style="float:right;;width: 30px;height: 30px;line-height: 29px; margin-top:-30px;margin-right: 0px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"-->
+               <!--data-am-modal-close>&times;</a>-->
+
+            <a href="javascript:;" data-am-modal-close class="am-close am-close-spin" style="display: block;width: 30px ;height: 30px; background:url(../assets/img/close.png) no-repeat;background-position: 100% 0px;background-size: 30px 30px;position: absolute;top: 10px; right: 0px;opacity: 1;"></a>
+        </div>
+        <div class="am-modal-bd" style="width: 100%;height: 350px;padding: 0px;max-height: 450px;overflow: auto; font-size:14px;background: linear-gradient(to bottom, #ffffff, #f3fcf6);box-shadow: 10px 10px 0px #8ace9f;" id="personal">
             <!--<form class="am-form ">-->
             <table id="inquirey_appointment" class="am-table am-table-bordered am-table-striped tpl-table-black" style="border: none;">
                 <thead>
-                <tr style="background: #fff;border: none;height:60px;">
+                <tr style="height:60px;">
                     <th class="am-text-center am-text-middle" style="border: none;">序号</th>
                     <th class="am-text-center am-text-middle" style="border: none;">归属咨询师</th>
                     <th class="am-text-center am-text-middle" style="border: none;">操作人</th>
@@ -342,32 +384,27 @@
                 <tbody></tbody>
             </table>
         </div>
-
-        <div class="am-g ">
-            <div class="am-u-sm-12 " style="padding-left:0px; padding-right:0px; ">
-                <!--<div class="am-btn-group am-btn-group-justify "><a class="am-btn am-h " href="javascript:;
-                                                " data-am-modal-close style="border-radius:0 0 6px 0; ">取消</a> </div>-->
-
-            </div>
-        </div>
     </div>
 </div>
 <!--在线记录按钮-->
 <div class="am-modal am-modal-no-btn " tabindex="-1" id="appoint_modal2">
-    <div class="am-modal-dialog" style="background-color:#FFF; border-radius:6px; margin-top:-200px; ">
-        <div class="am-text-left" style="background-color: #7ba0ed;border-radius: 6px 6px 0 0">
-            <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 18px 5px 0 10px">
-            <div class="h-tit" style="color: white">在线记录</div>
-            <a href="javascript:; " class="am-close am-close-spin " style="float:right;;width: 15px;height: 15px;line-height: 15px; margin-top:-28px;margin-right: 12px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"
-               data-am-modal-close>&times;</a></div>
-        <div class="am-modal-bd ">
-            <table id="inquirey_appointment2" class="am-table am-table-bordered am-table-striped tpl-table-black ">
+    <div class="am-modal-dialog" style="background:none">
+        <div class="am-text-left" style="background: url(../assets/img/draw.png)no-repeat;background-size: 180px 50px;background-position: 91% 2px;">
+            <span style="display:inline-block;width: 4px;height: 21px;background-color: yellow;position: relative;left: 30px; top: 15px;"></span>
+            <div class="h-tit" style="color: #ffffff;font-size: 22px;margin-left: 15px;font-weight: bold;border:none;">在线记录</div>
+            <div style="width: 100%;height: 25px;background: url(../assets/img/mbg.png)no-repeat ;background-color:#ffffff;box-shadow: 10px 10px 0px #8ace9f;background-size: 100% 100%;margin-top: -1px"></div>
+            <a href="javascript:;" data-am-modal-close class="am-close am-close-spin" style="display: block;width: 30px ;height: 30px; background:url(../assets/img/close.png) no-repeat;background-position: 100% 0px;background-size: 30px 30px;position: absolute;top: 20px; right: 0px;opacity: 1;"></a>
+        </div>
+        <div class="am-modal-bd" style="margin-top: -5px;background-color: #fff;box-shadow: 10px 10px 0px #8ace9f;">
+            <table id="inquirey_appointment2" class="am-table am-table-bordered am-table-striped tpl-table-black" style="margin-top: -15px;border: none">
                 <!--<thead>-->
                 <!--<tr style="background: rgb(200,199,197); ">-->
                     <!--<th class="am-text-center am-text-middle ">在线记录</th>-->
                 <!--</tr>-->
                 <!--</thead>-->
-                <tbody></tbody>
+                <tbody>
+
+                </tbody>
             </table>
             <br>
             <div class="am-g ">
@@ -380,14 +417,17 @@
     </div>
 </div>
 <!--手动分配按钮-->
-<div class="am-modal am-modal-no-btn " tabindex="-1 " id="appoint_modal3">
-    <div class="am-modal-dialog " style="background-color:#FFF; border-radius:6px; margin-top:-200px; ">
-        <div class="am-text-left" style="background-color: #7ba0ed;border-radius: 6px 6px 0 0">
-            <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 18px 5px 0 10px">
-            <div class="h-tit" style="color: #fff">选择咨询师</div>
-            <a href="javascript:; " class="am-close am-close-spin " style="float:right;;width: 15px;height: 15px;line-height: 15px; margin-top:-28px;margin-right: 12px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"
-               data-am-modal-close>&times;</a></div>
-        <div class="am-modal-bd">
+<div class="am-modal am-modal-no-btn am-vertical-align-middle" tabindex="-1 " id="appoint_modal3">
+    <div class="am-modal-dialog " style="background: none">
+        <div class="am-text-left" style="background: url(../assets/img/draw.png)no-repeat;background-size: 180px 50px;background-position: 91% -6px;">
+            <span style="display:inline-block;width: 4px;height: 21px;background-color: yellow;position: relative;left: 30px; top: 15px;"></span>
+            <div class="h-tit" style="color: #ffffff;font-size: 22px;margin-left:15px;font-weight: bold;border:none">选择咨询师</div>
+            <div style="width: 100%;height: 30px;background: url(../assets/img/mbg.png)no-repeat ;background-color:#ffffff;background-size: 100% 100%;margin: -30px 0px 0px 0px;position: relative;top: 22px;left: 0px;"></div>
+            <!--<a href="javascript:; " class="am-close am-close-spin " style="float:right;;width: 15px;height: 15px;line-height: 15px; margin-top:-28px;margin-right: 12px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"-->
+               <!--data-am-modal-close>&times;</a></div>-->
+        <a href="javascript:;" data-am-modal-close class="am-close am-close-spin" style="display: block;width: 30px ;height: 30px; background:url(../assets/img/close.png) no-repeat;background-position: 100% 0px;background-size: 30px 30px;position: absolute;top: 10px; right: 0px;opacity: 1;"></a>
+
+        <div class="am-modal-bd" style="background: linear-gradient(to bottom, #ffffff, #f3fcf6);box-shadow: 10px 10px 0px #8ace9f;margin-top: -7px;">
             <div class="am-g am-u-md-8 am-u-sm-centered ">
                 <label class="am-u-sm-5 am-form-label am-text-left"
                        style="margin-top: 8px; ">等级</label>
@@ -416,22 +456,21 @@
                     </select>
                 </div>
             </div>
-            <div></div>
-
-        </div>
-        <div class="am-g">
-            <div class="am-u-sm-12 " style="padding-left:0px; padding-right:0px; ">
-                <div class="am-btn-group am-btn-group-justify ">
-                    <!--<a id="inquirey_submit_btn" class="am-btn h-btn " href="javascript:;"-->
-                       <!--style="border-radius:0 0 0 6px; ">提交</a>-->
-                    <!--<a class="am-btn am-h" href="javascript:; " data-am-modal-close-->
-                       <!--style="border-radius:0 0 6px 0; ">取消</a>-->
-                    <a id="inquirey_submit_btn" class="am-btn h-btn" href="javascript:;" style="display: inline-block;width: 150px;border-radius:4px;margin: 10px 0px 10px 0px;">提交</a>
-                    <a class="am-btn am-h" href="javascript:;" data-am-modal-close style="border-radius:4px;display: inline-block; width: 150px;margin: 0px 0px 0px 100px;border: 2px solid #6191d8;background: #fff;
-                        color: #6191d8;">取消</a>
+            <div class="am-g">
+                <div class="am-u-sm-12 " style="padding-left:0px; padding-right:0px; ">
+                    <div class="am-btn-group am-btn-group-justify ">
+                        <!--<a id="inquirey_submit_btn" class="am-btn h-btn " href="javascript:;"-->
+                        <!--style="border-radius:0 0 0 6px; ">提交</a>-->
+                        <!--<a class="am-btn am-h" href="javascript:; " data-am-modal-close-->
+                        <!--style="border-radius:0 0 6px 0; ">取消</a>-->
+                        <a id="inquirey_submit_btn" class="am-btn h-btn" href="javascript:;" style="display: inline-block;width: 150px;border-radius:4px;margin: 10px 0px 10px 0px;background-color: #6193d8">提交</a>
+                        <a class="am-btn am-h" href="javascript:;" data-am-modal-close style="border-radius:4px;display: inline-block; width: 150px;margin: 0px 0px 0px 100px;background: #e26479;
+                        color: #fff;">取消</a>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 </div>

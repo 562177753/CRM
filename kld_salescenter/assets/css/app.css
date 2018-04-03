@@ -10,7 +10,7 @@ header {
 }
 .tpl-header-logo {
   width: 240px;
-  height: 57px;
+  height: 60px;
   display: table;
   text-align: center;
   position: relative;
@@ -25,7 +25,7 @@ header {
 }
 .tpl-header-fluid {
   margin-left: 240px;
-  height: 56px;
+  height: 60px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -46,8 +46,8 @@ header {
   outline: none;
 }
 .tpl-header-search-form {
-  height: 54px;
-  line-height: 52px;
+  height: 59px;
+  line-height: 59px;
   margin-left: 10px;
 }
 .tpl-header-search-box,
@@ -375,9 +375,9 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 .tpl-content-wrapper {
   transition: all 0.4s ease-in-out;
   position: relative;
-  margin-left: 270px;
-  z-index: 1101;
-  min-height: 1200px;
+  /*margin-left: 270px;*/
+  /*z-index: 1101;*/
+  /*min-height: 1200px;*/
   height: 100%;
   /*overflow-y:hidden;*/
   border-bottom-left-radius: 3px;
@@ -1198,7 +1198,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 }
 .theme-white .tpl-header-fluid {
   background: #fff;
-  border-bottom: 1px solid #ccc;
+
 }
 .theme-white .tpl-header-logo {
   background: #333;
@@ -1914,7 +1914,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 
 .lqs-oul li{
   float: left;
-  width: 100px
+    width: 100px
 }
 #tab li a{
   text-align: center;
@@ -1928,8 +1928,9 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   padding-left: 15px;
 }
 #tab li a span:hover {
-  color:rgba(255,255,255,1.0)
+  color: #fff29c;
 }
+
 #tab li .tpl-left-nav-sub-menu li a{
   padding-left: 20px;
   text-align: left;
@@ -1941,7 +1942,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   height:33px;
   background-image:url(../img/home_export.png);
   background-size: 100% 100%;
-  margin-top: 11px;
+  margin-top: 14px;
   margin-left: 20px;
   margin-right:0;
 }

@@ -22,6 +22,29 @@
     <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css"/>
     <script src="../assets/js/func_utils.js"></script>
     <script type="text/javascript" src="../assets/kld_js/work_detail.js"></script>
+    <style>
+        .am-nav-tabs>li.am-active>a, .am-nav-tabs>li.am-active>a:focus, .am-nav-tabs>li.am-active>a:hover{
+            background-color: #fff;
+            color: #3C5364;
+
+            }
+        #workForm .am-btn{
+            border: none;
+            background: #eef3fa;
+
+        }
+        #workForm input{
+            border: none;
+            background: #eef3fa;
+        }
+        #inquirys_tbl_1 th{
+            border: none;
+        }
+        #inquirys_tbl_3 th{
+            border: none;
+            font-size: 16px;
+        }
+        </style>
 </head>
 <body>
 <script src="../assets/js/theme.js"></script>
@@ -29,15 +52,17 @@
 <div class="am-box-1" style="padding: 20px 20px 0 20px">
     <div class="row-content am-cf ">
         <div class="">
-            <section class="am-panel am-panel-default">
-                <header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
-                    <div class="am-vertical-align" style="height: 25px;">
-                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
-                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">明细查询</div>
+            <section class="am-panel am-panel-default" style="border: none">
+                <header class="am-panel-hd" style="background: #e9ecf3; border-radius: 6px 6px 0 0;border: none;margin: 0px 0px -8px 0px;background: url(../assets/img/draw.png)no-repeat ;background-size:170px 40px;background-position:100% 0px;">
+                    <div class="am-vertical-align" style="height: 37px;">
+                        <span style="display:inline-block;width: 4px;height: 20px;background-color: blue;position: relative;left: -80px; top: 5px;"></span>
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="font-size: 18px;color: #383e56;padding: 0px 0px 0px 20px;">明细查询
+                        </div>
+                        <div style="width: 102.3%;height: 20px;background: url(../assets/img/bg.png)no-repeat ;background-color:#ffffff;background-position:100% 0px;margin:-5px 0px 0px -15.5px;"></div>
                     </div>
                 </header>
 
-                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+                <div class="am-panel-bd" style="background:linear-gradient(to bottom,#ffffff, #f3fcf6);box-shadow: 10px 10px 0px #8ace9f;color: #383e56;">
                     <div id="validation"></div>
                     <form class="am-form tpl-form-border-form" id="workForm">
                         <div class="am-g">
@@ -48,7 +73,8 @@
                                            class="am-u-sm-2 am-form-label am-text-left">军团</label>
                                     <div class="am-u-sm-8 am-margin-top-xs">
                                         <!--<select multiple class="am-disabled"  id="inquiry_flow_2" data-am-selected="{searchBox: 1,btnWidth: '100%'}">-->
-                                        <select id="detail_flow_2" class="data-select-bind"  data-am-selected="{searchBox: 1,btnWidth: '100%'}">
+                                        <select id="detail_flow_2" class="data-select-bind"
+                                                data-am-selected="{searchBox: 1,btnWidth: '100%'}">
                                             <option value="">请选择</option>
                                             <!--<option value="北京大区">北京大区</option>-->
                                         </select>
@@ -106,14 +132,18 @@
                                            class="am-u-sm-2 am-form-label am-text-left">日期</label>
                                     <div class="am-u-sm-4 am-margin-top-xs">
                                         <input id="star_date" type="text" class="tpl-form-input am-form-field"
-                                               placeholder="开始日期" data-am-datepicker readonly style="height: 40px;border-radius: 4px"/>
-                                        <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+                                               placeholder="开始日期" data-am-datepicker readonly
+                                               style="height: 40px;border-radius: 4px"/>
+                                        <img src="../assets/img/filter_date.png" alt=""
+                                             style="position:absolute;top: 27%;right: 12%">
                                     </div>
                                     <span style=" float: left; margin-top: 10px;">－</span>
                                     <div class="am-u-sm-4 am-margin-top-xs">
                                         <input id="end_date" type="text" class="tpl-form-input am-form-field"
-                                               placeholder="结束日期" data-am-datepicker readonly style="height: 40px;border-radius: 4px"/>
-                                        <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
+                                               placeholder="结束日期" data-am-datepicker readonly
+                                               style="height: 40px;border-radius: 4px"/>
+                                        <img src="../assets/img/filter_date.png" alt=""
+                                             style="position:absolute;top: 27%;right: 12%">
                                     </div>
                                 </div>
 
@@ -122,7 +152,7 @@
                                 <div class="am-form-group am-form-icon">
                                     <div class="am-u-sm-8 am-margin-top-xs">
                                         <button id="query_btn_2" type="button" class="am-btn am-btn-success am-radius"
-                                                style="font-size:14px;width: 100px;height: 40px;border-radius: 4px">查 询
+                                                style="font-size:14px;width: 100px;height: 40px;border-radius: 4px;background-color: #6193d8;margin-left: 70px">查 询
                                         </button>
                                     </div>
                                 </div>
@@ -134,72 +164,223 @@
         </div>
     </div>
 </div>
-<!--</div>-->
 
-<!------------->
 
 <div class="am-box-1" style="padding: 0 20px">
     <div class="row-content am-cf ">
-        <div class="">
-            <section class="am-panel am-panel-default">
-                <!--<header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
-                    <div class="am-vertical-align" style="height: 25px;">
-                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
-                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">查询结果</div>
-                    </div>
-                </header>-->
-                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;padding: 0 0 20px 0;">
-                    <div></div>
 
-                    <table id="inquirys_tbl_2" class="am-table am-table-bordered am-table-striped tpl-table-black">
-                        <thead>
-                        <tr style="background:#7ba0ed;color: #fff;">
-                            <!--军团、咨询师分组、等级、咨询师、分配名片总计、反馈总计、销售机会数、机会有效率、回访比、当周回访比、跨期回访比、报名人数、流水、ARPU值、名片销转、呼出通话个数、呼出通话时长-->
-                            <th class="am-text-center am-text-middle">军团</th>
-                            <th class="am-text-center am-text-middle">咨询师分组</th>
-                            <th class="am-text-center am-text-middle">等级</th>
-                            <th class="am-text-center am-text-middle">咨询师</th>
-                            <th class="am-text-center am-text-middle">分配名片总计</th>
-                            <th class="am-text-center am-text-middle">反馈总计</th>
-                            <th class="am-text-center am-text-middle">销售机会总计</th>
-                            <th class="am-text-center am-text-middle">机会有效率</th>
-                            <th class="am-text-center am-text-middle">回访比</th>
-                            <th class="am-text-center am-text-middle">当周回访比</th>
-                            <th class="am-text-center am-text-middle">跨期回访比</th>
-                            <th class="am-text-center am-text-middle">报名人数</th>
-                            <th class="am-text-center am-text-middle">流水</th>
-                            <th class="am-text-center am-text-middle">ARPU值</th>
-                            <th class="am-text-center am-text-middle">名片销转</th>
-                            <th class="am-text-center am-text-middle">呼出通话个数</th>
-                            <th class="am-text-center am-text-middle">呼出通话时长</th>
-                        </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-
-                    <div class="am-scrollable-horizontal">
-
-                    </div>
-                    <ul data-am-widget="pagination" class="am-pagination am-pagination-default am-pagination-centered" id="jumpPage">
-                        <li class="am-pagination-prev ">
-                            <a href="javascript:;" class="">&laquo;</a>
+        <!-------切换开始------>
+        <div class="widget-body widget-body-lg am-fr">
+            <form class="am-form tpl-form-border-form">
+                <div class="am-tabs" data-am-tabs="{noSwipe: 1}">
+                    <ul class="am-tabs-nav am-nav am-nav-tabs" style="border: none">
+                        <!--<ul class="am-tabs-nav am-nav am-nav-tabs am-text-xs" style="padding-left:10px; border-bottom:0px;font-size:14px;background: #7ca3ee;border-radius: 6px 6px 0px 0px;color: #fff">-->
+                        <li class="am-active">
+                            <a href="am-tab-panel_0" id="ref_case_tab_0" style="font-size: 18px;font-weight: bold;background-color: #e9ecf3;border: none">
+                                <!--<span style="display:inline-block;width: 4px;height: 19px;background-color: blue;position: relative; top: 3px;"></span>-->
+                                工作明细</a>
                         </li>
-
-                        <li class="am-pagination-current"><span>...</span></li>
-
-                        <li class="am-pagination-next ">
-                            <a href="javascript:;" class="">&raquo;</a>
-                        </li>
+                        <!--<li>-->
+                            <!--<a href="am-tab-panel_1" id="ref_case_tab" style="font-size: 18px;font-weight: bold;background-color: #e9ecf3;border: none">报名明细</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="am-tab-panel_2" id="ref_case_tab_2" style="font-size: 18px;font-weight: bold;background-color: #e9ecf3;border: none">退费明细</a>-->
+                        <!--</li>-->
 
                     </ul>
+                    <div class="am-tabs-bd">
+                        <div class="am-tab-panel am-active am-in" id="am-tab-panel_0" style="padding: 0px;border: none">
+
+                            <div class="am-panel-bd" style="border: none">
+                                <table id="inquirys_tbl_2"
+                                       class="am-table am-table-bordered am-table-striped tpl-table-black" style="width: 100%;border: none;">
+                                    <thead>
+                                    <tr style="background-color: #e9ecf3;height: 25px;color: #383e56;">
+                                        <th class="am-text-center am-text-middle">军团</th>
+                                        <th class="am-text-center am-text-middle">咨询师分组</th>
+                                        <th class="am-text-center am-text-middle">等级</th>
+                                        <th class="am-text-center am-text-middle">咨询师</th>
+                                        <th class="am-text-center am-text-middle">分配名片总计</th>
+                                        <th class="am-text-center am-text-middle">反馈总计</th>
+                                        <th class="am-text-center am-text-middle">销售机会总计</th>
+                                        <th class="am-text-center am-text-middle">机会有效率</th>
+                                        <th class="am-text-center am-text-middle">回访比</th>
+                                        <th class="am-text-center am-text-middle">当周回访比</th>
+                                        <th class="am-text-center am-text-middle">跨期回访比</th>
+                                        <th class="am-text-center am-text-middle">报名人数</th>
+                                        <th class="am-text-center am-text-middle">流水</th>
+                                        <th class="am-text-center am-text-middle">ARPU值</th>
+                                        <th class="am-text-center am-text-middle">名片销转</th>
+                                        <th class="am-text-center am-text-middle">呼出通话个数</th>
+                                        <th class="am-text-center am-text-middle">呼出通话时长</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody style="background:linear-gradient(to bottom, #ffffff, #eef3fa); box-shadow: 10px 10px 0px #79a6e1;color: #383e56"></tbody>
+                                </table>
+
+                                <div class="am-scrollable-horizontal">
+
+                                </div>
+                                <ul data-am-widget="pagination"
+                                    class="am-pagination am-pagination-default am-pagination-centered" id="jumpPage">
+                                    <li class="am-pagination-prev ">
+                                        <a href="javascript:;" class="">&laquo;</a>
+                                    </li>
+
+                                    <li class="am-pagination-current"><span>...</span></li>
+
+                                    <li class="am-pagination-next ">
+                                        <a href="javascript:;" class="">&raquo;</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!--报名明细-->
+                        <div class="am-tab-panel" id="am-tab-panel_1" style="padding: 0px">
+                            <div class="am-panel-bd"
+                                 style="border: none">
+                                <div></div>
+
+                                <table id="inquirys_tbl_1"
+                                       class="am-table am-table-bordered am-table-striped tpl-table-black" style="width: 100%;border: none;">
+                                    <thead>
+                                    <tr style="background-color: #e9ecf3;height: 25px;color: #383e56;">
+                                        <th class="am-text-center am-text-middle" style="font-size: 16px">军团</th>
+                                        <th class="am-text-center am-text-middle" style="font-size: 16px">报名时间</th>
+                                        <th class="am-text-center am-text-middle" style="font-size: 16px">机会ID</th>
+                                        <th class="am-text-center am-text-middle" style="font-size: 16px">学员姓名</th>
+                                        <th class="am-text-center am-text-middle" style="font-size: 16px">报名班型</th>
+                                        <th class="am-text-center am-text-middle" style="font-size: 16px">报名金额</th>
+                                        <th class="am-text-center am-text-middle" style="font-size: 16px">归属组</th>
+                                        <th class="am-text-center am-text-middle" style="font-size: 16px">归属人</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody style="background:linear-gradient(to bottom, #ffffff, #eef3fa); box-shadow: 10px 10px 0px #79a6e1;color: #383e56"></tbody>
+                                </table>
+
+                                <div class="am-scrollable-horizontal">
+
+                                </div>
+                                <ul data-am-widget="pagination"
+                                    class="am-pagination am-pagination-default am-pagination-centered" id="jumpPage">
+                                    <li class="am-pagination-prev ">
+                                        <a href="javascript:;" class="">&laquo;</a>
+                                    </li>
+
+                                    <li class="am-pagination-current"><span>...</span></li>
+
+                                    <li class="am-pagination-next ">
+                                        <a href="javascript:;" class="">&raquo;</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!--退费明细-->
+                        <div class="am-tab-panel" id="am-tab-panel_2" style="padding: 0px;border: none">
+                            <div class="am-panel-bd">
+                                <table id="inquirys_tbl_3"
+                                       class="am-table am-table-bordered am-table-striped tpl-table-black" style="border: none">
+                                    <thead>
+                                    <tr style="background-color: #e9ecf3;height: 25px;color: #383e56;">
+                                        <th class="am-text-center am-text-middle">军团</th>
+                                        <th class="am-text-center am-text-middle">退费时间</th>
+                                        <th class="am-text-center am-text-middle">机会ID</th>
+                                        <th class="am-text-center am-text-middle">学员姓名</th>
+                                        <th class="am-text-center am-text-middle">报名班型</th>
+                                        <th class="am-text-center am-text-middle">退费金额</th>
+                                        <th class="am-text-center am-text-middle">归属组</th>
+                                        <th class="am-text-center am-text-middle">归属人</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody style="background:linear-gradient(to bottom, #ffffff, #eef3fa); box-shadow: 10px 10px 0px #79a6e1;color: #383e56"></tbody>
+                                </table>
+
+                                <div class="am-scrollable-horizontal">
+
+                                </div>
+                                <ul data-am-widget="pagination"
+                                    class="am-pagination am-pagination-default am-pagination-centered" id="jumpPage">
+                                    <li class="am-pagination-prev ">
+                                        <a href="javascript:;" class="">&laquo;</a>
+                                    </li>
+
+                                    <li class="am-pagination-current"><span>...</span></li>
+
+                                    <li class="am-pagination-next ">
+                                        <a href="javascript:;" class="">&raquo;</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-
-            </section>
+            </form>
         </div>
-    </div>
 
+
+    </div>
 </div>
 
+
+<!--<div class="am-box-1" style="padding: 0 20px">-->
+<!--<div class="row-content am-cf ">-->
+<!--<div class="">-->
+<!--<section class="am-panel am-panel-default">-->
+<!--<div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;padding: 0 0 20px 0;">-->
+<!--<div></div>-->
+
+<!--<table id="inquirys_tbl_2" class="am-table am-table-bordered am-table-striped tpl-table-black">-->
+<!--<thead>-->
+<!--<tr style="background:#7ba0ed;color: #fff;">-->
+<!--&lt;!&ndash;军团、咨询师分组、等级、咨询师、分配名片总计、反馈总计、销售机会数、机会有效率、回访比、当周回访比、跨期回访比、报名人数、流水、ARPU值、名片销转、呼出通话个数、呼出通话时长&ndash;&gt;-->
+<!--<th class="am-text-center am-text-middle">军团</th>-->
+<!--<th class="am-text-center am-text-middle">咨询师分组</th>-->
+<!--<th class="am-text-center am-text-middle">等级</th>-->
+<!--<th class="am-text-center am-text-middle">咨询师</th>-->
+<!--<th class="am-text-center am-text-middle">分配名片总计</th>-->
+<!--<th class="am-text-center am-text-middle">反馈总计</th>-->
+<!--<th class="am-text-center am-text-middle">销售机会总计</th>-->
+<!--<th class="am-text-center am-text-middle">机会有效率</th>-->
+<!--<th class="am-text-center am-text-middle">回访比</th>-->
+<!--<th class="am-text-center am-text-middle">当周回访比</th>-->
+<!--<th class="am-text-center am-text-middle">跨期回访比</th>-->
+<!--<th class="am-text-center am-text-middle">报名人数</th>-->
+<!--<th class="am-text-center am-text-middle">流水</th>-->
+<!--<th class="am-text-center am-text-middle">ARPU值</th>-->
+<!--<th class="am-text-center am-text-middle">名片销转</th>-->
+<!--<th class="am-text-center am-text-middle">呼出通话个数</th>-->
+<!--<th class="am-text-center am-text-middle">呼出通话时长</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody></tbody>-->
+<!--</table>-->
+
+<!--<div class="am-scrollable-horizontal">-->
+
+<!--</div>-->
+<!--<ul data-am-widget="pagination" class="am-pagination am-pagination-default am-pagination-centered" id="jumpPage">-->
+<!--<li class="am-pagination-prev ">-->
+<!--<a href="javascript:;" class="">&laquo;</a>-->
+<!--</li>-->
+
+<!--<li class="am-pagination-current"><span>...</span></li>-->
+
+<!--<li class="am-pagination-next ">-->
+<!--<a href="javascript:;" class="">&raquo;</a>-->
+<!--</li>-->
+
+<!--</ul>-->
+<!--</div>-->
+
+<!--</section>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--</div>-->
 
 
 <script src="../assets/js/amazeui.min.js"></script>

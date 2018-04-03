@@ -83,7 +83,7 @@ function tc() {
     $('.campus_select').empty();
     //获取所有的分校信息
     options={
-		"account": pmAgent.userid,
+		"account": pmAgent.userid
 	}
 	var params = $.param(options, true);
     service.get_campus_big_id(params)
@@ -93,16 +93,21 @@ function tc() {
                 opt += '<option value="' + data[i].id + '">' +
                     data[i].name +
                     '</option>';
-                //				console.log(data[i].name)
+                // console.log(data[i].name)
             }
             var opt1 = $('<option value=" ">选择分校</option>')
-            $('.campus_select').append(opt1);
             $('.campus_select').append(opt);
+            $('.campus_select').append(opt1);
+
         });
 
     $('#items_select1').empty();
     //获取所有的项目大类
-    service.get_course_big_id()
+    options={
+        "account": pmAgent.userid
+    }
+    var params = $.param(options, true);
+    service.get_course_big_id(params)
         .then(function (data) {
             var opt2 = '';
             for (var i = 0; i < data.length; i++) {
@@ -112,8 +117,8 @@ function tc() {
             }
             //		 console.log(data)
             var opt_2 = $('<option value=" ">请选择</option>')
-            $('#items_select1').append(opt_2);
             $('#items_select1').append(opt2);
+            $('#items_select1').append(opt_2);
         });
 
     $('.inquiry_Consultation').empty();
@@ -128,8 +133,8 @@ function tc() {
             }
             //		 console.log(data)
             var opt_3 = $('<option value=" ">请选择</option>')
-            $('#inquiry_Consultation').append(opt_3);
             $('#inquiry_Consultation').append(opt3);
+            $('#inquiry_Consultation').append(opt_3);
         });
 
     $('#inquiry_flow').empty();
@@ -143,6 +148,8 @@ function tc() {
             //	 console.log(data)
             $('#inquiry_flow').append(opt4);
         });
+    $('#inquiry_sdate_txt_1').attr('placeholder', getDateNow('yyyy-MM-01'));
+    $('#inquiry_sdate_txt_2').attr('placeholder', getDateNow('yyyy-MM-dd'));
 }
 
 
@@ -164,6 +171,8 @@ function fill_dataGrid(data) {
                 '<td class="am-text-center am-text-middle">' + (bean.course_big_id_name || '') + '</td>' +
                 '<td class="am-text-center am-text-middle">' + (bean.student_name || '') + '</td>' +
                 '<td class="am-text-center am-text-middle">' + (bean.student_cellphone || '') + '</td>' +
+                '<td class="am-text-center am-text-middle">' + (bean.student_weixin || '') + '</td>' +
+                '<td class="am-text-center am-text-middle">' + (bean.student_qq || '') + '</td>' +
                 '<td class="am-text-center am-text-middle" >' + (bean.reference_code || '') + '</td>' +
                 '<td class="am-text-center am-text-middle">' + (bean.source_code || '') + '</td>' +
                 '<td class="am-text-center am-text-middle">' + (bean.create_time || '') + '</td>' +
@@ -174,11 +183,11 @@ function fill_dataGrid(data) {
                 '<td class="am-text-center am-text-middle">' + (bean.effective_code || '') + '</td>' +
                 '<td class="am-text-center am-text-middle" >' + (bean.flow_legion || '') + '</td>' + //流量中心
                 //			'<td>' + ( bean.project_Page_Name|| '') + '</td>' +
-                '<td class="td1"><button  type="button"  class="am-btn am-round am-btn-default am-btn-warning inquirys_business am-btn-xs" onclick="onTriggerEventHandler(\'#get_operate_log;opid=' + bean.id + '\')" style="margin-bottom: 2px;padding:3px 10px">业务日志</button><br>' +
-                '<button type="button" class="am-btn  am-round am-btn-default am-btn-secondary am-btn-xs" onclick="onTriggerEventHandler(\'#oppotunity;' + param + '\')"style="margin-bottom: 2px;padding:3px 10px">在线记录</button>';
+                '<td class="td1"><button  type="button"  class="am-btn am-round am-btn-default am-btn-warning inquirys_business am-btn-xs btn1" onclick="onTriggerEventHandler(\'#get_operate_log;opid=' + bean.id + '\')" style="margin-bottom: 2px;padding:3px 10px">业务日志</button><br>' +
+                '<button type="button" class="am-btn am-round am-btn-default am-btn-secondary am-btn-xs btn2" onclick="onTriggerEventHandler(\'#oppotunity;' + param + '\')"style="margin-bottom: 2px;padding:3px 10px">在线记录</button>';
             '</tr>'
             if (bean.fenpei_state == "已分配" || bean.fankui_state == "已反馈" ||bean.fenpei_state =='未分配' || bean.fankui_state =='未反馈') {
-                row += '<br><button type="button" class="am-btn am-round  am-btn-default am-btn-primary fp am-btn-xs" style="padding:3px 10px" onclick="onTriggerEventHandler(\'#get_role_groups_by_account;' + param2 + '\')">手动分配</button></td>';
+                row += '<br><button type="button" class="am-btn am-round am-btn-default am-btn-primary fp btn3 am-btn-xs" style="padding:3px 10px" onclick="onTriggerEventHandler(\'#get_role_groups_by_account;' + param2 + '\')">手动分配</button></td>';
             }
             table.append(row);
             no++;
@@ -187,9 +196,14 @@ function fill_dataGrid(data) {
         var page_index = parseInt(data[0].pageindex);
         if (page_total > 0) {
             $('.am-pagination-current span').text(page_index + ' / ' + page_total);
+        }else{
+            $('.am-pagination-current span').text(' ... ');
         }
     }
 }
+
+
+
 
 function onTriggerEventHandler(selector) {
     if (selector == "#query_btn") {
@@ -230,11 +244,28 @@ function onTriggerEventHandler(selector) {
         var val = $('#inquiry_account').val(); //咨询师查询
         if (val) options['query_account'] = val;
 
+        var val = $('#creator').val(); //创建人
+        if (val) options['creator'] = val;
+
+        var val = $('#weixin_inquire').val(); //微信查询
+        if (val) options['student_weixin'] = val;
+
+        var val = $('#qq_inquire').val(); //QQ查询
+        if (val) options['student_qq'] = val;
+
         var val = $('#inquiry_sdate_txt_1').val(); //开始日期
-        if (val) options['create_stime'] = val;
+        // if (val) options['create_stime'] = val;
+        if (val)
+            options['create_stime'] = val;
+        else
+            options['create_stime'] = getDateNow('yyyy-MM-01');
 
         var val = $('#inquiry_sdate_txt_2').val(); //结束日期
-        if (val) options['create_etime'] = val;
+        // if (val) options['create_etime'] = val;
+        if (val)
+            options['create_etime'] = val;
+        else
+            options['create_etime'] = getDateNow('yyyy-MM-dd');
 
 
         m_query_options = options
@@ -262,6 +293,12 @@ function onTriggerEventHandler(selector) {
                 var options = {
                     'width': '650px'
                 };
+
+                // $(function(){
+                        // var modal1=$('#appoint_modal');
+                        // popup(modal1.modal(options));
+                    // });
+
                 $('#appoint_modal').modal(options);
                 var row = '';
                 var table2 = $('#inquirey_appointment tbody');
@@ -342,6 +379,8 @@ function onTriggerEventHandler(selector) {
                 });
 
             });
+
+
             //点击弹窗提交
         $("#inquirey_submit_btn").off("click").on('click', function () {
             var _param = param.substring(param.indexOf("&") + 1, param.length); //去掉account
@@ -607,4 +646,19 @@ function inquiry_post(param) {
         alert('未选着用户信息！');
     }
 
+}
+function getDateNow(fmt) {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1 + '';
+    if (month.length < 2) month = '0' + month;
+    var day = date.getDate() + '';
+    if (day.length < 2) day = '0' + day;
+
+    if (fmt == 'yyyy-MM-dd') {
+        return year + '-' + month + '-' + day;
+    }
+    else if (fmt == 'yyyy-MM-01') {
+        return year + '-' + month + '-01';
+    }
 }

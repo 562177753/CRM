@@ -22,6 +22,12 @@
     <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css"/>
     <script src="../assets/js/func_utils.js"></script>
     <script type="text/javascript" src="../assets/kld_js/coupon_bind.js"></script>
+    <style>
+        #top input{
+            border: none;
+            background: #eef3fa;
+        }
+    </style>
 </head>
 <body>
 <script src="../assets/js/theme.js"></script>
@@ -29,15 +35,16 @@
 <div class="am-box-1" id="top" style="padding: 20px 20px 0 20px;">
     <div class="row-content am-cf ">
         <div class="">
-            <section class="am-panel am-panel-default">
-                <header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
-                    <div class="am-vertical-align" style="height: 25px;">
-                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
-                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">优惠券绑定</div>
+            <section class="am-panel am-panel-default" style="border: none">
+                <header class="am-panel-hd" style="background: #e9ecf3; border-radius: 6px 6px 0 0;border: none;margin: 0px 0px -8px 0px;background: url(../assets/img/draw.png)no-repeat ;background-size:170px 40px;background-position:100% 0px;">
+                    <div class="am-vertical-align" style="height: 37px;">
+                        <span style="display:inline-block;width: 4px;height: 20px;background-color: blue;position: relative;left: -100px; top: 5px;"></span>
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="font-size: 18px;color: #383e56;padding: 0px 0px 0px 20px;">优惠券绑定</div>
+                        <div style="width: 102.3%;height: 20px;background: url(../assets/img/bg.png)no-repeat ;background-color:#ffffff;background-position:100% 0px;margin:-7px 0px 0px -15.5px;"></div>
                     </div>
                 </header>
 
-                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+                <div class="am-panel-bd" style="background:linear-gradient(to bottom,#ffffff, #f3fcf6);box-shadow: 10px 10px 0px #8ace9f;color: #383e56;margin-top: -10px">
                     <!--<div id="validation"></div>-->
                     <form class="am-form tpl-form-border-form">
                         <div class="am-g">
@@ -86,17 +93,19 @@
 
 <!------------->
 
-<div class="am-box-1" style="padding:0 20px">
+<div class="am-box-1 top" style="padding:0 20px">
     <div class="row-content am-cf ">
         <div class="">
-            <section class="am-panel am-panel-default">
-                <header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
-                    <div class="am-vertical-align" style="height: 25px;">
-                        <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
-                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">查询已绑定信息</div>
+            <section class="am-panel am-panel-default" style="border: none">
+                <header class="am-panel-hd" style="background: #e9ecf3; border-radius: 6px 6px 0 0;border: none;margin: 0px 0px -8px 0px;">
+                    <div class="am-vertical-align" style="height: 37px;">
+                        <span style="display:inline-block;width: 4px;height: 20px;background-color: blue;position: relative;left: -135px; top: 5px;"></span>
+                        <div class="am-panel-title am-fl am-vertical-align-middle h-text" style="font-size: 18px;color: #383e56;padding: 0px 0px 0px 20px;">查询已绑定信息</div>
+                        <div style="width: 102.3%;height: 20px;background: url(../assets/img/bg.png)no-repeat ;background-color:#ffffff;background-position:100% 0px;margin:-7px 0px 0px -15.5px;"></div>
+                        <img src="../assets/img/draw2.png" alt="" style="position: absolute;left: 90%;top: -10px;height: 75px">
                     </div>
                 </header>
-                <div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+                <div class="am-panel-bd" style="background:linear-gradient(to bottom,#ffffff, #f3fcf6);box-shadow: 10px 10px 0px #8ace9f;color: #383e56;margin-top: -10px">
                     <div id="validation" style="margin-bottom: 15px">
                         <form class="am-form tpl-form-border-form">
                             <div class="am-g">
@@ -106,7 +115,7 @@
                                         <label style="font-size:14px ;margin-top: 5px"
                                                class="am-u-sm-4 am-form-label am-text-left">学员手机号</label>
                                         <div class="am-u-sm-8 am-margin-top-xs">
-                                            <input type="text" id="phone_num" placeholder="请输入手机号" style="height: 40px;border-radius: 4px">
+                                            <input type="text" id="phone_num" placeholder="请输入手机号" style="height: 40px;border-radius: 4px; border: none;background: #eef3fa;">
                                         </div>
                                     </div>
                                 </div>
@@ -117,37 +126,25 @@
                                                class="am-u-sm-2 am-form-label am-text-left">绑定日期</label>
                                         <div class="am-u-sm-4 am-margin-top-xs">
                                             <input id="start_date" type="text" class="tpl-form-input am-form-field"
-                                                   placeholder="起始日期" data-am-datepicker style="height: 40px;border-radius: 4px"/>
+                                                   placeholder="起始日期" data-am-datepicker style="height: 40px;border-radius: 4px;border: none;background: #eef3fa;"/>
                                             <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
                                         </div>
                                         <span style=" float: left; margin-top: 10px;">－</span>
                                         <div class="am-u-sm-4 am-margin-top-xs">
                                             <input id="end_date" type="text" class="tpl-form-input am-form-field"
-                                                   placeholder="结束日期" data-am-datepicker="" style="height: 40px;border-radius: 4px"/>
+                                                   placeholder="结束日期" data-am-datepicker="" style="height: 40px;border-radius: 4px;border: none;background: #eef3fa;"/>
                                             <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
                                         </div>
                                     </div>
 
                                 </div>
 
-                               <!-- <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
-                                    <div class="am-form-group am-form-icon">
-                                        <label style="font-size:12px ;" class="am-u-sm-3 am-form-label am-text-left">结束日期</label>
-                                        <div class="am-u-sm-8 am-margin-top-xs">
-                                            <input id="end_date" type="text" class="tpl-form-input am-form-field"
-                                                   placeholder="结束日期" data-am-datepicker="">
-                                            <i class="am-icon-calendar h-icon"></i>
-                                        </div>
-                                    </div>
-
-                                </div>-->
-
                                 <div class="am-u-sm-2 am-u-md-2 am-u-lg-3" style="margin-left: -40px">
                                     <div class="am-form-group am-form-icon">
                                         <div class="am-u-sm-8 am-margin-top-xs">
                                             <button id="serach_btn" type="button"
                                                     class="am-btn am-btn-success am-radius"
-                                                    style="font-size:14px;width: 100px;height: 40px;border-radius: 4px">查询
+                                                    style="font-size:14px;width: 100px;height: 40px;border-radius: 4px;background-color: #6193d8">查询
                                             </button>
                                         </div>
                                     </div>
@@ -156,26 +153,15 @@
                             </div>
                         </form>
                     </div>
-                    <!-- <ul data-am-widget="pagination" class="am-pagination am-pagination-default am-pagination-centered">
-                         <li class="am-pagination-prev ">
-                             <a href="javascript:;" class="">&laquo;</a>
-                         </li>
 
-                         <li class="am-pagination-current"><span>...</span></li>
-
-                         <li class="am-pagination-next ">
-                             <a href="javascript:;" class="">&raquo;</a>
-                         </li>
-
-                     </ul>-->
                 </div>
             </section>
         </div>
     </div>
-    <div class="row-content am-cf" id="bindTable" style="background-color: #fff">
-        <table id="inquirys_tbl_1" class="am-table am-table-bordered am-table-striped tpl-table-black">
+    <div class="row-content am-cf" id="bindTable">
+        <table id="inquirys_tbl_1" class="am-table am-table-bordered am-table-striped tpl-table-black" style="width: 100%;border: none;">
             <thead>
-            <tr style="background: #7ba0ed;color: #fff;">
+            <tr style="background-color: #e9ecf3;height: 25px;color: #383e56;">
                 <!--<th class="am-text-center am-text-middle">序号</th>-->
                 <th class="am-text-center am-text-middle">项目大类</th>
                 <th class="am-text-center am-text-middle">院校</th>
@@ -189,7 +175,7 @@
 
             </tr>
             </thead>
-            <tbody></tbody>
+            <tbody style="background:linear-gradient(to bottom, #ffffff, #eef3fa); box-shadow: 10px 10px 0px #79a6e1;color: #383e56"></tbody>
         </table>
 
         <div class="am-scrollable-horizontal">

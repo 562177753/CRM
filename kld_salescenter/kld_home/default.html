@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>卡拉荻|销售中心</title>
+    <title></title>
     <meta name="description" content="">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="icon" type="image/png" href="../assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed"
-          href="../assets/i/app-icon72x72@2x.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="卡拉荻|销售中心"/>
 
     <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
-    <link rel="stylesheet" href="../assets/css/menu.css">
-    <link rel="stylesheet" href="../assets/css/admin.css">
-    <link rel="stylesheet" href="../assets/css/app.css">
-    <link rel="stylesheet" href="../assets/css/cssg.css" type="text/css">
-    <!--<script src="../assets/js/echarts.min.js"></script>-->
-    <script src="../assets/js/jquery.min.js"></script>
 
-    <script src="../assets/js/moment.js"></script>
-    <script src="../assets/jedate/jedate.js"></script>
+    <link rel="stylesheet" href="../assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="../assets/css/app_exclude.css">
+    <link rel="stylesheet" href="../assets/css/cssg.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="../assets/css/sweetalert.css">
-    </link>
+    <link rel="stylesheet" href="../assets/css/sweetalert.css"></link>
     <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css"/>
+    <!--<script src="../assets/js/socket.io.js"></script>-->
     <script src="../assets/js/func_utils.js"></script>
-    <script type="text/javascript" src="../assets/kld_js/workplat_task.js"></script>
-    <!--<script src="../assets/kld_js/default.js" type="text/javascript"></script>-->
+    <script src="../assets/js/socket.io.js"></script>
+    <script src="../assets/kld_js/cti.js"></script>
+
+    <!--<script type="text/javascript" src="../assets/kld_js/workplat_task.js"></script>-->
+    <!--<script src="../assets/kld_js/index.js" type="text/javascript"></script>-->
+    <script src="../assets/js/theme.js"></script>
     <style>
         @font-face {
             font-family: DINE1_2;
@@ -41,7 +41,31 @@
 <body data-type="default">
 <script src="../assets/js/theme.js"></script>
 
-<div class="row-content am-cf" style="padding: 20px 30px 0 20px;">
+<!-- 侧边导航栏 -->
+<div class="left-sidebar left-message" style="background-color: rgba(255,255,255,1.0);padding-top:0;margin: 20px 0 10px 20px;border-radius: 6px;background-image: url(../assets/img/home_bg.png);background-size: 100% 10%;background-repeat: no-repeat">
+    <!--用户信息 -->
+    <div class="tpl-sidebar-user-panel"style="margin-top: 6px;background-color: transparent">
+        <div class="tpl-left-nav-title user-box">
+            <div class="user-img">
+                <img src="../assets/img/touxiang.png" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+                <div class="user-status offline">
+                    <i class="am-icon-dot-circle-o" aria-hidden="true"></i>
+                </div>
+                <div class="user-status online am-hide">
+                    <i class="am-icon-dot-circle-o" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div style="position: absolute;bottom: 150px;left: 0">
+                <img src="../assets/img/home_illustration.png" alt="" style="width: 250px">
+            </div>
+            <div class="am-text" >
+                <a id="user_name" href="javascript:;" style="color: #162734">未登录</a>
+            </div>
+            <div id="user_job" class="am-text-1" style="text-align: center;color: #3c5364;">...</div>
+        </div>
+    </div>
+</div>
+<div class="row-content am-cf" style="padding: 20px 30px 0 20px;width: calc(100% - 270px);margin-left: 270px">
     <div class="row am-cf">
 
         <div class="am-u-md-12 am-u-sm-12" style="padding:0;background-color: transparent;border-radius: 6px">
@@ -110,7 +134,7 @@
                 </div>
             </div>
         </div>
-        <div class="row am-cf">
+        <div class="row am-cf" style="margin-bottom: 120px">
             <div class="am-u-md-6 am-u-sm-12 row-mb" style="padding-top: 20px">
                 <div class="tpl-portlet" style="margin-left:0;">
                     <div class="tpl-portlet-title">
@@ -164,28 +188,21 @@
 
                     <div class="am-tabs tpl-index-tabs" data-am-tabs style="height:330px">
                         <ul class="am-tabs-nav am-nav am-nav-tabs am-tab" id="tabGroup" style="margin-top: 20px;">
+                            <li class="am-nav-tabs-2"><a id="default_gr" href="#tab3"style="font-size: 16px">个人</a></li>
                             <li class="am-active"><a id="default_zn" href="#tab1"style="font-size: 16px">组内</a></li>
                             <li class="am-nav-tabs-1"><a id="default_jt" href="#tab2"style="font-size: 16px">军团</a></li>
                         </ul>
 
-                        <div class="am-tabs-bd">
-                            <div class="am-tab-panel am-fade am-in am-active" id="tab1" style="padding:0px;">
+                        <div class="am-tabs-bd" style="max-height: 325px;overflow-y: hidden;">
+                            <div class="am-tab-panel am-fade am-in am-active" id="tab1" style="padding:0px;max-height: 420px;overflow: auto">
                                 <div id="wrapperA" class="wrapper">
                                     <div class="tpl-scrollable am-active">
-                                        <!--<div class="number-stats" style="margin-bottom:5px; height:40px;">
-                                            <div class="stat-number am-fl am-u-md-2" style="padding-right:0;">
-                                                <div id="default_bz1" class="am-active" style="border-radius: 4px 0 0 4px;border: 1px solid #348cd4;text-align: center">本周</div>
-                                            </div>
-                                            <div class="stat-number am-fl am-u-md-2" style="padding-left:0;">
-                                                <div id="default_by1" style="border-radius:0 4px 4px 0;border: 1px solid #348cd4;text-align: center">本月</div>
-                                            </div>
-                                        </div>-->
 
                                         <ul class="am-tabs-nav am-nav am-nav-tabs am-tab" id="tabGroup1">
                                             <li class="am-active"><div id="default_bz1"style="width:60px;border-radius: 4px 0 0 4px;border: 1px solid #348cd4;text-align: center">本周</div></li>
                                             <li class="am-nav-tabs-1"><div id="default_by1" style="width:60px;border-radius:0 4px 4px 0;border: 1px solid #348cd4;text-align: center">本月</div></li>
                                         </ul>
-                                        <table id="default_tab1" class="am-table tpl-table" style="position: absolute;top: 40px;left:10px">
+                                        <table id="default_tab1" class="am-table tpl-table" style="position: absolute;top: 50px;left:10px">
                                             <thead>
                                             <tr class="tpl-table-uppercase">
                                                 <th id="default_bz3">本周排行榜</th>
@@ -206,17 +223,9 @@
                             </div>
                             <!--tab1-->
 
-                            <div class="am-tab-panel am-fade am-in am-active" id="tab2" style="padding:0px;">
+                            <div class="am-tab-panel am-fade am-in am-active" id="tab2" style="padding:0px;max-height: 420px;overflow: auto">
                                 <div id="wrapperB" class="wrapper">
                                     <div class="tpl-scrollable am-active">
-                                        <!--<div class="number-stats" style="margin-bottom:5px; height:25px;">
-                                            <div class="stat-number am-fl am-u-md-2" style="padding-right:0;">
-                                                <div id="default_bz2" class="am-text-w">本周</div>
-                                            </div>
-                                            <div class="stat-number am-fl am-u-md-2" style="padding-left:0;">
-                                                <div id='default_by2' class="am-text-w am-text-w-g">本月</div>
-                                            </div>
-                                        </div>-->
                                         <ul class="am-tabs-nav am-nav am-nav-tabs am-tab" id="tabGroup2">
                                             <li class="am-active"><div id="default_bz2"style="width:60px;border-radius: 4px 0 0 4px;border: 1px solid #348cd4;text-align: center">本周</div></li>
                                             <li class="am-nav-tabs-1"><div id="default_by2" style="width:60px;border-radius:0 4px 4px 0;border: 1px solid #348cd4;text-align: center">本月</div></li>
@@ -236,7 +245,32 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--tab2-->
+                            <!--个人-->
+                            <div class="am-tab-panel am-fade am-in am-active" id="tab3" style="padding:0px;max-width: 511px;max-height: 400px;overflow: auto">
+                                <div id="wrapperC" class="wrapper">
+                                    <div class="tpl-scrollable am-active">
+                                        <ul class="am-tabs-nav am-nav am-nav-tabs am-tab" id="tabGroup3">
+                                            <li class="am-active"><div id="default_bz6"style="width:60px;border-radius: 4px 0 0 4px;border: 1px solid #348cd4;text-align: center">本周</div></li>
+                                            <li class="am-nav-tabs-1"><div id="default_by3" style="width:60px;border-radius:0 4px 4px 0;border: 1px solid #348cd4;text-align: center">本月</div></li>
+                                        </ul>
+
+                                        <table id="default_tab3" class="am-table tpl-table" style="position: absolute;top: 40px;left:10px">
+                                            <thead>
+                                            <tr class="tpl-table-uppercase">
+                                                <th id="default_bz5">地点</th>
+                                                <th>时间</th>
+                                                <th>产品</th>
+                                                <th>报名金额</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>

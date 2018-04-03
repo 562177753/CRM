@@ -103,11 +103,20 @@ function onTriggerEventHandler(selector) {
             .then(function(data) {
                 inquiry_data = data;
                 fill_dataGrid(inquiry_data);
-                //    console.log(data)
                 $('#detail_group_2').empty();
                 // $('#detail_flow_2').empty();
 
+            }).fail(function (data) {
+            // swal('提示',data,'warning')
+            service.alert(data, 'error', 0);
+            var table = $('#inquirys_tbl_2 tbody');
+            table.empty();
+            $('.am-pagination-current span').text(' ... ');
             });
+
+
+
+
 
     }
     //前翻页
@@ -175,8 +184,8 @@ function fill_dataGrid(data) {
     var table = $('#inquirys_tbl_2 tbody');
     table.empty();
     if(data.length > 0) {
-        pageindex=1;
-        var page_index = pageindex;
+        // pageindex=1;
+        // var page_index = pageindex;
         // var no = (page_index - 1) * 10 + 1;
         var num='';
         for(var i = 0; i < data.length; i++) {
@@ -214,6 +223,8 @@ function fill_dataGrid(data) {
         var page_index = pageindex;
         if(page_total > 0) {
             $('.am-pagination-current span').text(page_index + ' / ' + page_total);
+        } else {
+            $('.am-pagination-current span').text(' ... ');
         }
     }
 }

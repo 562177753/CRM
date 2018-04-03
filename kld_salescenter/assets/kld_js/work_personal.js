@@ -94,10 +94,10 @@ function onTriggerEventHandler(selector) {
 
 				for(var i = 1; i < data.length; i++) {
 					row = '<tr>' +
-						'<td style="padding: 0;"><textarea style="width:100%;height:200px">' + (data[i].online_record || '') + '</textarea></td>' +
+						'<td style="padding: 0;border: none"><textarea style="width:100%;height:200px;padding: 0px">' + (data[i].online_record || '') + '</textarea></td>' +
 						'</tr>';
 				}
-				table3.append(row); 
+				table3.append(row);
 			})
 	}
 	 //前翻页
@@ -198,7 +198,9 @@ function onTriggerEventHandler(selector) {
 		var page_index = parseInt(data[0].pageindex);
 		if(page_total > 0) {
 			$('.am-pagination-current span').text(page_index + ' / ' + page_total);
-		}
+		} else {
+            $('.am-pagination-current span').text(' ... ');
+        }
 	}
 }
 

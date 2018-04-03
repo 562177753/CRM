@@ -1,16 +1,10 @@
-/**
- * @params 数据录入|option选项动态读取后台api填充
- * @author liuhongjian
- * @date   2017-08-14
- */
 
 // function newdata_write(){
 
 $('#submit_btn').click(function () {
 
 
-            $("body").mLoading("show");
-
+	$("body").mLoading("show");
 
 //	 console.log('数据录入者：'+pmAgent.userid);
 	 //start 获取被选中的[分校名称];by liuhongjian 2017-08-14
@@ -155,21 +149,33 @@ $('#submit_btn').click(function () {
 			var am_alert='';
 			if (data[0]['rescode']==1) {
 
-                    $("body").mLoading("hide");
+             $("body").mLoading("hide");
 
-				am_alert='success'; //'am-alert-success';
+				// am_alert='success'; //'am-alert-success';
+                // $('#student_telphone').val='';
+                swal({    title: "提示",
+                        text: data[0]['resmsg'],
+                        type: "success",
+                        showCancelButton: false,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定",
+                        closeOnConfirm: true
+                    },
+                    function(){
+                        window.location.reload();
+
+                    });
+
 			}
 			else {
-				am_alert='error'; //'am-alert-danger';
+				// am_alert='error'; //'am-alert-danger';
                 $("body").mLoading("hide");
-			}
-			/*	
-			var message = '<div class="am-alert '+am_alert+'" data-am-alert>'
-				+ '<button type="button" class="am-close">&times;</button>'
-				+ '<p>' + data[0]['resmsg'] + '</p></div>';
-			$('#validation').html(message);
-			*/
-			service.alert(data[0]['resmsg'], am_alert, 0);
+
+                swal("提示!!!", data[0]['resmsg'], "warning");
+            }
+
+			// service.alert(data[0]['resmsg'], am_alert, 0);
+
 		})
 		.fail(function(data) {
 			console.log('data_write submit fail '+data);
@@ -211,7 +217,11 @@ function add_options()
 		console.log(data);
 	});
 	//项目大类options
-	service.get_course_big_id()
+    options={
+        "account": pmAgent.userid
+    }
+    var params = $.param(options, true);
+	service.get_course_big_id(params)
 	.then(function(data) {
 		oppotunity_data = data;
 		var len=data.length;   
@@ -400,113 +410,150 @@ function get_city_show(province,city)
 //m-[CR][LF]=^/$
 var regExpr = {
 	cellphone : /\d{11}/i,
+    // wechat : /[a-zA-Z]{1}([-_a-zA-Z0-9]{5,19})+/i,
+	wechat:/[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}/i,
+	wechatpho:/\d{11}/i,//微信为手机号
+	qq:/\d{4,11}/,
 	visit_url : /^访问URL：(.*)$/im,
 	offical_url : /https?:\/\/.+$/im
 };
 
 $(document).ready(function() {
 	var jqTxt_webchat = $('#webchat_info');
-	jqTxt_webchat.on('change', function() {
+    // console.log(jqTxt_webchat);
+    jqTxt_webchat.on('change', function() {
 		var strLog = jqTxt_webchat.val();
 		getInformation(strLog);
 	});
 });
 
 function getInformation(strLog) {
-	var arry_ret;
-	if (regExpr.visit_url.exec(strLog) && (regExpr.visit_url.exec(strLog).length > 1)){
-		arry_ret = regExpr.visit_url.exec(strLog);
-		$('#write_url').val(arry_ret[1].trim());
-	//start 根据url子站点获取录入校、项目大类、流量中心、省份、城市 liuhj 2017-08-17
-	var project_Page_Name="project_Page_Name="+arry_ret[1].trim();
-	service.get_project_info(project_Page_Name)
-	.then(function(data) {
-		oppotunity_data = data;
-		var len=data.length;     
-	    for(i=0;i<len;i++) {   
-	    	//改变录入校value选中
-	    	$("#campus_select").val(data[i]['t_sys_office_campus_id']);  
-	        $("#campus_select").trigger('changed.selected.amui');
-	        //改变项目value选中
-	        $("#items_select").val(data[i]['get_course_big_id']);
-	        $("#items_select").trigger('changed.selected.amui');
-	        //改变流量中心text选中
-	        $("#flow_legon_select").find('option:selected').removeAttr('selected'); 
-	        $("#flow_legon_select option:contains('" + data[i]['flow_legion'] + "')").attr("selected", true); 
-	        $("#flow_legon_select").trigger('changed.selected.amui');
-	        //改变省份text选中
-	        $("#province").find('option:selected').removeAttr('selected');
-	        $("#province option:contains('" + data[i]['project_prov'] + "')").attr("selected", true); 
-	        $("#province").trigger('changed.selected.amui');
-	        get_city_show(data[i]['project_prov'],data[i]['project_city']);
-	        //改变城市text选中
+    var arry_ret;
+    var arry_ret1;
+    var arry_ret2;
+    var arry_ret3;
+    if (regExpr.visit_url.exec(strLog) && (regExpr.visit_url.exec(strLog).length > 1)) {
+        arry_ret = regExpr.visit_url.exec(strLog);
+        console.log(arry_ret);
+        $('#write_url').val(arry_ret[1].trim());
+        //start 根据url子站点获取录入校、项目大类、流量中心、省份、城市 liuhj 2017-08-17
+        var project_Page_Name = "project_Page_Name=" + arry_ret[1].trim();
+        service.get_project_info(project_Page_Name)
+            .then(function (data) {
+                oppotunity_data = data;
+                var len = data.length;
+                for (i = 0; i < len; i++) {
+                    //改变录入校value选中
+                    $("#campus_select").val(data[i]['t_sys_office_campus_id']);
+                    $("#campus_select").trigger('changed.selected.amui');
+                    //改变项目value选中
+                    $("#items_select").val(data[i]['get_course_big_id']);
+                    $("#items_select").trigger('changed.selected.amui');
+                    //改变流量中心text选中
+                    $("#flow_legon_select").find('option:selected').removeAttr('selected');
+                    $("#flow_legon_select option:contains('" + data[i]['flow_legion'] + "')").attr("selected", true);
+                    $("#flow_legon_select").trigger('changed.selected.amui');
+                    //改变省份text选中
+                    $("#province").find('option:selected').removeAttr('selected');
+                    $("#province option:contains('" + data[i]['project_prov'] + "')").attr("selected", true);
+                    $("#province").trigger('changed.selected.amui');
+                    get_city_show(data[i]['project_prov'], data[i]['project_city']);
+                    //改变城市text选中
 //	        $("#city").find('option:selected').removeAttr('selected');
 //	        $("#city option:contains('" + data[i]['project_city'] + "')").attr("selected", true); 
 //	        $("#city").trigger('changed.selected.amui');
-	        
-	        
-	    }
-	   
-	})
-	.fail(function(data) {
-		console.log(data);
-	});
-	}
-	else {
-		var index = strLog.indexOf('着陆页');
-		var strTemp = strLog.substring(index);
-		
-		arry_ret = regExpr.offical_url.exec(strTemp);
-		//console.log(arry_ret);
-		if (arry_ret) {
-			$('#write_url').val(arry_ret[0].trim());
-			console.log(arry_ret[0].trim());
-			//start 根据url子站点获取录入校、项目大类、流量中心、省份、城市 liuhj 2017-08-17
-			var project_Page_Name="project_Page_Name="+arry_ret[0].trim();
-			service.get_project_info(project_Page_Name)
-			.then(function(data) {
-				oppotunity_data = data;
-				var len=data.length;     
-			    for(i=0;i<len;i++) {   
-			    	//改变录入校value选中
-			    	$("#campus_select").val(data[i]['t_sys_office_campus_id']);  
-			        $("#campus_select").trigger('changed.selected.amui');
-			        //改变项目value选中
-			        $("#items_select").val(data[i]['get_course_big_id']);  
-			        $("#items_select").trigger('changed.selected.amui');
-			        //改变流量中心text选中
-			        $("#flow_legon_select").find('option:selected').removeAttr('selected'); 
-			        $("#flow_legon_select option:contains('" + data[i]['flow_legion'] + "')").attr("selected", true); 
-			        $("#flow_legon_select").trigger('changed.selected.amui');
-			        //改变省份text选中
-			        $("#province").find('option:selected').removeAttr('selected');
-			        $("#province option:contains('" + data[i]['project_prov'] + "')").attr("selected", true); 
-			        $("#province").trigger('changed.selected.amui');
-			        get_city_show(data[i]['project_prov'],data[i]['project_city']);
-			        //改变城市text选中
+
+
+                }
+
+            })
+            .fail(function (data) {
+                console.log(data);
+            });
+    }
+    else {
+        var index = strLog.indexOf('着陆页');
+        var strTemp = strLog.substring(index);
+
+        arry_ret = regExpr.offical_url.exec(strTemp);
+        //console.log(arry_ret);
+        if (arry_ret) {
+            $('#write_url').val(arry_ret[0].trim());
+            console.log(arry_ret[0].trim());
+            //start 根据url子站点获取录入校、项目大类、流量中心、省份、城市 liuhj 2017-08-17
+            var project_Page_Name = "project_Page_Name=" + arry_ret[0].trim();
+            service.get_project_info(project_Page_Name)
+                .then(function (data) {
+                    oppotunity_data = data;
+                    var len = data.length;
+                    for (i = 0; i < len; i++) {
+                        //改变录入校value选中
+                        $("#campus_select").val(data[i]['t_sys_office_campus_id']);
+                        $("#campus_select").trigger('changed.selected.amui');
+                        //改变项目value选中
+                        $("#items_select").val(data[i]['get_course_big_id']);
+                        $("#items_select").trigger('changed.selected.amui');
+                        //改变流量中心text选中
+                        $("#flow_legon_select").find('option:selected').removeAttr('selected');
+                        $("#flow_legon_select option:contains('" + data[i]['flow_legion'] + "')").attr("selected", true);
+                        $("#flow_legon_select").trigger('changed.selected.amui');
+                        //改变省份text选中
+                        $("#province").find('option:selected').removeAttr('selected');
+                        $("#province option:contains('" + data[i]['project_prov'] + "')").attr("selected", true);
+                        $("#province").trigger('changed.selected.amui');
+                        get_city_show(data[i]['project_prov'], data[i]['project_city']);
+                        //改变城市text选中
 //			        $("#city").find('option:selected').removeAttr('selected');
 //			        $("#city option:contains('" + data[i]['project_city'] + "')").attr("selected", true); 
 //			        $("#city").trigger('changed.selected.amui');
-			    }
-			})
-			.fail(function(data) {
-				console.log(data);
-			});
-		}
-	}
+                    }
+                })
+                .fail(function (data) {
+                    console.log(data);
+                });
+        }
+    }
 
-	//end 根据url子站点获取录入校、项目大类、流量中心、省份、城市 liuhj 2017-08-17
-	//var strQueryphoneIndex=strLog.indexOf('手机号');
-	var strQueryphoneIndex=strLog.search(/(手机号)|(电话)|(手机)|(号码)/);
-	if (strQueryphoneIndex>0)
-		{
-		var strQueryphone=strLog.substring(strQueryphoneIndex);
-		}
-		//console.log(strQueryphone);
-	arry_ret = regExpr.cellphone.exec(strQueryphone);
-	if (arry_ret)
-		$('#student_telphone').val(arry_ret[0]);
+    //end 根据url子站点获取录入校、项目大类、流量中心、省份、城市 liuhj 2017-08-17
+    //var strQueryphoneIndex=strLog.indexOf('手机号');
+    var strQueryphoneIndex = strLog.search(/(手机号)|(电话)|(手机)|(号码)/);
+    if (strQueryphoneIndex > 0) {
+        var strQueryphone = strLog.substring(strQueryphoneIndex);
+    }
+    console.log(strQueryphone);
+    arry_ret = regExpr.cellphone.exec(strQueryphone);
+    console.log(arry_ret);
+    if (arry_ret)
+        $('#student_telphone').val(arry_ret[0]);
+//	录入微信
+
+    var wechatIndex = strLog.search(/(微信)|(微信号)/);
+    if (wechatIndex > 0) {
+        var strQuerywechat = strLog.substring(wechatIndex);
+    }
+    console.log(strQuerywechat);
+    arry_ret1 = regExpr.wechat.exec(strQuerywechat) || regExpr.wechatpho.exec(strQuerywechat);;
+    // arry_ret3 = regExpr.wechatpho.exec(strQuerywechat);
+    console.log(arry_ret1);
+    if (arry_ret1!= 'undefined'|| null ){
+        $('#student_wechat').val(arry_ret1[0]);
+    }
+
+//录入QQ
+    var qqIndex = strLog.search(/(qq)|(qq号)|(QQ)|(QQ号)/);
+    if (qqIndex > 0) {
+        var strQueryqq = strLog.substring(qqIndex);
+    }
+    console.log(strQueryqq);
+    arry_ret2 = regExpr.qq.exec(strQueryqq);
+    console.log(arry_ret2);
+    if (arry_ret2) {
+    $('#student_qq').val(arry_ret2[0]);
+    }
 }
+
+
+
 //end自动识别在线聊天记录中的手机号码、url
 $(document).ready(function() {
 	// 登录个人信息

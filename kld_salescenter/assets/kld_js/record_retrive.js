@@ -58,8 +58,11 @@ function fill_dataGrid(data) {
 	
 	var page_total = Math.ceil(data[0].count / m_pagesize);
 	var page_index = parseInt(data[0].pageindex);
-	if (page_total > 0)
-		$('.am-pagination-current span').text(page_index + ' / ' + page_total);
+	if (page_total > 0){
+		$('.am-pagination-current span').text(page_index + ' / ' + page_total)
+	}else {
+        $('.am-pagination-current span').text(' ... ');
+    };
 }
 function onRowItemClickedEventHandler(row, name) {
 	m_selected = row;
@@ -134,6 +137,9 @@ function onTriggerEventHandler(selector) {
 			m_selected = 0;
 			
 			if (m_record_data.length < 2) {
+                var table = $('#record_tbl tbody');
+                table.empty();
+                fill_dataGrid(m_record_data);
 				service.alert('没有记录', 'info', 0);
 				return;
 			}

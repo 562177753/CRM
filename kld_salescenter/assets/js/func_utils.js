@@ -1,7 +1,10 @@
  // var SERVICE_URL = 'http://192.168.1.85:9091/BlastBomb/';
-// var SERVICE_URL = '/kld_salescenter/';
- var SERVICE_URL = 'http://192.168.1.85:9090/kld_salescenter/';
-// var SERVICE_URL = 'http://10.75.1.235:8080/kld_salescenter/';
+ // var SERVICE_URL = '/kld_salescenter/';    //线上
+//  var SERVICE_URL = 'http://192.168.0.161:9090/kld_salescenter/';   //测试
+//  var SERVICE_URL = 'http://192.168.1.85:9090/kld_salescenter/';
+ var SERVICE_URL = 'http://192.168.1.89:9090/kld_salescenter/';
+// var SERVICE_URL = 'http://10.75.1.235:8080/kld_salescenter/';  //王俊
+// var SERVICE_URL = 'http://10.75.1.62:8080/kld_salescenter/';  //龙神
 
 var pmAgent = {
 	userid: '',
@@ -54,6 +57,40 @@ var service = {
 		});
 		return promise;
 	},
+//登录成功后调用
+    allot_login: function (params) {
+     var promise = $.Deferred();
+     var url = SERVICE_URL + 'allot_login?callback=?';
+
+     $.getJSON(url,params, function (result) {
+         //console.log(JSON.stringify(result));
+         promise.resolve(result);;
+     });
+     return promise;
+ },
+
+//
+    allot_refresh: function (params) {
+     var promise = $.Deferred();
+     var url = SERVICE_URL + 'allot_refresh?callback=?';
+
+     $.getJSON(url,params, function (result) {
+         //console.log(JSON.stringify(result));
+         promise.resolve(result);;
+     });
+     return promise;
+ },
+
+    allot_logout: function (params) {
+        var promise = $.Deferred();
+        var url = SERVICE_URL + 'allot_logout?callback=?';
+
+        $.getJSON(url,params, function (result) {
+            //console.log(JSON.stringify(result));
+            promise.resolve(result);;
+        });
+        return promise;
+    },
 
     //消息提醒
     get_message: function (params) {
@@ -360,6 +397,24 @@ var service = {
 
 		return promise;
 	},
+
+    // 公海分校信息
+    get_campus_big_id_pool: function (params) {
+        var promise = $.Deferred();
+        var url = SERVICE_URL + 'get_campus_big_id_pool?callback=?';
+
+        $.getJSON(url,params, function (result) {
+            //			console.log(JSON.stringify(result));
+            if (result.length == 0)
+                promise.reject('查询失败');
+            else if (result[0]['rescode'] == -500)
+                promise.reject('查询失败');
+            else
+                promise.resolve(result);
+        });
+
+        return promise;
+    },
 	//http://10.75.2.212:8080/BlastBomb/get_legion?username=zhaochengzhi
 	//获取军团
     get_legion: function (params) {
@@ -700,10 +755,10 @@ var service = {
 		return promise;
 	},
 	// 获取项目大类
-	get_course_big_id: function () {
+	get_course_big_id: function (params) {
 		var promise = $.Deferred();
 		var url = SERVICE_URL + 'get_course_big_id?callback=?';
-		$.getJSON(url, function (result) {
+		$.getJSON(url, params,function (result) {
 			//			console.log(JSON.stringify(result));
 			if (result.length == 0)
 				promise.reject('查询失败');
@@ -873,7 +928,19 @@ var service = {
         });
         return promise;
     },
-
+//预约优惠券绑定
+    coupon_check: function (params) {
+        var promise = $.Deferred();
+        var url = SERVICE_URL + 'coupon_check?callback=?';
+        $.getJSON(url, params, function (result) {
+            //console.log(JSON.stringify(result));
+            if (result.length == 0)
+                promise.reject('绑定失败');
+            else
+                promise.resolve(result);
+        });
+        return promise;
+    },
 
     //优惠券查询
     get_coupon_stu: function (params) {
@@ -907,7 +974,6 @@ var service = {
     },
 
     //工作明细
-    // http://192.168.1.85:9090/BlastBomb/rpt_search?username=fengwei&account=fengwei
     rpt_search: function (params) {
         var promise = $.Deferred();
         //http://192.168.1.85:9091/BlastBomb/rpt_search?username=fengwei&account=zhaochengzhi
@@ -916,6 +982,8 @@ var service = {
         $.getJSON(url, params, function (result) {
             //console.log(JSON.stringify(result));
             if (result.length == 0)
+                promise.reject('查询失败');
+            else if (result[0]['rescode'] == -500)
                 promise.reject('查询失败');
             else
                 promise.resolve(result);

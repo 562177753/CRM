@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,22 +23,30 @@
 	<link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css" />
 	<script src="../assets/js/func_utils.js"></script>
 	<script src="../assets/kld_js/record_retrive.js" type="text/javascript"></script>
+	<style>
+
+		#recordSearch input{
+			border: none;
+			background: #eef3fa;
+		}
+	</style>
 </head>
 
 <body>
 	<script src="../assets/js/theme.js"></script>
-	<div class="am-box-1" id="top" style="padding: 20px 20px 0 20px;">
+	<div class="am-box-1" id="top" style="padding: 20px 10px 0 20px;">
 		<div class="row-content am-cf">
 			<div class="">
-				<section class="am-panel am-panel-default">
-					<header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
-						<div class="am-vertical-align" style="height: 25px;">
-							<img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
-							<div class="am-panel-title am-fl am-vertical-align-middle h-text" style="color: #fff;">录音查询</div>
+				<section class="am-panel am-panel-default" style="border: none">
+					<header class="am-panel-hd" style="background: #e9ecf3; border-radius: 6px 6px 0 0;border: none;margin: 0px 0px -8px 0px;background: url(../assets/img/draw.png)no-repeat ;background-size:170px 40px;background-position:100% 0px;">
+						<div class="am-vertical-align" style="height: 37px;">
+							<span style="display:inline-block;width: 4px;height: 20px;background-color: blue;position: relative;left: -80px; top: 5px;"></span>
+							<div class="am-panel-title am-fl am-vertical-align-middle h-text" style="font-size: 18px;color: #383e56;padding: 0px 0px 0px 20px;">录音查询</div>
 						</div>
+						<div style="width: 102.3%;height: 20px;background: url(../assets/img/bg.png)no-repeat ;background-color:#ffffff;background-position:100% 0px;margin:-5px 0px 0px -15.5px;"></div>
 					</header>
 
-					<div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+					<div class="am-panel-bd" style="background:linear-gradient(to bottom,#ffffff, #f3fcf6);box-shadow: 10px 10px 0px #8ace9f;color: #383e56;margin-top: -25px;">
 						<form class="am-form tpl-form-border-form" id="recordSearch">
 							<div class="am-g">
 								<div class="am-u-sm-4">
@@ -95,7 +102,7 @@
 									<div class="am-form-group">
 										<label style="font-size: 14px;margin-top: 5px" class="am-u-sm-4 am-form-label am-text-left">是否接通</label>
 										<div class="am-u-sm-8 am-margin-top-xs">
-											<select id="connect_select" style="height: 40px;border-radius: 4px;padding-left: 10px">
+											<select id="connect_select" style="height: 40px;border-radius: 4px;padding-left: 10px;border: none;background-color:#eef3fa">
 												<option  value="">请选择</option>
 												<option  value="1">是</option>
 												<option  value="0">否</option>
@@ -122,8 +129,8 @@
 									</div>
 								</div>
 								<div class="am-u-sm-4" style="padding-top:6px">
-									<button id="query_btn" type="button" class="am-btn am-btn-success am-radius" style="font-size:13px;width:100px;height: 40px;border-radius: 4px">查 询</button>
-									<button id="reset_btn" type="button" class="am-btn am-btn-warning am-radius" style="font-size:13px;width:100px;height: 40px;border-radius: 4px">重 置</button>
+									<button id="query_btn" type="button" class="am-btn am-radius" style="font-size:13px;width:100px;height: 40px;border-radius: 4px;margin-left: 145px;color:#fff;background-color: #6193d8;">查 询</button>
+									<button id="reset_btn" type="button" class="am-btn am-radius" style="font-size:13px;width:100px;height: 40px;border-radius: 4px;background-color: #43ad6d;color: #fff">重 置</button>
 								</div>
 							</div>
 						</form>
@@ -132,12 +139,15 @@
 				</section>
 			</div>
 		</div>
-		<div class="row-content am-cf "style="background-color: #fff;border-radius: 6px" id="recordTable">
+	</div>
+
+	<div class="am-box-1" style="padding:0 20px ;">
+		<div class="row-content am-cf "style="border-radius: 6px" id="recordTable">
 			<div class="am-g">
-				<div class="am-scrollable-horizontal">
-					<table class="am-table am-table-bordered am-table-striped am-text-nowrap am-table-hover tpl-table-black " id="record_tbl">
-						<thead>
-							<tr style="background-color: #7ba0ed;color: #fff;">
+
+					<table class="am-table am-table-bordered am-table-striped am-text-nowrap am-table-hover tpl-table-black " id="record_tbl" style="width: 100%;border: none;">
+						<thead >
+							<tr style="background-color: #e9ecf3;height: 25px;color: #383e56;">
 								<th class="am-text-center am-text-middle">服务器</th>
 								<th class="am-text-center am-text-middle">主叫</th>
 								<th class="am-text-center am-text-middle">被叫</th>
@@ -150,9 +160,12 @@
 								<th class="am-text-center am-text-middle">操作</th>
 							</tr>
 						</thead>
-					<tbody>
+					<tbody style="background:linear-gradient(to bottom, #ffffff, #eef3fa); box-shadow: 10px 10px 0px #79a6e1;color: #383e56">
+
 					</tbody>
 				</table>
+
+
 				</div>
 			</div>
 			<div class="am-scrollable-horizontal">
@@ -177,11 +190,12 @@
 				<a href="javascript:;" id="page_enter" style="display: inline-block;width: 45px;height: 30px;line-height: 30px;background-color: #cfaa1e; border-radius: 4px;color: #fff;margin-left: 10px">确定</a>
 			</ul>
 		</div>
+
+
 	</div>
-
-
+	<!--弹框-->
 	<div class="am-modal am-modal-no-btn" tabindex="-1" id="play_modal">
-		<div class="am-modal-dialog" style="border-radius: 5px;margin-top: -600px;">
+		<div class="am-modal-dialog" style="border-radius: 5px;">
 			<div class="am-modal-hd am-text-left">
 				<span class="am-margin-vertical-xs">播放录音</span>
 				<a id="play_close_btn" href="javascript:;" class="am-close am-close-spin">&times;</a>

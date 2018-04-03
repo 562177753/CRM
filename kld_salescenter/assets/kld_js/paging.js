@@ -13,12 +13,14 @@ $(function () {
                 // console.log('user>>>'+ $name);
                 // console.log(AtreeShow[i]);
                 if($name==AtreeShow[i]){
-                    // alert('aa')
                     $(".lqs-oul li a[data-name='"+$name+"']").show();
 
                 }
             });
-        }
+
+        };
+
+
     });
 
 

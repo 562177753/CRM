@@ -8,72 +8,120 @@
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="icon" type="image/png" href="../assets/i/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
-    <meta name="apple-mobile-web-app-title" content="卡拉荻|销售中心" />
-    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="../assets/css/amazeui.datatables.min.css" />
+    <meta name="apple-mobile-web-app-title" content="卡拉荻|销售中心"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.datatables.min.css"/>
     <!-- <link rel="stylesheet" href="../assets/css/amazeui.datetimepicker.css" /> -->
     <link rel="stylesheet" href="../assets/css/app_exclude.css">
     <link rel="stylesheet" href="../assets/css/cssg.css">
+    <!--<link rel="stylesheet" href="../assets/css/upfile.css">-->
     <link rel="stylesheet" href="../assets/css/upload1.css">
     <script src="../assets/js/jquery.min.js"></script>
+    <!--<script src="../assets/js/ZxxFile.js"></script>-->
     <!--<script src="../assets/js/jquery-1.7.2.min.js"></script>-->
     <script src="../assets/jedate/jedate.js"></script>
     <script src="../assets/js/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="../assets/css/sweetalert.css"> </link>
-    <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css" />
+    <link rel="stylesheet" href="../assets/css/sweetalert.css">
+    </link>
+    <link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css"/>
+    <!--<script src="../assets/js/socket.io.js"></script>-->
+    <!--<script src="../assets/kld_js/cti.js"></script>-->
     <script src="../assets/js/func_utils.js"></script>
-
     <style>
+        @font-face {
+            font-family: PingFang Medium;
+            src: url('../assets/fonts/PingFang Medium.ttf');
+        }
 
-
-        .am-table>tbody>tr.am-primary>td, .am-table>tbody>tr.am-primary>th, .am-table>tbody>tr>td.am-primary, .am-table>tbody>tr>th.am-primary, .am-table>tfoot>tr.am-primary>td, .am-table>tfoot>tr.am-primary>th, .am-table>tfoot>tr>td.am-primary, .am-table>tfoot>tr>th.am-primary, .am-table>thead>tr.am-primary>td, .am-table>thead>tr.am-primary>th, .am-table>thead>tr>td.am-primary, .am-table>thead>tr>th.am-primary {
-            color: #fff	;
+        .am-table > tbody > tr.am-primary > td, .am-table > tbody > tr.am-primary > th, .am-table > tbody > tr > td.am-primary, .am-table > tbody > tr > th.am-primary, .am-table > tfoot > tr.am-primary > td, .am-table > tfoot > tr.am-primary > th, .am-table > tfoot > tr > td.am-primary, .am-table > tfoot > tr > th.am-primary, .am-table > thead > tr.am-primary > td, .am-table > thead > tr.am-primary > th, .am-table > thead > tr > td.am-primary, .am-table > thead > tr > th.am-primary {
+            color: #3C5364;
             /*background-color: rgba(14,144,210,.115)*/
-            background-color: #464ed3;
+            background-color: #f4eadf;
         }
-        .am-table-hover>tbody>tr:hover>td, .am-table-hover>tbody>tr:hover>th {
-            background-color: #464ed3
+
+        .am-table-hover > tbody > tr:hover > td, .am-table-hover > tbody > tr:hover > th {
+            background-color: #f4eadf
         }
-        .am-table>tbody>tr:nth-child(odd){
+
+        .am-table > tbody > tr:nth-child(odd) {
             /*color: #fff;*/
-            background-color: #7c9aea;
-            /*opacity: 0.9;*/
+            background-color: #fdf5ec;
+
         }
-        .am-pagination>li>.back1:focus{
-            background-color: #2C3F90;
-            color:#fff;
+
+        .am-pagination > li > .back1:focus {
+            background-color: #f0b05d;
+            color: #fff;
         }
-        .am-pagination>li>.back1{
-            border: none;
-        }
-        .jilu form li>a{
+        .am-pagination > li > .back1:hover {
+            background-color: #f0b05d;
             color: #fff;
         }
 
+        .am-pagination > li > .back1 {
+            background-color: #f2d8bf;
+            border-radius: 2px;
+            border: none;
+            color: #3C5364;
+        }
 
-        .jilu .am-nav-tabs>li.am-active>a, .jilu .am-nav-tabs>li.am-active>a:focus, .jilu .am-nav-tabs>li.am-active>a:hover{
+        .jilu form li > a {
+            color: #fff;
+        }
+
+        .jilu .am-nav-tabs > li.am-active > a, .jilu .am-nav-tabs > li.am-active > a:focus, .jilu .am-nav-tabs > li.am-active > a:hover {
             background: none;
             border: none;
-            border-bottom: 1px solid #fff;
+            border-bottom: 2px solid #1d53ed;
         }
-        .am-nav>li>a:focus, .am-nav>li>a:hover{
+
+
+        .am-nav > li > a:focus, .am-nav > li > a:hover {
             background: none;
 
         }
-        .am-nav-tabs>li>a:hover{
+
+        .am-nav-tabs > li > a:hover {
             border: none;
         }
-        .am-nav-tabs>li>a{
+
+        .am-nav-tabs > li > a {
             border: none;
         }
-        .am-nav-tabs>li{
+
+        .am-nav-tabs > li {
             margin-bottom: 4px;
         }
+
         .font-bule .selected {
-            border-bottom: 1px solid #fff;
+            border-bottom: 2px solid #3c5364;
+        }
+        .info .am-g .data-field-bind{
+
+            background-color: #eef8f1;
+        }
+        .info select{
+            border: none;
+            background: #eef3fa;
+        }
+        .am-btn{
+            border: none;
+        }
+        #fenxiao .am-form-group .am-selected{
+            background-color: #eef3fa;
+        }
+        .am-modal-dialog .am-form-group .am-selected{
+            background-color: #eef3fa;
+        }
+
+        .am-form .name1 .am-form-group div input{
+            border: none;
+            font-size: 14px;
+            border-radius: 4px;
+            background-color: #fffaf5;
         }
     </style>
 </head>
@@ -84,17 +132,26 @@
     <section class="am-panel">
         <div class="row-content am-cf" style="background:#e9ecf3;">
             <div class="row">
-                <div class="" style="width:27.8%;margin-top: 10px;float: left;height: 100%;padding-left: 15px">
+                <div class="" style="width:27.8%;margin-top: 0px;float: left;height: 100%;padding-left: 15px;background: url(../assets/img/bottom.png) no-repeat ;background-size:100% 50%;background-position:8px 54px">
+
                     <div class="widget am-cf" style="border: none;height: 1040px">
-                        <section data-am-widget="accordion" class="am-accordion am-accordion-gapped" data-am-accordion='{  }'style="width:100%;position: absolute;z-index: 2;margin: 0;background-color: #6e6bff;border-radius: 5px 5px 0 0;">
+                        <section data-am-widget="accordion" class="am-accordion am-accordion-gapped"
+                                 data-am-accordion='{  }'
+                                 style="width:100%;position: absolute;z-index: 2;margin: 0;">
                             <dl class="am-accordion-item am-active" style="border: none" id="pullDown">
-                                <dt class="am-accordion-title am-text-center"style="width: 30%;margin-left: 10px;font-size: 20px;color:#3c5364;background: #fff;border: none">
-                                    筛选
+
+                                <dt class="am-accordion-title am-text-center"
+                                    style="width: 30%;margin-left: -5px;font-size: 20px;color:#3c5364;font-weight: bold;border: none;background-color:transparent ">
+
+                                    <span style="display: inline-block;width: 4px;height: 20px;background-color: blue;position: relative;top: 3px;"></span>
+                                   <p style="display: inline-block;font-size: 18px"> 筛选</p>
+
                                 </dt>
-                                <dd class="am-accordion-bd am-collapse"style="width: 100%" id="contentPull">
+
+                                <dd class="am-accordion-bd am-collapse" style="width: 100%" id="contentPull">
                                     <div class="am-accordion-content" style="background-color: white">
 
-                                        <div class="widget-body am-cf" style="height: 400px;border: 1px solid #ddd;">
+                                        <div class="widget-body am-cf" style="height: 425px;">
                                             <form class="am-form tpl-form-border-form">
                                                 <!--JS动态控制表头-->
                                                 <!--<div class="tpl-portlet-title h-title-bk">-->
@@ -103,7 +160,8 @@
                                                 <!--</div>-->
                                                 <!--</div>-->
                                                 <div class="widget-body am-cf">
-                                                    <div id="msgbox" class="am-u-sm-11 am-sticky" style="top:20px;left:90px;z-index:1201;"></div>
+                                                    <div id="msgbox" class="am-u-sm-11 am-sticky"
+                                                         style="top:20px;left:90px;z-index:1201;"></div>
                                                 </div>
 
                                                 <div class="am-g name1">
@@ -111,7 +169,7 @@
                                                         <div class="am-form-group">
                                                             <label class="am-u-sm-3 am-form-label am-text-center oppotunity_th_1">状态</label>
                                                             <div class="am-u-sm-9 am-margin-top-xs oppotunity_th_1">
-                                                                <select id="status_select">
+                                                                <select id="status_select" style="border: none; background-color: #fffaf5;font-size: 14px;border-radius: 4px">
                                                                     <option value="">请选择</option>
                                                                     <option value="未处理">未处理</option>
                                                                     <option value="呼叫未通">呼叫未通</option>
@@ -124,7 +182,8 @@
                                                         <div class="am-form-group">
                                                             <label class="am-u-sm-3 am-form-label am-text-center">省份</label>
                                                             <div class="am-u-sm-9 am-margin-top-xs">
-                                                                <input id="area_txt" type="text" class="tpl-form-input" placeholder="省份" />
+                                                                <input id="area_txt" type="text" class="tpl-form-input"
+                                                                       placeholder="省份"/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -132,7 +191,8 @@
                                                         <div class="am-form-group">
                                                             <label class="am-u-sm-3 am-form-label am-text-center ">手机</label>
                                                             <div class="am-u-sm-9 am-margin-top-xs">
-                                                                <input id="phone_txt" type="text" class="tpl-form-input" placeholder="手机" />
+                                                                <input id="phone_txt" type="text" class="tpl-form-input"
+                                                                       placeholder="手机"/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -140,53 +200,71 @@
                                                         <div class="am-form-group">
                                                             <label class="am-u-sm-3 am-form-label am-text-center">微信</label>
                                                             <div class="am-u-sm-9 am-margin-top-xs">
-                                                                <input id="wechat_txt" type="text" class="tpl-form-input" placeholder="微信" />
+                                                                <input id="wechat_txt" type="text"
+                                                                       class="tpl-form-input" placeholder="微信"/>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="am-u-sm-11 oppotunity_th_2" style="float: left">
                                                         <div class="am-form-group">
-                                                            <label for="qq_txt" class="am-u-sm-3 am-form-label am-text-center">QQ</label>
+                                                            <label for="qq_txt"
+                                                                   class="am-u-sm-3 am-form-label am-text-center">QQ</label>
                                                             <div class="am-u-sm-9 am-margin-top-xs">
-                                                                <input id="qq_txt" type="text" class="tpl-form-input" placeholder="QQ" />
+                                                                <input id="qq_txt" type="text" class="tpl-form-input"
+                                                                       placeholder="QQ"/>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="am-u-sm-12">
                                                         <div class="am-form-group">
-                                                            <label class="am-u-sm-4 am-form-label am-text-left feed-back">最后反馈时间</label>
-                                                            <label class="am-u-sm-4 am-form-label am-text-left last-deal">上次处理时间</label>
-                                                            <div class="am-u-sm-4 am-margin-top-xs">
-                                                                <input id="last_contact_dts" type="text" class="am-form-field tpl-form-no-bg wdatepicker" placeholder="开始时间" readonly/>
-                                                                <i class="am-icon-calendar h-icon-1"></i>
+                                                            <label class="am-u-sm-12 am-form-label am-text-left feed-back">最后反馈时间</label>
+                                                            <label class="am-u-sm-12 am-form-label am-text-left last-deal">上次处理时间</label>
+                                                            <div class="am-u-sm-6 am-margin-top-xs">
+                                                                <input id="last_contact_dts" type="text"
+                                                                       class="am-form-field tpl-form-no-bg wdatepicker"
+                                                                       placeholder="开始时间" readonly/>
+                                                                <!--<i class="am-icon-calendar h-icon-1"></i>-->
+                                                                <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
                                                             </div>
-                                                            <div class="am-u-sm-4 am-margin-top-xs">
-                                                                <input id="last_contact_dte" type="text" class="am-form-field tpl-form-no-bg wdatepicker" placeholder="结束时间" readonly/>
-                                                                <i class="am-icon-calendar h-icon-1"></i>
+                                                            <div class="am-u-sm-6 am-margin-top-xs"
+                                                                 style="margin: -30px 0px 0px 165px">
+                                                                <input id="last_contact_dte" type="text"
+                                                                       class="am-form-field tpl-form-no-bg wdatepicker"
+                                                                       placeholder="结束时间" readonly/>
+                                                                <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="am-u-sm-12">
                                                         <div class="am-form-group">
-                                                            <label class="am-u-sm-4 am-form-label am-text-left call-back">用户回电时间</label>
+                                                            <label class="am-u-sm-12 am-form-label am-text-left call-back">用户回电时间</label>
 
-                                                            <label class="am-u-sm-4 am-form-label am-text-left appoint-visit">预约到访时间</label>
-                                                            <label class="am-u-sm-4 am-form-label am-text-left next-visit">下次回访时间</label>
-                                                            <div class="am-u-sm-4 am-margin-top-xs">
-                                                                <input id="next_contact_dts" type="text" class="am-form-field tpl-form-no-bg wdatepicker" placeholder="开始时间" readonly/>
-                                                                <i class="am-icon-calendar h-icon-1"></i>
+                                                            <label class="am-u-sm-12 am-form-label am-text-left appoint-visit">预约到访时间</label>
+                                                            <label class="am-u-sm-12 am-form-label am-text-left next-visit">下次回访时间</label>
+                                                            <div class="am-u-sm-6 am-margin-top-xs">
+                                                                <input id="next_contact_dts" type="text"
+                                                                       class="am-form-field tpl-form-no-bg wdatepicker"
+                                                                       placeholder="开始时间" readonly/>
+                                                                <!--<i class="am-icon-calendar h-icon-1"></i>-->
+                                                                <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
                                                             </div>
-                                                            <div class="am-u-sm-4 am-margin-top-xs">
-                                                                <input id="next_contact_dte" type="text" class="am-form-field tpl-form-no-bg wdatepicker" placeholder="结束时间" readonly/>
-                                                                <i class="am-icon-calendar h-icon-1"></i>
+                                                            <div class="am-u-sm-6 am-margin-top-xs"
+                                                                 style="margin: -30px 0px 0px 165px">
+                                                                <input id="next_contact_dte" type="text"
+                                                                       class="am-form-field tpl-form-no-bg wdatepicker"
+                                                                       placeholder="结束时间" readonly/>
+                                                                <!--<i class="am-icon-calendar h-icon-1"></i>-->
+                                                                <img src="../assets/img/filter_date.png" alt="" style="position:absolute;top: 27%;right: 12%">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="am-g">
-                                                    <div class="am-u-sm-2 am-u-sm-offset-7" style="margin-top:50px">
-                                                        <button id="query_btn" type="button" class="am-btn am-btn-primary am-radius" style="font-size:13px">开 始 查 询
+                                                    <div class="am-u-sm-2 am-u-sm-offset-7" style="margin-top: 15px">
+                                                        <button id="query_btn" type="button"
+                                                                class="am-btn am-btn-primary am-radius"
+                                                                style="font-size:13px">开 始 查 询
                                                         </button>
                                                     </div>
                                                 </div>
@@ -197,35 +275,56 @@
                                 </dd>
                             </dl>
                         </section>
-                        <div style="width:65%;padding:0 10px;border:transparent;border-left: 1px solid #eee;position:absolute;top: 6px;right:10px;z-index: 3;background-color: #fff;height: 51px;line-height: 45px">
-                            <input type="text" id="phone_btn" class="tpl-header-search-box" placeholder="请输入手机号" style="width: 80%;border: none">
-                            <button id="phone_ser" class="tpl-header-search-btn am-icon-search" style="width: 25px;height: 25px;margin-top: -8px;"></button>
+                        <div style="width:61%;padding:0 10px;border:transparent;border-bottom: 1px solid #ccc;position:absolute;top: 6px;right:40px;z-index: 3;height: 45px;line-height: 45px">
+                            <input type="text" id="phone_btn" class="tpl-header-search-box" placeholder="请输入手机号"
+                                   style="width: 80%;border: none">
+                            <button id="phone_ser" class="tpl-header-search-btn am-icon-search"
+                                    style="width: 25px;height: 25px;">
+                            </button>
+                            <img src="../assets/img/draw3.png" alt="" style="display: inline-block;width: 35px;position: relative;left: 110%;top:-35px;">
                         </div>
+                        <!--<div class="clearfloat" style="clear:both"></div>-->
 
-                        <div class="tpl-caption font-bule" style="background-color: #6e6bff;border-radius: 5px 5px 0 0;">
+                        <div class="tpl-caption font-bule" style="padding-top: 10px;margin-top: 57px">
 
-                            <h3 class="title" style="display:inline-block;margin-left: 15px;font-weight: bold;margin: 70px 0px 10px 15px;font-size: 18px;color: #fff">
+
+                            <img src="../assets/img/bg3.png" alt="" style="width: 100%;position: absolute;top:62px;">
+
+                            <span style="display:inline-block;width: 4px;height: 20px;background-color: blue;position: relative;left: 19px; top: 4px;"></span>
+                            <h3 class="title"
+                                style="width: 97.8%;height: 40px;display:inline-block;padding: 7px 0px 0px 28px;background-color: #fff7ef;font-weight: bold;margin: -5px 0px 0px -8px;font-size: 18px;color: #3c5364;">
+
 
                             </h3>
-                            <span id="page_title"></span>
+                            <span id="page_title" style="position: absolute;top: 70px;left: 140px;"></span>
                         </div>
-                        <div class="am-scrollable-horizontal  widget-body-1" style="padding: 0;background-color: #6e6bff;height: 400px">
-                            <table width="100%" class="am-table am-table-compact am-text-nowrap am-table-hover am-table-bordered tpl-table-black" id="oppotunity_tbl" style="color: #fff;font-size: 16px;border: none;margin-left: -1px;">
+                        <div class="am-scrollable-horizontal  widget-body-1"
+                             style="padding: 0;width: 97.8%;height: 38.5%;background-color: #fffbf6">
+                            <table
+                                   class="am-table am-table-compact am-text-nowrap am-table-hover am-table-bordered tpl-table-black"
+                                   id="oppotunity_tbl"
+                                   style="width: 98%;color: #3c5364;font-size: 17px;border: none; background: linear-gradient(to bottom,#fff7ef, #fffbf6);">
+                                <!--background: linear-gradient(#d7a63c, #f8e96e);-->
                                 <thead>
                                 <tr>
-                                    <th style="display: none;text-align: center;border: none;" class="oppotunity_th_1">状态</th>
-                                    <th style="text-align: center">姓名</th>
-                                    <th style="text-align: center;border: none;">手机</th>
-                                    <th style="text-align: center;border: none;">省份</th>
+                                    <th style="display: none;text-align: center;border: none;font-size: 16px;" class="oppotunity_th_1">
+                                        状态
+                                    </th>
+                                    <th style="text-align: center;font-size: 16px;">姓名</th>
+                                    <th class="phones" style="text-align: center;border: none;font-size: 16px;">联系方式</th>
+                                    <!--<th class="weixin" style="text-align: center;border: none;">微信</th>-->
+                                    <!--<th class="qq" style="text-align: center;border: none;">QQ</th>-->
+                                    <th class="times" style="text-align: center;border: none;font-size: 16px;">分配时间</th>
+                                    <th class="prev" style="text-align: center;border: none;font-size: 16px;">省份</th>
                                     <!--最后反馈-->
                                     <!--<th class="feed-back" style="text-align: center">最后反馈时间</th>-->
                                     <!--<th class="last-deal" style="text-align: center">上次处理时间</th>-->
                                     <!--用户回电-->
                                     <!--<th class="call-back" style="text-align: center">用户回电时间</th>-->
-                                    <th class="appoint-visit" style="text-align: center;border: none;">预约到访时间</th>
-                                    <th class="call-back1" style="text-align: center;;border: none;">用户回电时间</th>
+                                    <th class="appoint-visit" style="text-align: center;border: none;font-size: 16px;">预约到访时间</th>
+                                    <th class="call-back1" style="text-align: center;;border: none;font-size: 16px;">用户回电时间</th>
 
-                                    <th class="next-visit1" style="text-align: center;border: none;">下次回访时间</th>
+                                    <th class="next-visit1" style="text-align: center;border: none;font-size: 16px;">下次回访时间</th>
 
                                 </tr>
                                 </thead>
@@ -235,23 +334,28 @@
                         </div>
 
                         <!--<div style="border: 1px solid #6e6bff"></div>-->
-                        <ul data-am-widget="pagination" class="am-pagination am-pagination-default am-pagination-centered" style="margin:0px;background-color:#6e6bff">
+                        <ul data-am-widget="pagination"
+                            class="am-pagination am-pagination-default am-pagination-centered"
+                            style="margin: 0px 0px 0px 0px;padding-top: 15px;background-color: #fffbf6;width: 97.9%;height: 6.4%">
                             <li class="am-pagination-prev" style="height: 30px;overflow: hidden">
                                 <a href="javascript:;" class="back1" style="margin-top: -4px">&laquo;</a>
                             </li>
                             <li class="am-pagination-current" style="height: 30px;overflow: hidden">
-                                <span class="" style="margin-top: -4px;">...</span>
+                                <span class="" style="background-color:#f2d8bf;margin-top: -4px;border: none">...</span>
                             </li>
                             <li class="am-pagination-next" style="height: 30px;overflow: hidden">
                                 <a href="javascript:;" class="back1" style="margin-top: -4px">&raquo;</a>
                             </li>
 
-                            <span style="display: inline-block;padding-bottom: 2px;overflow: hidden;color: #fff;font-size: 13px">跳转第</span>
+                            <span style="display: inline-block;padding-bottom: 2px;overflow: hidden;color: #3c5364;font-size: 14px">跳转第</span>
 
                             <!--<span style="color: #fff" style="margin-top: -4px">跳转第</span>-->
-                            <input type="text" class="page_num" style="width:35px;height: 32px;border:1px solid #c0c0c0;border-radius: 2px;font-size: 14px;text-align: center;margin:0 0 20px 0px"
-                            /><span style="color: #fff;display: inline-block;padding-bottom: 2px;overflow: hidden;font-size: 13px;margin-left: 2px">页</span>
-                            <a href="javascript:;" id="page_enter" style="display: inline-block;width: 45px;height: 30px; color: #FFF;background-color: #CFAC21;border-radius: 2px">
+                            <input type="text" class="page_num"
+                                   style="width:35px;height: 32px;border:none;border-radius: 2px;font-size: 15px;background-color:#f2d8bf;text-align: center;margin:0 0 20px 0px;"
+                            /><span
+                                style="color: #3c5364;display: inline-block;padding-bottom: 2px;overflow: hidden;font-size: 14px;margin-left: 2px">页</span>
+                            <a href="javascript:;" id="page_enter"
+                               style="display: inline-block;width: 45px;height: 30px; color: #FFF;background-color: #f0b05d;border-radius: 2px">
                                 <span style="height: 30px;line-height: 28px;display: inline-block;padding-bottom: 5px;overflow: hidden;font-size: 14px">确定</span>
 
                             </a>
@@ -260,16 +364,17 @@
 
                 </div>
                 <!--right 学员信息-->
-                <div class="" style="width: 70%;float: left;margin:10px 0px 0px 15px;">
-                    <form class="am-form tpl-form-border-form">
+                <div class="info" style="width: 70%;float: left;margin:10px 0px 0px 15px;">
+                    <form class="am-form tpl-form-border-form" style="background: url(../assets/img/bottom2.png)no-repeat ;background-size:103% 324px;background-position:-16px 37px">
                         <div class="widget am-cf am-padding-0">
-                            <div class="widget-body am-cf" style="margin-bottom:10px;">
-                                <div class="tpl-portlet-title h-title-bk" style="background: #7ca3ee;">
+                            <div class="widget-body am-cf" style="width: 99%;margin-bottom:10px;background: linear-gradient(to bottom, #ffffff, #f3fcf6);color: #3C5364">
+                                <div class="tpl-portlet-title h-title-bk" style="border: none;background: #e9ecf3;border-radius: 0px">
 
+                                    <div class="tpl-caption font-bule" style="background: url(../assets/img/draw.png)no-repeat ;background-size:170px 40px;background-position:100% 0px;padding-top: 11px">
+                                        <span style="display:inline-block;width: 4px;height: 20px;background-color: blue;position: absolute;left: 0.5%; top: 7.5%;"></span>
+                                        <span style="color: #383e56;font-size: 18px;margin-left: 4px">学员信息</span>
+                                        <div style="width: 103%;height: 15px;background: url(../assets/img/bg.png)no-repeat ;background-color:#ffffff;background-position:37px 0px;margin-left: -10px;"></div>
 
-                                    <div class="tpl-caption font-bule">
-                                        <img src="../assets/img/home_point.png" alt="">
-                                        <span style="color: #fff">学员信息</span>
                                     </div>
                                 </div>
                                 <!--学员id-->
@@ -277,37 +382,53 @@
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
                                             <label class="am-u-sm-3 am-form-label am-text-left">学员ID</label>
-                                            <label data-bind="student_id" class="data-field-bind am-u-sm-8 am-form-label am-text-left" style="color: #3c5364; border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;
-    line-height: 26px;font-size: 16px;padding-left: 9px;margin-left: 4px"placeholder="学员ID" ></label>
+                                            <label data-bind="student_id"
+                                                   class="data-field-bind am-u-sm-8 am-form-label am-text-left" style="color: #3c5364;border-radius: 5px;height: 40px;
+    line-height: 26px;font-size: 14px;padding-left: 9px;margin-left: 4px" placeholder="学员ID"></label>
                                         </div>
                                     </div>
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-3 am-form-label am-text-left" style="padding-top: 6px">省份</label>
-                                            <label data-bind="luru_prov" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left" style="border: 1px solid #c8d8e3;padding-left: 11px;border-radius: 5px;height: 40px;line-height: 22px;font-size: 15px;color: #3c5364;"></label>
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding-top: 10px">省份</label>
+                                            <label data-bind="luru_prov"
+                                                   class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left"
+                                                   style="padding-left: 11px;border-radius: 5px;height: 40px;line-height: 22px;font-size: 14px;color: #666;"></label>
                                             <div class="am-u-sm-8 am-hide">
                                                 <!--<input type="text" id="t_student_prov_name"  onblur="doDataBind(this);"  />-->
-                                                <select data-bind="luru_prov" id="luru_prov" onblur="doDataBind(this);" style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;overflow: hidden;">
+                                                <select data-bind="luru_prov" id="luru_prov" onblur="doDataBind(this);"
+                                                        style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;overflow: hidden;">
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-3 am-form-label am-text-left" style="padding-top: 6px">城市</label>
-                                            <label data-bind="luru_city" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 11px;"></label>
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding-top: 10px">城市</label>
+                                            <label data-bind="luru_city"
+                                                   class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left"
+                                                   style="border-radius: 5px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 11px;"></label>
                                             <div class="am-u-sm-8 am-hide">
-                                                <select data-bind="luru_city" id="luru_city" onblur="doDataBind(this);" style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 10px;overflow: hidden;">
+                                                <select data-bind="luru_city" id="luru_city" onblur="doDataBind(this);"
+                                                        style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 10px;overflow: hidden;">
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-2 am-form-label am-text-left" style="padding:0px 0px 0px 5px;margin-right: 18px">分配时间</label>
-                                            <label data-bind="distribution_time" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;font-size: 12px;color: #3c5364;padding-left: 10px;"></label>
+                                            <label class="am-u-sm-2 am-form-label am-text-left"
+                                                   style="padding:0px 0px 0px 5px;margin-right: 18px">分配时间</label>
+                                            <label data-bind="distribution_time"
+                                                   class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left"
+                                                   style="border-radius: 5px;height: 40px;line-height: 21px;font-size: 13px;color: #3c5364;padding-left: 10px;"></label>
                                             <div class="am-u-sm-8 am-hide">
-                                                <input maxlength="8" data-bind="distribution_time" id="distribution_time" type="text" class="tpl-form-input am-u-sm-8" style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 12px;color: #3c5364;padding-left: 10px;overflow: hidden;"onblur="doDataBind(this);"/>
+                                                <input maxlength="8" data-bind="distribution_time"
+                                                       id="distribution_time" type="text"
+                                                       class="tpl-form-input am-u-sm-8"
+                                                       style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 10px;overflow: hidden;"
+                                                       onblur="doDataBind(this);"/>
                                             </div>
                                         </div>
                                     </div>
@@ -317,31 +438,46 @@
                                 <div class="am-g" style="margin-top: 8px;">
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-3 am-form-label am-text-left" style="padding-top: 6px">姓名</label>
-                                            <label style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;margin-left: 4px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 11px;" data-bind="student_name" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left"></label>
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding-top: 10px">姓名</label>
+                                            <label style="border-radius: 5px;height: 40px;margin-left: 4px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 11px;"
+                                                   data-bind="student_name"
+                                                   class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left"></label>
                                             <div class="am-u-sm-8 am-hide">
-                                                <input maxlength="8" data-bind="student_name" type="text" class="tpl-form-input am-u-sm-8" style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 10px;overflow: hidden;" placeholder="学员姓名"
-                                                       onblur="doDataBind(this);" />
+                                                <input maxlength="8" data-bind="student_name" type="text"
+                                                       class="tpl-form-input am-u-sm-8"
+                                                       style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 10px;overflow: hidden;"
+                                                       placeholder="学员姓名"
+                                                       onblur="doDataBind(this);"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-3 am-form-label am-text-left" style="padding-top: 6px">年龄</label>
-                                            <label data-bind="t_student_age" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 11px;"></label>
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding-top: 10px">年龄</label>
+                                            <label data-bind="t_student_age"
+                                                   class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left"
+                                                   style="border-radius: 5px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 11px;"></label>
                                             <div class="am-u-sm-8 am-hide">
-                                                <input data-bind="t_student_age" type="text" class="tpl-form-input am-u-sm-8" placeholder="年龄" onblur="doDataBind(this);" style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 10px;overflow: hidden;" />
+                                                <input data-bind="t_student_age" type="text"
+                                                       class="tpl-form-input am-u-sm-8" placeholder="年龄"
+                                                       onblur="doDataBind(this);"
+                                                       style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 10px;overflow: hidden;"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-3 am-form-label am-text-left" style="padding-top: 6px">性别</label>
-                                            <label data-bind="t_student_sex" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 11px;"></label>
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding-top: 10px">性别</label>
+                                            <label data-bind="t_student_sex"
+                                                   class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left"
+                                                   style="border-radius: 5px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 11px;"></label>
                                             <div class="am-u-sm-8 am-hide">
                                                 <!--<input data-bind="t_student_sex" type="text" class="tpl-form-input" placeholder="性别" onblur="doDataBind(this);" />-->
-                                                <select data-bind="t_student_sex" onblur="doDataBind(this);" 
-                                                style="width: 150px; border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;overflow: hidden;">
+                                                <select data-bind="t_student_sex" onblur="doDataBind(this);"
+                                                        style="width: 150px; border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;overflow: hidden;">
                                                     <option value="">请选择</option>
                                                     <option value="男">男</option>
                                                     <option value="女">女</option>
@@ -351,11 +487,15 @@
                                     </div>
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-3 am-form-label am-text-left" style="padding-top: 6px">学历</label>
-                                            <label data-bind="t_student_degree" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 11px;"></label>
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding-top: 10px">学历</label>
+                                            <label data-bind="t_student_degree"
+                                                   class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left"
+                                                   style="border-radius: 5px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 11px;"></label>
                                             <div class="am-u-sm-8 am-hide">
                                                 <!--<input data-bind="t_student_degree" type="text" class="tpl-form-input" placeholder="学历" onblur="doDataBind(this);" />-->
-                                                <select data-bind="t_student_degree" onblur="doDataBind(this);" style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 10px;overflow: hidden;">
+                                                <select data-bind="t_student_degree" onblur="doDataBind(this);"
+                                                        style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 10px;overflow: hidden;">
                                                     <option value="">请选择</option>
                                                     <option value="小学">小学</option>
                                                     <option value="初中">初中</option>
@@ -370,16 +510,19 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div class="am-g" style="margin-top: 8px">
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-3 am-form-label am-text-left" style="padding-top: 6px">微信</label>
-                                            <label data-bind="student_weixin" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;margin-left: 4px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 11px;"></label>
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding-top: 10px">微信</label>
+                                            <label data-bind="student_weixin"
+                                                   class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left"
+                                                   style="border-radius: 5px;height: 40px;margin-left: 4px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 11px;"></label>
                                             <div class="am-u-sm-8 am-hide">
-                                                <input id="student_weixin" maxlength="20" data-bind="student_weixin" type="text" class="tpl-form-input" placeholder="微信"
-                                                       onblur="doDataBind(this);" style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 10px;overflow: hidden;"/>
+                                                <input id="student_weixin" maxlength="20" data-bind="student_weixin"
+                                                       type="text" class="tpl-form-input" placeholder="微信"
+                                                       onblur="doDataBind(this);"
+                                                       style="border:1px solid #c8d8e3;border-radius: 5px;width: 150px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 10px;overflow: hidden;"/>
 
                                             </div>
                                         </div>
@@ -387,12 +530,17 @@
                                     </div>
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-3 am-form-label am-text-left" style="padding-top: 6px">状态</label>
-                                            <label data-bind="weixin_state" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 7px;"></label>
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding-top: 10px">状态</label>
+                                            <label data-bind="weixin_state"
+                                                   class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left"
+                                                   style="border-radius: 5px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 7px;"></label>
                                             <div class="am-u-sm-5 am-hide">
                                                 <!--<input id="weixin_state"  data-bind="weixin_state" type="radio" class="tpl-form-input"-->
                                                 <!--onblur="doDataBind(this);" />-->
-                                                <select id="weixin_state" data-bind="weixin_state" onblur="doDataBind(this);" style="width: 150px;border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 10px;overflow: hidden;">
+                                                <select id="weixin_state" data-bind="weixin_state"
+                                                        onblur="doDataBind(this);"
+                                                        style="width: 150px;border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 10px;overflow: hidden;">
                                                     <option value="">请选择</option>
                                                     <option value="已获取">已获取</option>
                                                     <option value="未获取">未获取</option>
@@ -404,20 +552,30 @@
                                     </div>
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-3 am-form-label am-text-left" style="padding-top: 6px">QQ</label>
-                                            <label data-bind="student_qq" class="data-field-bind am-u-sm-8 data-field-editable am-form-label am-text-left" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 10px;"></label>
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding-top: 10px">QQ</label>
+                                            <label data-bind="student_qq"
+                                                   class="data-field-bind am-u-sm-8 data-field-editable am-form-label am-text-left"
+                                                   style="border-radius: 5px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 10px;"></label>
                                             <div class="am-u-sm-8 am-hide">
-                                                <input id="student_qq" maxlength="20" data-bind="student_qq" type="text" class="tpl-form-input" placeholder="QQ" onblur="doDataBind(this);" style="width: 150px;border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 16px;color: #3c5364;padding-left: 10px;overflow: hidden;" />
+                                                <input id="student_qq" maxlength="20" data-bind="student_qq" type="text"
+                                                       class="tpl-form-input" placeholder="QQ"
+                                                       onblur="doDataBind(this);"
+                                                       style="width: 150px;border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 22px;font-size: 14px;color: #3c5364;padding-left: 10px;overflow: hidden;"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="am-u-sm-3">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-3 am-form-label am-text-left" style="padding-top: 6px">状态</label>
-                                            <label data-bind="weixin_state" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;font-size: 16px;color: #3c5364;padding-left: 7px;"></label>
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding-top: 10px">状态</label>
+                                            <label data-bind="qq_state"
+                                                   class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-left"
+                                                   style="border-radius: 5px;height: 40px;line-height: 21px;font-size: 14px;color: #3c5364;padding-left: 7px;"></label>
                                             <div class="am-u-sm-8 am-hide">
                                                 <!--onblur="doDataBind(this);" />-->
-                                                <select id="qq_state" data-bind="weixin_state" onblur="doDataBind(this);" style="width: 150px;border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;font-size: 16px;color: #3c5364;padding-left: 10px;overflow: hidden;">
+                                                <select id="qq_state" data-bind="qq_state" onblur="doDataBind(this);"
+                                                        style="width: 150px;border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;font-size: 14px;color: #3c5364;padding-left: 10px;overflow: hidden;">
                                                     <option value="">请选择</option>
                                                     <option value="已获取">已获取</option>
                                                     <option value="未获取">未获取</option>
@@ -431,72 +589,81 @@
                                 </div>
                                 <!--电话 手机-->
                                 <div class="am-g" style="margin-top: 8px;">
-                                    <div class="am-u-sm-5">
+                                    <div class="am-u-sm-6">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-2 am-form-label am-text-left" style="padding:0px 24px 0px 5px">电话号码</label>
-                                            <label data-bind="student_phone" class="data-field-bind data-field-editable am-u-sm-8 am-form-label am-text-center" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;font-size: 16px;color: #3c5364;margin-left: -3px;padding-left: 5px;"></label>
-                                            <div class="am-u-sm-8 am-hide">
-                                                <input data-bind="student_phone" type="text" class="tpl-form-input" placeholder="关联电话" onblur="doDataBind(this);" style="border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;font-size: 14px;color: #3c5364;margin-left: -8px;padding-left: 5px;overflow: hidden;" />
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding:0px 33px 0px -1px">电话号码</label>
+                                            <label data-bind="student_phone"
+                                                   class="data-field-bind data-field-editable am-u-sm-6 am-form-label am-text-center"
+                                                   style="border-radius: 5px;height: 40px;line-height: 21px;font-size: 14px;color: #3c5364;margin-left: -53px;padding-left: 5px;"></label>
+                                            <div class="am-u-sm-6 am-hide">
+                                                <!--onblur="doDataBind(this);"-->
+                                                <input data-bind="student_phone" type="text" class="tpl-form-input"
+                                                       placeholder="关联电话" onblur="doDataBind(this);"
+                                                       style="border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;font-size: 14px;color: #3c5364;margin-left: -18px;padding-left: 5px;overflow: hidden;"/>
 
                                             </div>
-                                            <a id="student_phone_btn" class="am-u-sm-1 am-btn" href="javascript:;" style="padding: 6px 0 0 30px;">
+                                            <a id="student_phone_btn" class="am-u-sm-1 am-btn" href="javascript:;"
+                                               style="padding: 6px 0 0 15px;">
                                                 <!--<i class="am-icon-whatsapp"></i>-->
                                                 <img src="../assets/img/home_call.png">
                                             </a>
+                                            <!--<input type="button" value="绑定号码" id="tel_bind" style="margin: 7px 0px 0px 13px;font-size: 13px;padding:5px 4px;background: #9187f3;color: #fff;border: none;border-radius: 2px">-->
                                         </div>
                                     </div>
-                                    <div class="am-u-sm-5" style="margin-left: 75px">
+                                    <!--style="margin-left: 75px"-->
+                                    <!--手机号码 -->
+                                    <div class="am-u-sm-6">
                                         <div class="am-form-group">
-                                            <label class="am-u-sm-2 am-form-label am-text-left" style="padding: 0px 24px 0px 5px">手机号码</label>
-                                            <label data-bind="student_cellphone" class="data-field-bind am-u-sm-8 am-form-label am-text-center" style="border: 1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;margin-left: -5px;font-size: 14px;color: #3c5364;"></label>
-                                            <a id="student_cellphone_btn" class="am-u-sm-2" href="javascript:;" style="padding:6px 0px 0px 30px;">
+                                            <label class="am-u-sm-3 am-form-label am-text-left"
+                                                   style="padding: 0px 33px 0px -1px;margin-left: -5px">手机号码</label>
+                                            <label data-bind="student_cellphone"
+                                                   class="data-field-bind data-field-editable am-u-sm-6 am-form-label am-text-center"
+                                                   style="border-radius: 5px;height: 40px;line-height: 21px;margin-left: -52px;font-size: 14px;color: #3c5364;"></label>
+                                            <div class="am-u-sm-6 am-hide">
+                                                <!---->
+                                                <input data-bind="student_cellphone" type="text" id="cellphone"
+                                                       class="tpl-form-input" placeholder="关联手机"
+                                                       onblur="doDataBind(this);"
+                                                       style="border:1px solid #c8d8e3;border-radius: 5px;height: 40px;line-height: 21px;font-size: 14px;color: #3c5364;margin-left: -18px;padding-left: 5px;overflow: hidden;"/>
+
+                                            </div>
+                                            <a id="student_cellphone_btn" class="am-u-sm-1" href="javascript:;"
+                                               style="padding:6px 0px 0px 15px;">
                                                 <!--<i class="am-icon-whatsapp" style="padding: 7px 0 0 35px;"></i>-->
                                                 <img src="../assets/img/home_call.png">
                                             </a>
+                                            <!--<input type="button" id="phone_bind" value="绑定号码" style="margin: 7px 0px 0px 13px;font-size: 13px;padding:5px 4px;background: #9187f3;color: #fff;border: none;border-radius: 2px">-->
                                         </div>
                                     </div>
                                 </div>
-                                <!--<div class="am-g h-bk">
-
-                                </div>
-                                &lt;!&ndash;微信&ndash;&gt;
-                                <div class="am-g h-bk">
-
-                                </div>
-                                &lt;!&ndash;QQ&ndash;&gt;
-                                <div class="am-g h-bk">
-
-                                </div>-->
-                                <!--<div class="am-g h-bk">
-                              <div class="am-u-sm-6">
-                                <div class="am-form-group">
-                                  <label class="am-u-sm-6 am-form-label am-text-left">学员意向</label>
-                                  <label class="data-field-bind am-u-sm-6 am-form-label am-text-left" style="font-style: italic;"></label>
-                                </div>
-                              </div>
-                            </div>-->
-
                             </div>
-
                         </div>
                     </form>
-                    <div class="widget am-cf am-padding-0">
-                        <div class="widget-body am-cf">
-                            <div class="tpl-portlet-title h-title-bk" style="background: #7ca3ee;">
-                                <div class="tpl-caption font-bule ">
-                                    <img src="../assets/img/home_point.png" alt="">
-                                    <span style="color: #fff">项目信息</span>
+                    <div class="widget am-cf am-padding-0" style="background: url(../assets/img/bottom3.png)no-repeat ;background-size:103% 367px;background-position:-16px 30px;">
+                        <div class="widget-body am-cf" style="width: 99%;margin-bottom:10px;background: linear-gradient(to bottom, #ffffff, #eef3fa);color: #3C5364;">
+                            <div class="tpl-portlet-title h-title-bk" style="border: none;background: #e9ecf3;border-radius: 0px">
+                                <div class="tpl-caption font-bule" >
+                                    <!--style="background: url(../assets/img/draw2.png)no-repeat ;background-size:140px 40px;background-position:780px 0px;padding-top: 7px"-->
+                                    <span style="display:inline-block;width: 4px;height: 18px;background-color: blue;position: relative;left: 0px; top: 3px;"></span>
+                                    <span style="color: #383e56;font-size: 18px">项目信息</span>
+                                    <div style="width: 99%;height: 30px;background: url(../assets/img/bg2.png)no-repeat ;background-color:#ffffff;background-position:37px 0px;margin-left: -10px;position: absolute"></div>
+
+                                    <img src="../assets/img/draw2.png" alt="" style="width: 140px;height: 90Px;position: absolute;left: 85%;top: -5%;">
                                 </div>
                             </div>
                             <form id="fenxiao">
                                 <fieldset id="fieldset">
                                     <!--录入校-->
-                                    <div class="am-g"  style="margin-top:5px;">
+                                    <div class="am-g" style="margin-top:5px;">
                                         <div class="am-u-sm-6">
                                             <div class="am-form-group">
-                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm" style="font-size: 14px">分校</label>
+                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm"
+                                                       style="font-size: 14px">分校</label>
                                                 <div class="am-u-sm-7 am-margin-top-xs">
-                                                    <select id="case_campus_big_select" data-bind="t_sys_office_campus_id" class="data-select-bind campus-big-select case_campus_big_select-1"
+                                                    <select id="case_campus_big_select"
+                                                            data-bind="t_sys_office_campus_id"
+                                                            class="data-select-bind campus-big-select case_campus_big_select-1"
                                                             data-am-selected="{ btnWidth: '100%',btnSize: 'xs', maxHeight: '200px', searchBox: 1 }">
                                                     </select>
                                                 </div>
@@ -505,9 +672,11 @@
                                         <!--分校报名点-->
                                         <div class="am-u-sm-6">
                                             <div class="am-form-group">
-                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm" style="font-size: 14px">分校报名点</label>
+                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm"
+                                                       style="font-size: 14px">分校报名点</label>
                                                 <div class="am-u-sm-7 am-margin-top-xs">
-                                                    <select id="case_campus_select" class="fxb" data-am-selected="{btnWidth: '100%', btnSize: 'xs', maxHeight: '200px', searchBox: 1 }">
+                                                    <select id="case_campus_select" class="fxb"
+                                                            data-am-selected="{btnWidth: '100%', btnSize: 'xs', maxHeight: '200px', searchBox: 1 }">
                                                     </select>
                                                 </div>
                                             </div>
@@ -519,9 +688,11 @@
                                     <div class="am-g">
                                         <div class="am-u-sm-6">
                                             <div class="am-form-group">
-                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm" style="font-size: 14px">推荐项目</label>
+                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm"
+                                                       style="font-size: 14px">推荐项目</label>
                                                 <div class="am-u-sm-7 am-margin-top-xs">
-                                                    <select id="case_course_type_select" data-bind="course_big_id" class="data-select-bind course-type-select case_campus_big_select-3"
+                                                    <select id="case_course_type_select" data-bind="course_big_id"
+                                                            class="data-select-bind course-type-select case_campus_big_select-3"
                                                             data-am-selected="{ btnWidth: '100%',btnSize: 'xs', maxHeight: '200px', searchBox: 1 }">
                                                     </select>
                                                 </div>
@@ -530,9 +701,11 @@
                                         <!--推荐院校-->
                                         <div class="am-u-sm-6">
                                             <div class="am-form-group">
-                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm" style="font-size: 14px">推荐学院</label>
+                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm"
+                                                       style="font-size: 14px">推荐学院</label>
                                                 <div class="am-u-sm-7 am-margin-top-xs">
-                                                    <select id="case_course_major_select" data-am-selected="{btnWidth: '100%', btnSize: 'xs', maxHeight: '200px', searchBox: 1 }">
+                                                    <select id="case_course_major_select"
+                                                            data-am-selected="{btnWidth: '100%', btnSize: 'xs', maxHeight: '200px', searchBox: 1 }">
                                                     </select>
                                                 </div>
                                             </div>
@@ -543,9 +716,12 @@
                                     <div class="am-g">
                                         <div class="am-u-sm-6">
                                             <div class="am-form-group">
-                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm" style="font-size: 14px">推荐产品</label>
+                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm"
+                                                       style="font-size: 14px">推荐产品</label>
                                                 <div class="am-u-sm-7 am-margin-top-xs">
-                                                    <select id="case_course_class_select" class="case_course_class_select-1" data-am-selected="{btnWidth: '100%', btnSize: 'xs', maxHeight: '200px', searchBox: 1 }">
+                                                    <select id="case_course_class_select"
+                                                            class="case_course_class_select-1"
+                                                            data-am-selected="{btnWidth: '100%', btnSize: 'xs', maxHeight: '200px', searchBox: 1 }">
                                                     </select>
                                                 </div>
                                             </div>
@@ -553,10 +729,13 @@
                                         <!--班型价格-->
                                         <div class="am-u-sm-6">
                                             <div class="am-form-group">
-                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm" style="font-size: 14px">产品价格</label>
+                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm"
+                                                       style="font-size: 14px">产品价格</label>
                                                 <div class="am-u-sm-7 am-margin-top-xs" id="case_campus_big_select-6">
 
-                                                    <input type="text" id="case_price_txt" name="intend_rdo" value="" class="am-radio-inline" style="width: 263px;height: 40px;border-radius: 4px;border: 1px solid #DBDBDB;"/>
+                                                    <input type="text" id="case_price_txt" name="intend_rdo" value=""
+                                                           class="am-radio-inline" disabled="disabled"
+                                                           style="width: 263px;height: 40px;border-radius: 4px;border: 1px solid #DBDBDB;"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -584,75 +763,116 @@
                                     <div class="am-g">
                                         <div class="am-u-sm-6">
                                             <div class="am-form-group">
-                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm call-back" style="font-size: 14px">用户回电时间</label>
-                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm appoint-visit" style="font-size: 14px">预约到访时间</label>
-                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm next-visit" style="font-size: 14px">下次回访时间</label>
+                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm call-back"
+                                                       style="font-size: 14px">用户回电时间</label>
+                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm appoint-visit"
+                                                       style="font-size: 14px">预约到访时间</label>
+                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm next-visit"
+                                                       style="font-size: 14px">下次回访时间</label>
                                                 <div class="am-u-sm-7 am-margin-top-xs">
-                                                    <input id="case_next_time_txt" type="text" class="am-form-field tpl-form-no-bg wdatepicker call-back" placeholder="用户回电时间" style="border: 1px solid #DBDBDB; height: 40px;"/>
-                                                    <input id="case_next_time_txt1" type="text" class="am-form-field tpl-form-no-bg wdatepicker appoint-visit" placeholder="预约到访时间" style="border: 1px solid #DBDBDB; height: 40px;"/>
-                                                    <input id="case_next_time_txt2" type="text" class="am-form-field tpl-form-no-bg wdatepicker next-visit" placeholder="下次回访时间" style="border: 1px solid #DBDBDB; height: 40px;"/>
+                                                    <input id="case_next_time_txt" type="text"
+                                                           class="am-form-field tpl-form-no-bg wdatepicker call-back"
+                                                           placeholder="用户回电时间"
+                                                           style="background-color: #eef3fa; height: 40px;border: none"/>
+                                                    <input id="case_next_time_txt1" type="text"
+                                                           class="am-form-field tpl-form-no-bg wdatepicker appoint-visit"
+                                                           placeholder="预约到访时间"
+                                                           style=" height: 40px;background-color: #eef3fa;border: none"/>
+                                                    <input id="case_next_time_txt2" type="text"
+                                                           class="am-form-field tpl-form-no-bg wdatepicker next-visit"
+                                                           placeholder="下次回访时间"
+                                                           style="height: 40px;background-color: #eef3fa;border: none"/>
                                                 </div>
                                             </div>
                                         </div>
-<!--保存方式-->
-                                        <!--<div class="am-u-sm-6">-->
-                                            <!--<div class="am-form-group">-->
-                                                <!--<label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm" style="font-size: 14px">保存方式</label>-->
-                                                <!--<div class="am-u-sm-9 am-margin-top-xs">-->
+                                        <!--保存方式-->
+                                        <div class="am-u-sm-6">
+                                            <div class="am-form-group">
+                                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm"
+                                                       style="font-size: 14px">保存方式</label>
+                                                <div class="am-u-sm-9 am-margin-top-xs">
 
-                                                    <!--<label style="font-size: 14px;margin: 5px 0px 0px 0px;">手机保存</label> <input class="ticket_hold_type" type="radio" name="radio" value="手机保存">-->
+                                                    <label style="font-size: 14px;margin: 5px 0px 0px 0px;">手机保存</label>
+                                                    <input class="ticket_hold_type" type="radio" name="radio"
+                                                           value="手机保存">
 
-                                                    <!--<label class="" style="font-size: 14px;margin: 5px 0px 0px 4px">微信保存</label> <input class="ticket_hold_type" type="radio" name="radio" value="微信保存"/>-->
+                                                    <label class=""
+                                                           style="font-size: 14px;margin: 5px 0px 0px 4px">微信保存</label>
+                                                    <input class="ticket_hold_type" type="radio" name="radio"
+                                                           value="微信保存"/>
 
-                                                    <!--<label class="" style="font-size: 14px;margin: 5px 0px 0px 4px;">QQ保存</label> <input class="ticket_hold_type" type="radio" name="radio" value="QQ保存">-->
+                                                    <label class="" style="font-size: 14px;margin: 5px 0px 0px 4px;">QQ保存</label>
+                                                    <input class="ticket_hold_type" type="radio" name="radio"
+                                                           value="QQ保存">
 
 
-                                                <!--</div>-->
-                                            <!--</div>-->
-                                        <!--</div>-->
+                                                </div>
+                                            </div>
+                                        </div>
 
                                     </div>
-<!--上传截图-->
-                                    <!--<div class="am-g">-->
+                                    <!--上传截图-->
+                                    <div class="am-g">
                                         <!--<div class="am-u-sm-6">-->
-                                            <!--<div class="am-form-group">-->
-                                                <!--<label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm">上传截图</label>-->
-                                                <!--<div class="am-u-sm-7 am-margin-top-xs">-->
+                                        <!--<div class="am-form-group">-->
+                                        <!--<label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm">上传截图</label>-->
+                                        <!--<div class="am-u-sm-7 am-margin-top-xs">-->
 
-                                                    <!--<a class="am-btn am-text-sm btn-1" href="javascript:;" data-am-modal="{target: '#upload_pic', width: '730px'}" style="border-radius: 6px; color: #000;background: #7BA0ED">上传</a>-->
+                                        <!--<a class="am-btn am-text-sm btn-1" href="javascript:;" data-am-modal="{target: '#upload_pic', width: '730px'}" style="border-radius: 6px; color: #000;background: #7BA0ED">上传</a>-->
 
-                                                <!--</div>-->
-                                            <!--</div>-->
                                         <!--</div>-->
-                                    <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                    </div>
 
                                     <div class="am-g">
                                         <div class="am-u-sm-12">
                                             <div class="am-form-group">
-                                                <label class="am-u-sm-1 am-form-label am-text-left" style="font-size: 14px">备注</label>
+                                                <label class="am-u-sm-1 am-form-label am-text-left"
+                                                       style="font-size: 14px">备注</label>
                                                 <div class="am-u-sm-11 am-margin-top-xs">
-                                                    <textarea class="am-u-sm-9" id="case_remark_txt" style="margin-left: 38px"></textarea>
+                                                    <textarea class="am-u-sm-10" id="case_remark_txt"
+                                                              style="margin-left: 38px;background-color: #dfe7f2;
+    border: none;"></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </fieldset>
-                                <div class="am-g">
-                                    <div class="am-u-sm-3" style="margin-left: 55px">
+                                <div class="am-g" id="btns">
+                                    <div class="am-u-sm-3" style="margin-left: 115px">
                                         <label class="am-u-sm-6 am-form-label am-text-left">&nbsp;</label>
-                                        <div class="am-form-group" style="">
-                                            <input id="save_case_btn" type="button" class="am-btn am-btn-primary am-btn-block tpl-btn-bg-color-success tpl-login-btn btn"
-                                                   value="保存工单" style="width: 210px"/>
-                                            <input id="reservation_cancel_btn" type="button" style="display: none;" class="am-btn am-btn-primary am-btn-block tpl-btn-bg-color-success tpl-login-btn btn "
-                                                   value="取消预约" style="width: 210px"/>
+                                        <div class="am-form-group btn_1" style="">
+                                            <input id="save_case_btn" type="button"
+                                                   class="input_s am-btn am-text-sm am-btn-block tpl-btn-bg-color-success tpl-login-btn btn"
+                                                   value="保存工单" data-name="保存工单" style="width: 180px;background-color: #44b06d;color: #fff"/>
+                                            <input id="save_case_btn1" type="button"
+                                                   class="input_s am-btn am-text-sm am-btn-block tpl-btn-bg-color-success tpl-login-btn btn"
+                                                   value="反馈有效" data-name="反馈有效" style="width: 180px;background-color: #44b06d;color: #fff"/>
+                                            <input id="reservation_cancel_btn" type="button" style="display: none;width: 180px;background: #e26479"
+                                                   class="am-btn am-btn-primary am-btn-block tpl-btn-bg-color-success tpl-login-btn btn "
+                                                   value="取消预约"/>
                                         </div>
                                     </div>
-                                    <div class="am-u-sm-7" style="margin-left: 50px">
+                                    <div class="am-u-sm-6" style="margin-left: 50px">
                                         <label class="am-u-sm-6 am-form-label am-text-left">&nbsp;</label>
-                                        <div class="am-btn-group am-btn-group-justify">
-                                            <a class="am-btn am-text-sm btn-1" href="javascript:;" data-am-modal="{target: '#appoint_modal', width: '600px'}"  style='border-radius: 6px;display:inline-block;width: 220px;margin-left: -50px'>预约</a>
-                                            <a id="feedback_btn" class="am-hide am-btn am-text-sm btn-2" style='border-radius: 6px;display:inline-block;width: 220px;margin-left: 30px' href="javascript:;" data-am-modal="{target: '#feedback_modal' }" >反馈</a>
-                                            <a id="abandon_btn" class="am-btn am-btn-default am-text-sm" href="javascript:;" style='border-radius: 6px;display:inline-block;width: 220px;margin-left: 40px'>放弃</a>
+                                        <div class="am-btn-group am-btn-group-justify btn_1">
+                                            <!--<a class="am-btn am-text-sm btn-1" href="javascript:;"-->
+                                               <!--data-am-modal="{target: '#appoint_modal', width: '600px'}"-->
+                                               <!--style='height: 35px;padding-top: 9px;border-radius: 6px;display:inline-block;width: 180px;margin-left: -65px;padding: 9px 0px;background: #6193d8'>预约</a>-->
+                                            <!--<a id="feedback_btn" class="am-hide am-btn am-text-sm btn-2"-->
+                                               <!--style='height: 35px; border-radius: 6px;display:inline-block;padding-top: 9px;width: 180px;margin-left: 40px'-->
+                                               <!--href="javascript:;" data-name="反馈" data-am-modal="{target: '#feedback_modal' }">反馈</a>-->
+                                            <!--<a id="abandon_btn" class="am-btn am-btn-default am-text-sm"-->
+                                               <!--href="javascript:;"-->
+                                               <!--style='border-radius: 6px;display:inline-block;width: 180px;padding: 9.5px 0px;margin-left: 40px;background: #56a7a2;color: #fff'>放弃</a>-->
+                                            <input class="input_s am-btn am-text-sm btn-1" type="button" value="预约"
+                                                   data-name="预约" data-am-modal="{target: '#appoint_modal', width: '600px'}"
+                                               style='height: 35px;padding-top: 9px;border-radius: 6px;display:inline-block;width: 180px;margin-left: -65px;padding: 9px 0px;background: #6193d8'/>
+                                            <input id="feedback_btn" value="反馈" type="button" class="input_s am-hide am-btn am-text-sm btn-2"
+                                               style='height: 35px; border-radius: 6px;display:inline-block;padding-top: 9px;width: 180px;margin-left: 40px'
+                                                data-name="反馈" data-am-modal="{target: '#feedback_modal'}"/>
+                                            <input id="abandon_btn" value="放弃" type="button" class="am-btn am-btn-default am-text-sm" style='border-radius: 6px;display:inline-block;width: 180px;padding: 9.5px 0px;margin-left: 40px;background: #56a7a2;color: #fff'/>
                                         </div>
                                         <label class="am-u-sm-12 am-form-label am-text-left">&nbsp;</label>
                                     </div>
@@ -677,39 +897,44 @@
                                     </div>
                                 </div>-->
                                 <div class="am-tabs" data-am-tabs="{noSwipe: 1}">
-                                    <ul class="am-tabs-nav am-nav am-nav-tabs am-text-xs" style="padding-left:10px; border-bottom:0px;font-size:14px;background: #7ca3ee;border-radius: 6px 6px 0px 0px;color: #fff">
+                                    <ul class="am-tabs-nav am-nav am-nav-tabs am-text-xs"
+                                        style="padding-left:10px; border-bottom:0px;font-size: 18px;font-weight: bold">
                                         <li class="am-active">
-                                            <a href="javascript:;" id="ref_case_tab_0">在线记录</a>
+                                            <a href="javascript:;" id="ref_case_tab_0" style="color: #383e56;">在线记录</a>
                                         </li>
                                         <li>
-                                            <a href="javascript:;" id="ref_case_tab">工单</a>
+                                            <a href="javascript:;" id="ref_case_tab" style="color: #383e56;">工单</a>
                                         </li>
                                         <li>
-                                            <a href="javascript:;" id="ref_case_tab_2">业务日志</a>
+                                            <a href="javascript:;" id="ref_case_tab_2" style="color: #383e56;">业务日志</a>
                                         </li>
                                         <li>
-                                            <a href="javascript:;" id="ref_case_tab_3">反馈记录</a>
+                                            <a href="javascript:;" id="ref_case_tab_3" style="color: #383e56;">反馈记录</a>
                                         </li>
                                     </ul>
-                                    <div class="am-tabs-bd">
-                                        <div class="am-tab-panel am-active">
-                                            <textarea data-bind="online_record" class="data-field-bind" rows="11" readonly wrap="off" style="border: none;"></textarea>
+                                    <!--style="background: url(../assets/img/bottom4.png) no-repeat;background-size:101% 303px;background-position: -1px -3px"-->
+                                    <div class="am-tabs-bd" style="width: 99.5%;box-shadow: 10px 10px 0px #c7b485" >
+                                        <div class="am-tab-panel am-active" style="padding: 0px">
+                                            <textarea data-bind="online_record" class="data-field-bind" rows="14"
+                                                      readonly wrap="off" style="border: none;background: #fff;padding: 0px"></textarea>
                                             <!--<div data-bind="online_record" class="data-field-bind" rows="20" readonly wrap="off">
 
                                         </div>-->
                                         </div>
-                                        <div class="am-tab-panel" id="am-tab-panel_1">
-                                            <div class="am-scrollable-horizontal" style="overflow: auto; height: 218px;width: 100%;">
+                                        <div class="am-tab-panel" id="am-tab-panel_1" style="padding: 0px">
+                                            <div class="am-scrollable-horizontal"
+                                                 style="overflow: auto; height: 265px;width: 100%;background: #fff">
                                                 <table width="100%" class="tpl-table-black" id="ref_case_tbl">
-                                                    <tbody style="" id="ref_case_tbl">
+                                                    <tbody style="" id="">
 
                                                     </tbody>
                                                 </table>
 
                                             </div>
                                         </div>
-                                        <div class="am-tab-panel" id="am-tab-panel_2">
-                                            <div class="am-scrollable-horizontal" style="overflow: auto; height: 260px;width: 100%;">
+                                        <div class="am-tab-panel" id="am-tab-panel_2" style="padding: 0px">
+                                            <div class="am-scrollable-horizontal"
+                                                 style="overflow: auto; height: 265px;width: 100%;background: #fff">
                                                 <table width="100%" class="tpl-table-black" id="ref_case_tbl_2">
                                                     <tbody style="">
 
@@ -718,10 +943,11 @@
 
                                             </div>
                                         </div>
-                                        <div class="am-tab-panel" id="am-tab-panel_3">
-                                            <div class="am-scrollable-horizontal" style="overflow: auto; height: 218px;width: 100%;">
+                                        <div class="am-tab-panel" id="am-tab-panel_3" style="padding: 0px">
+                                            <div class="am-scrollable-horizontal"
+                                                 style="overflow: auto; height: 265px;width: 100%;background: #fff">
                                                 <table width="100%" class="tpl-table-black" id="ref_case_tbl_5">
-                                                    <tbody style="" id="">
+                                                    <tbody style="">
 
                                                     </tbody>
                                                 </table>
@@ -739,22 +965,25 @@
         </div>
     </section>
     <div class="am-modal am-modal-no-btn" tabindex="-1" id="appoint_modal">
-        <div class="am-modal-dialog" style="background-color:#fff; border-radius:6px; margin-top:-200px;">
-            <div class="am-text-left" style="background-color: #7ba0ed;border-radius: 6px 6px 0 0">
-                <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 18px 5px 0 10px">
-                <div class="h-tit" style="color: #fff">预约单</div>
-
-                <a href=" " class="am-close am-close-spin" style="float:right;;width: 15px;height: 15px;line-height: 15px; margin-top:-28px;margin-right: 12px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"
-                data-am-modal-close>&times;</a>
+        <div class="am-modal-dialog" style="background: none">
+            <div class="am-text-left" style="background: url(../assets/img/draw.png)no-repeat;background-size: 180px 50px;background-position: 92% -3px;">
+                <span style="display:inline-block;width: 4px;height: 20px;background-color: yellow;position: relative;left: 25px; top: 20px;"></span>
+                <div class="h-tit" style="color: #ffffff;font-size: 22px;    margin: -15px 0px -10px 15px;font-weight: bold;">预约单</div>
+                <div style="width: 100%;height: 30px;background: url(../assets/img/mbg.png)no-repeat ;box-shadow: 10px 10px 0px #8ace9f;background-color:#ffffff;background-size: 100% 100%;margin-top: -1px"></div>
+                <!--<a href=" " class="am-close am-close-spin"-->
+                   <!--style="float:right;;width: 30px;height: 30px;line-height: 29px; margin-top:-20px;margin-right: 10px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"-->
+                   <!--data-am-modal-close>&times;</a>-->
+                <a href="javascript:;" data-am-modal-close class="am-close am-close-spin" style="display: block;width: 30px ;height: 30px; background:url(../assets/img/close.png) no-repeat;background-position: 100% 0px;background-size: 30px 30px;position: absolute;top: 15px; right: -2px;opacity: 1;"></a>
             </div>
-            <div class="am-modal-bd">
+            <div class="am-modal-bd" style="background: linear-gradient(to bottom, #ffffff, #f3fcf6);padding: 0px 10px;margin-top: -10px;box-shadow: 10px 10px 0px #8ace9f;">
                 <form class="am-form">
                     <div class="am-g">
                         <div class="am-u-sm-6">
                             <div class="am-form-group">
                                 <label class="am-u-sm-4 am-form-label am-text-left h-text-1">录入学院</label>
                                 <div class="am-u-sm-7 am-margin-top-xs">
-                                    <select id="appoint_campus_big_select" class="campus-big-select" data-am-selected="{ maxHeight: '200px', searchBox: 1 }">
+                                    <select id="appoint_campus_big_select" class="campus-big-select"
+                                            data-am-selected="{ maxHeight: '200px', searchBox: 1 }">
                                     </select>
                                 </div>
                             </div>
@@ -763,7 +992,8 @@
                             <div class="am-form-group">
                                 <label class="am-u-sm-4 am-form-label am-text-left am-padding-top-sm h-text-1">分校报名点</label>
                                 <div class="am-u-sm-7 am-margin-top-xs">
-                                    <select id="appoint_campus_select" data-am-selected="{ maxHeight: '200px', searchBox: 1 }">
+                                    <select id="appoint_campus_select"
+                                            data-am-selected="{ maxHeight: '200px', searchBox: 1 }">
                                     </select>
                                 </div>
                             </div>
@@ -774,7 +1004,8 @@
                             <div class="am-form-group">
                                 <label class="am-u-sm-4 am-form-label am-text-left am-padding-top-sm h-text-1">推荐项目</label>
                                 <div class="am-u-sm-7 am-margin-top-xs">
-                                    <select id="appoint_course_type_select" class="course-type-select" data-am-selected="{ maxHeight: '200px', searchBox: 1 }">
+                                    <select id="appoint_course_type_select" class="course-type-select"
+                                            data-am-selected="{ maxHeight: '200px', searchBox: 1 }">
                                     </select>
                                 </div>
                             </div>
@@ -783,7 +1014,8 @@
                             <div class="am-form-group">
                                 <label class="am-u-sm-4 am-form-label am-text-left am-padding-top-sm h-text-1">推荐院校</label>
                                 <div class="am-u-sm-7 am-margin-top-xs">
-                                    <select id="appoint_course_major_select" data-am-selected="{ maxHeight: '200px', searchBox: 1 }">
+                                    <select id="appoint_course_major_select"
+                                            data-am-selected="{ maxHeight: '200px', searchBox: 1 }">
                                     </select>
                                 </div>
                             </div>
@@ -794,50 +1026,81 @@
                             <div class="am-form-group">
                                 <label class="am-u-sm-4 am-form-label am-text-left am-padding-top-sm h-text-1">推荐班型</label>
                                 <div class="am-u-sm-7 am-margin-top-xs">
-                                    <select id="appoint_course_class_select" data-am-selected="{ maxHeight: '200px', searchBox: 1 }">
+                                    <select id="appoint_course_class_select"
+                                            data-am-selected="{ maxHeight: '200px', searchBox: 1 }">
                                     </select>
                                 </div>
                             </div>
                         </div>
-                        <div class="am-u-sm-6"></div>
-                    </div>
-                    <div class="am-g" style="margin-top: 10px">
                         <div class="am-u-sm-6">
                             <div class="am-form-group">
                                 <label class="am-u-sm-4 am-form-label am-text-left am-padding-top-sm h-text-1">预约时间</label>
                                 <div class="am-u-sm-8 am-margin-top-xs">
-                                    <input id="appoint_time_txt" type="text" class="am-form-field wdatepicker" placeholder="预约时间" style="font-size:12px;width: 180px;height: 40px;
-border-radius: 4px;" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="am-u-sm-6">
-                            <div class="am-form-group">
-                                <label class="am-u-sm-4 am-form-label am-text-left am-padding-top-sm h-text-1">预约价格</label>
-                                <div class="am-u-sm-8 am-margin-top-xs">
-                                    <input id="appoint_price_txt" type="text" class="am-form-field" placeholder="预约价格" style="font-size:12px;height: 40px;
-    border-radius: 4px;" />
+                                    <input id="appoint_time_txt" type="text" class="am-form-field wdatepicker"
+                                           placeholder="预约时间" style="font-size:12px;width: 180px;height: 40px;
+border-radius: 2px;border: none; background-color: #eef3fa;"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="am-g" style="margin-top: 10px">
-                        <div class="am-u-sm-12">
+
+                        <div class="am-u-sm-6">
                             <div class="am-form-group">
-                                <!--<label class="am-u-sm-12 am-form-label am-text-left am-padding-top-sm h-text-1">手机保存</label>-->
-                                <!--<div class="am-u-sm-11 am-margin-top-xs">-->
-                                    <!--&lt;!&ndash;<textarea id="save_type" rows="5"></textarea>&ndash;&gt;-->
-                                    <!--<label class="am-u-sm-2 am-form-label am-text-left am-padding-top-sm h-text-1" style="font-size: 14px;margin-left: -5px">保存方式</label>-->
-                                    <!--<div class="am-u-sm-6 am-margin-top-xs">-->
+                                <!--data-field-bind-->
+                                <label class="am-u-sm-4 data-field-editable am-form-label am-text-left am-padding-top-sm h-text-1">预约号码</label>
+                                <div class="am-u-sm-8 am-margin-top-xs">
+                                    <input id="coupon_phone" type="text" class="am-form-field tpl-form-input"
+                                           placeholder="预约手机号" style="font-size:12px;height: 40px;
+    border-radius: 2px;border: none; background-color: #eef3fa;"/>
+                                </div>
+                            </div>
+                        </div>
 
-                                        <!--<label class="h-text-1" style="font-size: 14px;margin: -5px 0px 0px 0px;">手机保存</label> <input class="" type="radio" name="radio" value="手机保存">-->
+                        <div class="am-u-sm-6">
+                            <div class="am-form-group">
+                                <label class="am-u-sm-4 am-form-label am-text-left am-padding-top-sm h-text-1">优惠券码</label>
+                                <div class="am-u-sm-8 am-margin-top-xs">
+                                    <input id="coupon_bind" type="text" class="am-form-field" placeholder="优惠券绑定"
+                                           style="font-size:12px;height: 40px;
+    border-radius: 2px;border: none; background-color: #eef3fa;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-g" style="margin-top: 10px">
+                        <div class="am-u-sm-6">
+                            <div class="am-form-group">
+                                <label class="am-u-sm-4 am-form-label am-text-left am-padding-top-sm h-text-1">预约价格</label>
+                                <div class="am-u-sm-8 am-margin-top-xs">
+                                    <input id="appoint_price_txt" type="text" class="am-form-field" disabled="disabled"
+                                           placeholder="预约价格" style="font-size:12px;height: 40px;
+    border-radius: 4px;border: none"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-g" style="margin-top: 10px">
+                        <div class="am-u-sm-7">
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm h-text-1"
+                                       style="font-size: 14px">保存方式</label>
+                                <div class="am-u-sm-9 am-margin-top-xs">
 
-                                        <!--<label class="h-text-1" style="font-size: 14px;margin: -5px 0px 0px 4px">微信保存</label> <input class="" type="radio" name="radio" value="微信保存"/>-->
+                                    <label style="font-size: 14px;margin: 5px 0px 0px 0px;color: #3c5364;">手机保存</label>
+                                    <input class="ticket_hold_type" type="radio" name="radio" value="手机保存">
 
-                                        <!--<label class="h-text-1" style="font-size: 14px;margin: -5px 0px 0px 4px;">QQ保存</label> <input class="" type="radio" name="radio" value="QQ保存">-->
-                                <!--</div>-->
-                            <!--</div>-->
+                                    <label class=""
+                                           style="font-size: 14px;margin: 5px 0px 0px 4px;color: #3c5364;">微信保存</label>
+                                    <input class="ticket_hold_type" type="radio" name="radio" value="微信保存"/>
+
+                                    <label class=""
+                                           style="font-size: 14px;margin: 5px 0px 0px 4px;color: #3c5364;">QQ保存</label>
+                                    <input class="ticket_hold_type" type="radio" name="radio" value="QQ保存">
+
+
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -846,21 +1109,22 @@ border-radius: 4px;" />
                             <div class="am-form-group">
                                 <label class="am-u-sm-12 am-form-label am-text-left am-padding-top-sm h-text-1">截杀信息</label>
                                 <div class="am-u-sm-12 am-margin-top-xs">
-                                    <textarea id="appoint_remark_txt" rows="5"></textarea>
+                                    <textarea id="appoint_remark_txt" rows="4" style="border: none; background-color: #eef3fa;"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="am-g">
-                <div class="am-u-sm-12" style="padding-left:0px; padding-right:0px;">
-                    <div class="am-btn-group am-btn-group-justify">
-                        <a id="appoint_submit_btn" class="am-btn h-btn" href="javascript:;" style="display: inline-block;width: 150px;border-radius:4px;margin: 10px 0px 10px 0px;">提交</a>
-                        <a class="am-btn am-h" href="javascript:;" data-am-modal-close style="border-radius:4px;display: inline-block; width: 150px;margin: 0px 0px 0px 100px;border: 2px solid #6191d8;background: #fff;
-                        color: #6191d8;">取消</a>
+                    <div class="am-g">
+                        <div class="am-u-sm-12" style="padding-left:0px; padding-right:0px;">
+                            <div class="am-btn-group am-btn-group-justify">
+                                <a id="appoint_submit_btn" class="am-btn h-btn" href="javascript:;"
+                                   style="display: inline-block;width: 150px;border-radius:4px;margin: 10px 0px 10px 0px;background-color: #6193d8">提交</a>
+                                <a class="am-btn am-h" href="javascript:;" data-am-modal-close style="border-radius:4px;display: inline-block; width: 150px;margin: 0px 0px 0px 100px;background: #e26479;
+                        color: #fff;">取消</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -870,17 +1134,18 @@ border-radius: 4px;" />
         <div class="am-modal-dialog" style="width: 750px;background-color:#FFF; border-radius:6px; margin-top:-550px;">
             <div class="am-text-left">
                 <div class="h-tit">上传图片</div>
-                <a href="javascript:;" class="am-close am-close-spin" style="float:right; margin-top:-35px;" data-am-modal-close>&times;</a>
+                <a href="javascript:;" id="close" class="am-close am-close-spin" style="float:right; margin-top:-35px;"
+                   data-am-modal-close>&times;</a>
             </div>
             <!--方法1-->
-            <!--<div class="am-modal-bd">-->
-            <!--<div id="T_upload"></div>-->
-            <form id="upBox" action="../file_temp/upload_jpgs.php" method="post" enctype="multipart/form-data">
-                <div id="inputBox"><input type="file" title="请选择图片" id="file" multiple accept="image/png,image/jpg,image/gif,image/JPEG"/>点击选择图片</div>
+
+            <form id="upBox" action="" method="post" enctype="multipart/form-data">
+                <div id="inputBox"><input type="file" title="请选择图片" id="file" multiple
+                                          accept="image/png,image/jpg,image/gif,image/JPEG"/>点击选择图片
+                </div>
                 <div id="imgBox"></div>
                 <a id="btn">上传</a>
             </form>
-
 
         </div>
     </div>
@@ -888,20 +1153,47 @@ border-radius: 4px;" />
 
 
 <div class="am-modal am-modal-no-btn" tabindex="-1" id="feedback_modal">
-    <div class="am-modal-dialog" style="background-color:#FFF; border-radius:6px; margin-top:-200px;">
-        <div class="am-text-left" style="background-color: #7ba0ed;border-radius: 6px 6px 0 0">
-            <img src="../assets/img/home_point.png" alt="" style="float: left;margin: 18px 5px 0 10px">
-            <div class="h-tit" style="color: #fff">反馈</div>
-            <a href="javascript:;" class="am-close am-close-spin" style="float:right;;width: 15px;height: 15px;line-height: 15px; margin-top:-28px;margin-right: 12px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;" data-am-modal-close>&times;</a>
+    <div class="am-modal-dialog" style="background: none">
+        <div class="am-text-left" style="background: url(../assets/img/draw.png)no-repeat;background-size: 180px 50px;background-position: 92% -3px;">
+            <span style="display:inline-block;width: 4px;height: 21px;background-color: yellow;position: relative;left: 25px; top: 20px;"></span>
+            <div class="h-tit" style="color: #ffffff;font-size: 22px;margin: -15px 0px -10px 15px;font-weight: bold;">反馈</div>
+            <div style="width: 100%;height: 25px;background: url(../assets/img/mbg.png)no-repeat ;background-color:#ffffff;box-shadow: 10px 10px 0px #8ace9f; background-size: 100% 100%;margin-top: -1px"></div>
+            <!--<a href="javascript:;" class="am-close am-close-spin close_fk"-->
+               <!--style="float:right;;width: 30px;height: 30px;line-height: 29px; margin-top:-20px;margin-right: 10px;background-color: #eee;color:#7ba0ed;opacity: 1;border-radius: 50%;"-->
+               <!--data-am-modal-close>&times;</a>-->
+            <a href="javascript:;" data-am-modal-close class="am-close am-close-spin" style="display: block;width: 30px ;height: 30px; background:url(../assets/img/close.png) no-repeat;background-position: 100% 0px;background-size: 30px 30px;position: absolute;top: 15px; right: -5px;opacity: 1;"></a>
         </div>
-        <div class="am-modal-bd" style="font-size:14px;">
+        <div class="am-modal-bd" style="font-size:14px;background: linear-gradient(to bottom, #ffffff, #f3fcf6);box-shadow: 10px 10px 0px #8ace9f;margin-top: -13px;">
             <form class="am-form">
+                <div class="am-g">
+                    <div class="am-u-sm-12">
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm h-text-1"
+                                   style="font-size: 14px">保存方式</label>
+                            <div class="am-u-sm-6 am-margin-top-xs">
+
+                                <label style="font-size: 14px;margin: 5px 0px 0px 0px;color: #3c5364;">手机保存</label>
+                                <input class="ticket_hold_type" type="radio" name="radio" value="手机保存">
+
+                                <label class=""
+                                       style="font-size: 14px;margin: 5px 0px 0px 4px;color: #3c5364;">微信保存</label>
+                                <input class="ticket_hold_type" type="radio" name="radio" value="微信保存"/>
+
+                                <label class=""
+                                       style="font-size: 14px;margin: 5px 0px 0px 4px;color: #3c5364;">QQ保存</label>
+                                <input class="ticket_hold_type" type="radio" name="radio" value="QQ保存">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="am-g">
                     <div class="am-u-sm-12">
                         <div class="am-form-group">
                             <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm">反馈结果</label>
                             <div class="am-u-sm-9 am-margin-top-xs">
-                                <select id="feedback_effective_select" style="height: 40px;border-radius: 4px;">
+                                <select id="feedback_effective_select" style="height: 40px;border-radius: 4px;border: none; background-color: #eef3fa;">
                                     <option value="DATA_CODE_INVALID">反馈无效</option>
                                     <option value="DATA_CODE_NOT_PASS">反馈呼叫未通</option>
                                     <option value="DATA_CODE_ONLINE_MARK">线上预约</option>
@@ -910,12 +1202,12 @@ border-radius: 4px;" />
                         </div>
                     </div>
                 </div>
-                <div class="am-g" style="margin-top: 10px">
+                <div class="am-g reason" style="margin-top: 10px">
                     <div class="am-u-sm-12">
                         <div class="am-form-group">
                             <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm">无效原因</label>
                             <div class="am-u-sm-9 am-margin-top-xs">
-                                <select id="feedback_invalid_select" style="height: 40px;border-radius: 4px;">
+                                <select id="feedback_invalid_select" style="height: 40px;border-radius: 4px;border: none; background-color: #eef3fa;">
                                     <option class="feedback_invalid_option_1" value="YBMQTJG">无此人,打错了</option>
                                     <option value="DRSBWT">当日三遍未通(暂时无法接通,无人接听,停机,关机)</option>
                                     <option value="ZDFZXYHR">撞单分重、学员呼入、留言回拨</option>
@@ -928,12 +1220,12 @@ border-radius: 4px;" />
                         </div>
                     </div>
                 </div>
-                <div class="am-g">
+                <div class="am-g next_time">
                     <div class="am-u-sm-12">
                         <div class="am-form-group">
                             <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm">下次回电时间</label>
                             <div class="am-u-sm-9 am-margin-top-xs">
-                                <input id="feedback_appoint_txt" type="text" class="wdatepicker" placeholder="下次回电时间" />
+                                <input id="feedback_appoint_txt" type="text" class="wdatepicker" placeholder="下次回电时间"/>
                             </div>
                         </div>
                     </div>
@@ -943,23 +1235,24 @@ border-radius: 4px;" />
                         <div class="am-form-group">
                             <label class="am-u-sm-3 am-form-label am-text-left am-padding-top-sm">备注信息</label>
                             <div class="am-u-sm-9 am-margin-top-xs">
-                                <textarea id="feedback_remark_txt" rows="5"></textarea>
+                                <textarea id="feedback_remark_txt" rows="5" style="border: none; background-color: #eef3fa;"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="am-g">
+                    <div class="am-u-sm-12" style="padding-left:0px; padding-right:0px;">
+                        <div class="am-btn-group am-btn-group-justify">
+                            <a id="feedback_submit_btn" class="am-btn h-btn" href="javascript:;"
+                               style="display: inline-block;width: 150px;border-radius:4px;margin: 10px 0px 10px 0px;background-color: #6193d8">提交</a>
+                            <a class="am-btn am-h close_fk" href="javascript:;" data-am-modal-close style="border-radius:4px;display: inline-block; width: 150px;margin: 0px 0px 0px 100px;background: #e26479;color: #fff;">取消</a>
+                        </div>
+
+                    </div>
+                </div>
             </form>
         </div>
-        <div class="am-g">
-            <div class="am-u-sm-12" style="padding-left:0px; padding-right:0px;">
-                <div class="am-btn-group am-btn-group-justify">
-                    <a id="feedback_submit_btn" class="am-btn h-btn" href="javascript:;" style="display: inline-block;width: 150px;border-radius:4px;margin: 10px 0px 10px 0px;">提交</a>
-                    <a class="am-btn am-h" href="javascript:;" data-am-modal-close style="border-radius:4px;display: inline-block; width: 150px;margin: 0px 0px 0px 100px;border: 2px solid #6191d8;background: #fff;
-                        color: #6191d8;">取消</a>
-                </div>
 
-            </div>
-        </div>
     </div>
 </div>
 <!--音频弹框-->
@@ -992,6 +1285,7 @@ border-radius: 4px;" />
 <script src="../assets/js/amazeui.datatables.min.js"></script>
 <script src="../assets/js/dataTables.responsive.min.js"></script>
 <script src="../assets/js/app.js"></script>
+<!--<script src="../assets/kld_js/paging.js"></script>-->
 <script src="../assets/kld_js/workplat_task.js" type="text/javascript"></script>
 </body>
 

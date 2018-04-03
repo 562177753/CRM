@@ -29,6 +29,17 @@
 	<script src="../assets/js/sweetalert.min.js"></script>
 	<link rel="stylesheet" href="../assets/css/sweetalert.css"></link>
 	<link rel="stylesheet" href="../assets/css/themes/twitter/twitter.css" />
+	<style>
+		#enterMessage .am-btn{
+			 border: none;
+			 background: #eef3fa;
+
+		 }
+		#enterMessage input{
+			border: none;
+			background: #eef3fa;
+		}
+	</style>
 </head>
 
 <body data-type="widgets" onload="add_options()">
@@ -36,18 +47,16 @@
 	<div class="am-box-1" id="top" style="padding: 20px 20px 0 20px;">
 		<div class="row-content am-cf ">
 			<div class="">
-				<section class="am-panel am-panel-default">
-					<header class="am-panel-hd" style="background-color:#7ba0ed; border-radius: 6px 6px 0 0;">
-						<div class="am-vertical-align" style="height: 25px;">
-							<img src="../assets/img/home_point.png" alt="" style="float: left;margin: 8px 5px 0 0">
-							<div class="am-panel-title am-fl am-vertical-align-middle h-text"style="color: #fff;" >数据录入</div>
-							<!--<button id="submit_btn" class="am-btn am-btn-success am-fr am-btn-sm" style="padding:4px 10px" onclick="newdata_write();return false">-->
-								<!--<i class="am-icon-check"></i> 提 交</button>-->
-							<button id="submit_btn" class="am-btn am-btn-success am-fr am-btn-sm" style="padding:4px 10px">
-								<i class="am-icon-check"></i> 提 交</button>
+				<section class="am-panel am-panel-default" style="border: none">
+					<header class="am-panel-hd" style="background: #e9ecf3; border-radius: 6px 6px 0 0;border: none;margin: 0px 0px -8px 0px;background: url(../assets/img/draw.png)no-repeat ;background-size:170px 40px;background-position:100% 0px;">
+						<div class="am-vertical-align" style="height: 32px;">
+							<span style="display:inline-block;width: 4px;height: 20px;background-color: blue;position: relative;left: -80px; top: 5px;"></span>
+							<div class="am-panel-title am-fl am-vertical-align-middle h-text"style="font-size: 18px;color: #383e56;padding: 0px 0px 0px 20px;" >数据录入</div>
+
+							<div style="width: 102.4%;height: 20px;background: url(../assets/img/bg.png)no-repeat ;background-color:#ffffff;background-position:100% 0px;margin:-5px 0px 0px -15.5px;"></div>
 						</div>
 					</header>
-					<div class="am-panel-bd" style="background-color:#FFF;border-radius:0 0 6px 6px;">
+					<div class="am-panel-bd" style="background:linear-gradient(to bottom,#ffffff, #f3fcf6);box-shadow: 10px 10px 0px #8ace9f;color: #383e56;">
 
 						<div id="validation"></div>
 						<form class="am-form tpl-form-border-form" id="enterMessage">
@@ -160,7 +169,7 @@
 								<div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
 									<div class="am-form-group">
 										<label style="font-size: 14px;margin-top: 5px" for="student_telphone" class="am-u-sm-4 am-form-label am-text-left">
-											<span style="color: red;">*</span>手机号码</label>
+											手机号码</label>
 										<div class="am-u-sm-8 am-margin-top-xs">
 											<input id="student_telphone" type="text" class="tpl-form-input" placeholder="手机号码" style="height: 40px;border-radius: 4px"/>
 										</div>
@@ -213,7 +222,14 @@
 									</div>
 								</div>
 							</div>
+							<div style=" height: 45px;padding-top: 10px;">
+								<input id="submit_btn" value="提交" type="button" class="am-btn am-btn-success am-fl am-btn-sm" style="padding:7px 25px;border-radius: 4px;margin-left: 110px;background-color: #5eb95e">
+									<!--<i class="am-icon-check"></i> 提 交-->
+
+
+							</div>
 						</form>
+
 					</div>
 				</section>
 			</div>

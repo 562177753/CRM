@@ -35,7 +35,7 @@ $(document).ready(function() {
         // console.log(ip);
         var promise = service.login(pmAgent.userid, pmAgent.password, pmAgent.exten, pmAgent.is_login_cti);
 		promise.then(function(data) {
-            // console.log(data);
+            console.log(data);
             // 个人登录信息
 			pmAgent.name = data['name'];
 			pmAgent.org_id = data['org_id'];
@@ -48,6 +48,8 @@ $(document).ready(function() {
 			pmAgent.role_name = data['role_name'];
 			pmAgent.cti_api = data['cti_api'];
 			pmAgent.account = data['account'];
+
+            // service.resmsg(pmAgent.user_id)
 
             if (pmAgent.is_login_cti == 'Y') {
                 promise = softcall.getGhidExten(pmAgent.account, pmAgent.exten); // 我要打电话
@@ -66,6 +68,8 @@ $(document).ready(function() {
             pmAgent.is_login = 'Y';
 			pmAgent.save();
 			window.location = 'index.html';
+
+
 			return;
 		})
 		.fail(function(data) {
@@ -79,7 +83,7 @@ $(document).ready(function() {
 	});
 });
 
-//消息提示框
+//登录消息提示框
 function showMessageBox(msg, level_css) {
 	var message = '<div class="am-text-xs am-alert ' + level_css + '" data-am-alert>'
 		+ '<button type="button" class="am-close">&times;</button>'
